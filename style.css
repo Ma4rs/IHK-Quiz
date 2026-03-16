@@ -904,6 +904,12 @@ body {
   font-size: 1.8rem;
 }
 
+.exam-back-btn {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+}
+
 /* Exam Layout */
 
 .exam-layout {

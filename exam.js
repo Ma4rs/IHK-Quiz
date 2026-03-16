@@ -60,16 +60,16 @@
     if (!grid) return;
     grid.innerHTML = "";
 
-    EXAMS_DATA.forEach((ex) => {
-      const totalQ = ex.tasks.reduce((s, t) => s + t.questions.length, 0);
+    EXAMS_DATA.forEach((term) => {
       const card = document.createElement("button");
       card.className = "cat-card exam-card";
+      const partCount = term.parts ? term.parts.length : 0;
       card.innerHTML = `
         <span class="cat-icon">📝</span>
-        <span class="cat-name">${ex.title}</span>
-        <span class="cat-count">${ex.duration} Min · ${totalQ} Aufgaben</span>
+        <span class="cat-name">${term.title}</span>
+        <span class="cat-count">${partCount} Teilprüfungen</span>
       `;
-      card.addEventListener("click", () => startExam(ex));
+      card.addEventListener("click", () => showExamParts(term));
       grid.appendChild(card);
     });
 
@@ -83,6 +83,36 @@
     $("#btn-exam-restart").addEventListener("click", endExam);
     $("#btn-exam-back-result").addEventListener("click", () => showScreen("exam-result"));
     $("#btn-exam-restart2").addEventListener("click", endExam);
+  }
+
+  function showExamParts(term) {
+    const grid = $("#exam-select-grid");
+    grid.innerHTML = "";
+
+    const backBtn = document.createElement("button");
+    backBtn.className = "btn btn-secondary exam-back-btn";
+    backBtn.textContent = "← Zurück";
+    backBtn.addEventListener("click", () => initExams());
+    grid.parentNode.insertBefore(backBtn, grid);
+
+    $(".exam-select-label").textContent = term.title;
+
+    term.parts.forEach((part) => {
+      const totalQ = part.tasks.reduce((s, t) => s + t.questions.length, 0);
+      const card = document.createElement("button");
+      card.className = "cat-card exam-card";
+      card.innerHTML = `
+        <span class="cat-icon">📄</span>
+        <span class="cat-name">${part.title}</span>
+        <span class="cat-count">${part.duration} Min · ${totalQ} Aufgaben</span>
+      `;
+      card.addEventListener("click", () => {
+        const oldBack = $(".exam-back-btn");
+        if (oldBack) oldBack.remove();
+        startExam(part);
+      });
+      grid.appendChild(card);
+    });
   }
 
   // ───── START EXAM ─────
@@ -746,6 +776,10 @@
     examAnswers = {};
     flagged = new Set();
     selfEvalPending = {};
+    const oldBack = $(".exam-back-btn");
+    if (oldBack) oldBack.remove();
+    $(".exam-select-label").textContent = "Prüfungssimulation";
+    initExams();
     showScreen("start");
   }
 

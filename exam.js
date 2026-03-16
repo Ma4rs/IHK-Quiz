@@ -308,7 +308,19 @@
     updateNavStates();
 
     $("#btn-exam-prev").disabled = examCurrentIdx === 0;
-    $("#btn-exam-next").disabled = examCurrentIdx === allExamQuestions.length - 1;
+
+    const nextBtn = $("#btn-exam-next");
+    const isLast = examCurrentIdx === allExamQuestions.length - 1;
+    nextBtn.disabled = false;
+    if (isLast) {
+      nextBtn.textContent = "Abgeben";
+      nextBtn.className = "btn btn-submit-exam";
+      nextBtn.onclick = (e) => { e.preventDefault(); confirmSubmit(); };
+    } else {
+      nextBtn.textContent = "Weiter";
+      nextBtn.className = "btn btn-primary";
+      nextBtn.onclick = null;
+    }
   }
 
   function renderExamOptions(container, q) {
@@ -344,6 +356,17 @@
     input.autocomplete = "off";
     const saved = examAnswers[examCurrentIdx];
     if (saved && saved.text) input.value = saved.text;
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        saveCurrentAnswer();
+        if (examCurrentIdx < allExamQuestions.length - 1) {
+          navigateExam(1);
+        } else {
+          confirmSubmit();
+        }
+      }
+    });
     container.appendChild(input);
     input.focus();
   }

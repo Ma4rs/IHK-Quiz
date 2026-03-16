@@ -1,4 +1,4 @@
-[
+const QUESTIONS_DATA = [
   {
     "question": "Welcher der folgenden Hypervisoren ist ein Typ-1-Hypervisor (Bare Metal)?",
     "options": [
@@ -2599,4 +2599,4 @@
     "category": "wirtschaftliche-grundlagen",
     "section": "03-WiSo"
   }
-]
+];

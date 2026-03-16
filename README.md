@@ -23,25 +23,13 @@ Multiple-Choice Quiz-App zur Vorbereitung auf die IHK-Abschlussprüfung Teil 2 (
 
 ## Starten
 
-Die App nutzt `fetch()` für die JSON-Datei und braucht daher einen lokalen Server.
-
-**Option 1 — VS Code / Cursor Live Server:**
-
-Rechtsklick auf `index.html` → "Open with Live Server"
-
-**Option 2 — Node.js:**
-
-```bash
-npx http-server -p 8765 -c-1
-```
-
-Dann öffne [http://localhost:8765](http://localhost:8765).
+Doppelklick auf `index.html` — fertig. Kein Server, keine Installation nötig.
 
 ## Fragen erweitern
 
-Neue Fragen einfach in `questions.json` ergänzen:
+Neue Fragen in `questions.js` zum Array hinzufügen:
 
-```json
+```js
 {
   "question": "Deine Frage?",
   "options": ["A", "B", "C", "D"],
@@ -56,4 +44,4 @@ Sections: `01-Konzeption-Administration`, `02-Netzwerke`, `03-WiSo`
 
 ## Techstack
 
-Vanilla HTML/CSS/JS — keine Dependencies, kein Build-Step.
+Vanilla HTML/CSS/JS — keine Dependencies, kein Build-Step, kein Server.

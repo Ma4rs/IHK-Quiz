@@ -51,15 +51,13 @@
 
   // ───── INIT ─────
 
-  async function init() {
-    try {
-      const res = await fetch("questions.json");
-      allQuestions = await res.json();
-    } catch {
+  function init() {
+    if (typeof QUESTIONS_DATA === "undefined" || !Array.isArray(QUESTIONS_DATA)) {
       document.body.innerHTML =
-        '<p style="color:#f87171;padding:2rem;text-align:center;">Fehler: questions.json konnte nicht geladen werden. Stelle sicher, dass die Datei im gleichen Ordner liegt.</p>';
+        '<p style="color:#f87171;padding:2rem;text-align:center;">Fehler: questions.js konnte nicht geladen werden. Stelle sicher, dass die Datei im gleichen Ordner liegt.</p>';
       return;
     }
+    allQuestions = QUESTIONS_DATA;
 
     updateCounts();
     bindEvents();

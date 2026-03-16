@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  const QUESTIONS_PER_ROUND = 10;
   const PASS_THRESHOLD = 0.5;
 
   const SECTION_LABELS = {
@@ -37,9 +36,18 @@
   let answers = [];
   let selectedSection = null;
   let selectedCategory = null;
+  let questionsPerRound = 10;
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
+
+  function isMulti(q) {
+    return Array.isArray(q.correct);
+  }
+
+  function isFreetext(q) {
+    return Array.isArray(q.accepts);
+  }
 
   // ───── SCREENS ─────
 
@@ -84,6 +92,10 @@
       card.addEventListener("click", () => onCategoryCardClick(card));
     });
 
+    $$(".size-btn").forEach((btn) => {
+      btn.addEventListener("click", () => onSizeClick(btn));
+    });
+
     $("#btn-start").addEventListener("click", startQuiz);
     $("#btn-next").addEventListener("click", nextQuestion);
     $("#btn-review").addEventListener("click", () => showScreen("review"));
@@ -92,6 +104,13 @@
       showScreen("result")
     );
     $("#btn-restart-review").addEventListener("click", resetToStart);
+  }
+
+  function onSizeClick(btn) {
+    $$(".size-btn").forEach((b) => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    const val = btn.dataset.size;
+    questionsPerRound = val === "all" ? Infinity : parseInt(val);
   }
 
   function onCategoryCardClick(card) {
@@ -159,12 +178,32 @@
     }
   }
 
+  // ───── TABLE / CODE RENDERING ─────
+
+  function buildTableHTML(tbl) {
+    let html = '<table class="q-table"><thead><tr>';
+    tbl.headers.forEach((h) => (html += `<th>${h}</th>`));
+    html += "</tr></thead><tbody>";
+    tbl.rows.forEach((row) => {
+      html += "<tr>";
+      row.forEach((cell) => (html += `<td>${cell}</td>`));
+      html += "</tr>";
+    });
+    html += "</tbody></table>";
+    return html;
+  }
+
+  function buildCodeHTML(code) {
+    return `<pre class="q-code">${code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>`;
+  }
+
   // ───── QUIZ LOGIC ─────
 
   function startQuiz() {
     const pool = [...filteredQuestions];
     shuffle(pool);
-    currentRound = pool.slice(0, QUESTIONS_PER_ROUND);
+    const count = Math.min(questionsPerRound, pool.length);
+    currentRound = pool.slice(0, count);
     currentIndex = 0;
     answers = [];
 
@@ -186,12 +225,33 @@
 
     $("#quiz-progress").textContent = `${num} / ${total}`;
     $("#progress-fill").style.width = `${(num / total) * 100}%`;
-    $("#question-text").textContent = q.question;
+    $("#question-text").innerHTML = q.question;
 
     const container = $("#options-container");
     container.innerHTML = "";
 
-    const indices = [0, 1, 2, 3];
+    if (q.table) {
+      container.insertAdjacentHTML("beforeend", buildTableHTML(q.table));
+    }
+    if (q.code) {
+      container.insertAdjacentHTML("beforeend", buildCodeHTML(q.code));
+    }
+
+    if (isFreetext(q)) {
+      renderFreetext(container, q);
+    } else if (isMulti(q)) {
+      renderMultiSelect(container, q);
+    } else {
+      renderSingleChoice(container, q);
+    }
+
+    $("#btn-next").style.display = "none";
+  }
+
+  // ───── SINGLE-CHOICE RENDER ─────
+
+  function renderSingleChoice(container, q) {
+    const indices = q.options.map((_, i) => i);
     shuffle(indices);
 
     indices.forEach((origIdx) => {
@@ -199,14 +259,12 @@
       btn.className = "option-btn";
       btn.textContent = q.options[origIdx];
       btn.dataset.idx = origIdx;
-      btn.addEventListener("click", () => onAnswer(btn, origIdx, q));
+      btn.addEventListener("click", () => onAnswerSingle(btn, origIdx, q));
       container.appendChild(btn);
     });
-
-    $("#btn-next").style.display = "none";
   }
 
-  function onAnswer(btn, chosenIdx, q) {
+  function onAnswerSingle(btn, chosenIdx, q) {
     const allBtns = $$(".option-btn");
     const alreadyAnswered = [...allBtns].some((b) =>
       b.classList.contains("locked")
@@ -232,8 +290,170 @@
       chosen: chosenIdx,
       isCorrect,
       explanation: q.explanation,
+      type: "single",
+      table: q.table || null,
+      code: q.code || null,
     });
 
+    showNextButton();
+  }
+
+  // ───── MULTI-SELECT RENDER ─────
+
+  function renderMultiSelect(container, q) {
+    const hint = document.createElement("p");
+    hint.className = "multi-hint";
+    hint.textContent = "Mehrere Antworten sind richtig. Wähle alle richtigen aus.";
+    container.appendChild(hint);
+
+    const indices = q.options.map((_, i) => i);
+    shuffle(indices);
+
+    indices.forEach((origIdx) => {
+      const btn = document.createElement("button");
+      btn.className = "option-btn";
+      btn.textContent = q.options[origIdx];
+      btn.dataset.idx = origIdx;
+      btn.addEventListener("click", () => onToggleMulti(btn));
+      container.appendChild(btn);
+    });
+
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "btn btn-check";
+    checkBtn.textContent = "Prüfen";
+    checkBtn.id = "btn-check-multi";
+    checkBtn.addEventListener("click", () => onCheckMulti(q));
+    container.appendChild(checkBtn);
+  }
+
+  function onToggleMulti(btn) {
+    if (btn.classList.contains("locked")) return;
+    btn.classList.toggle("selected");
+  }
+
+  function onCheckMulti(q) {
+    const allBtns = $$(".option-btn");
+    const alreadyAnswered = [...allBtns].some((b) =>
+      b.classList.contains("locked")
+    );
+    if (alreadyAnswered) return;
+
+    const chosenIndices = [...allBtns]
+      .filter((b) => b.classList.contains("selected"))
+      .map((b) => parseInt(b.dataset.idx));
+
+    const correctSet = new Set(q.correct);
+    const chosenSet = new Set(chosenIndices);
+
+    const isCorrect =
+      correctSet.size === chosenSet.size &&
+      [...correctSet].every((v) => chosenSet.has(v));
+
+    allBtns.forEach((b) => {
+      b.classList.add("locked");
+      b.classList.remove("selected");
+      const idx = parseInt(b.dataset.idx);
+      if (correctSet.has(idx)) {
+        b.classList.add("correct");
+      } else if (chosenSet.has(idx)) {
+        b.classList.add("wrong");
+      }
+    });
+
+    const checkBtn = $("#btn-check-multi");
+    if (checkBtn) checkBtn.style.display = "none";
+
+    answers.push({
+      question: q.question,
+      options: q.options,
+      correct: q.correct,
+      chosen: chosenIndices,
+      isCorrect,
+      explanation: q.explanation,
+      type: "multi",
+      table: q.table || null,
+      code: q.code || null,
+    });
+
+    showNextButton();
+  }
+
+  // ───── FREETEXT RENDER ─────
+
+  function renderFreetext(container, q) {
+    const hint = document.createElement("p");
+    hint.className = "multi-hint";
+    hint.textContent = q.inputHint || "Gib deine Antwort ein.";
+    container.appendChild(hint);
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "freetext-input";
+    input.id = "freetext-input";
+    input.placeholder = "Antwort eingeben…";
+    input.autocomplete = "off";
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") onCheckFreetext(q);
+    });
+    container.appendChild(input);
+
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "btn btn-check";
+    checkBtn.textContent = "Prüfen";
+    checkBtn.addEventListener("click", () => onCheckFreetext(q));
+    container.appendChild(checkBtn);
+
+    input.focus();
+  }
+
+  function onCheckFreetext(q) {
+    const input = $("#freetext-input");
+    if (!input || input.disabled) return;
+
+    const userAnswer = input.value.trim();
+    if (!userAnswer) return;
+
+    input.disabled = true;
+
+    const normalized = userAnswer.toLowerCase().replace(/\s+/g, " ");
+    const isCorrect = q.accepts.some(
+      (a) => a.toLowerCase().replace(/\s+/g, " ") === normalized
+    );
+
+    const feedback = document.createElement("div");
+    feedback.className = "freetext-feedback " + (isCorrect ? "correct" : "wrong");
+
+    if (isCorrect) {
+      input.classList.add("freetext-correct");
+      feedback.textContent = "Richtig!";
+    } else {
+      input.classList.add("freetext-wrong");
+      feedback.innerHTML =
+        `<span class="fb-wrong">Falsch.</span> Richtige Antwort: <strong>${q.accepts[0]}</strong>`;
+    }
+
+    input.parentNode.insertBefore(feedback, input.nextSibling);
+
+    const checkBtns = $$(".btn-check");
+    checkBtns.forEach((b) => (b.style.display = "none"));
+
+    answers.push({
+      question: q.question,
+      correct: q.accepts[0],
+      chosen: userAnswer,
+      isCorrect,
+      explanation: q.explanation,
+      type: "freetext",
+      table: q.table || null,
+      code: q.code || null,
+    });
+
+    showNextButton();
+  }
+
+  // ───── NAVIGATION ─────
+
+  function showNextButton() {
     if (currentIndex < currentRound.length - 1) {
       $("#btn-next").style.display = "inline-block";
       $("#btn-next").textContent = "Nächste Frage";
@@ -299,10 +519,28 @@
 
       let html = `<p class="review-q">${i + 1}. ${a.question}</p>`;
 
-      if (!a.isCorrect) {
-        html += `<p class="review-answer your-wrong">Deine Antwort: ${a.options[a.chosen]}</p>`;
+      if (a.table) html += buildTableHTML(a.table);
+      if (a.code) html += buildCodeHTML(a.code);
+
+      if (a.type === "freetext") {
+        if (!a.isCorrect) {
+          html += `<p class="review-answer your-wrong">Deine Antwort: ${a.chosen}</p>`;
+        }
+        html += `<p class="review-answer the-correct">Richtige Antwort: ${a.correct}</p>`;
+      } else if (a.type === "multi") {
+        if (!a.isCorrect) {
+          const chosenLabels = a.chosen.map((idx) => a.options[idx]);
+          html += `<p class="review-answer your-wrong">Deine Auswahl: ${chosenLabels.join(", ") || "(keine)"}</p>`;
+        }
+        const correctLabels = a.correct.map((idx) => a.options[idx]);
+        html += `<p class="review-answer the-correct">Richtige Antworten: ${correctLabels.join(", ")}</p>`;
+      } else {
+        if (!a.isCorrect) {
+          html += `<p class="review-answer your-wrong">Deine Antwort: ${a.options[a.chosen]}</p>`;
+        }
+        html += `<p class="review-answer the-correct">Richtige Antwort: ${a.options[a.correct]}</p>`;
       }
-      html += `<p class="review-answer the-correct">Richtige Antwort: ${a.options[a.correct]}</p>`;
+
       html += `<div class="review-explanation">${a.explanation}</div>`;
 
       item.innerHTML = html;

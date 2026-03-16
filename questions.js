@@ -2598,5 +2598,1399 @@ const QUESTIONS_DATA = [
     "explanation": "Das Mindeststammkapital einer GmbH beträgt 25.000 €. Zum Vergleich: Eine UG (haftungsbeschränkt) kann bereits ab 1 € gegründet werden (muss aber Rücklagen bilden), und eine AG benötigt ein Grundkapital von mindestens 50.000 €.",
     "category": "wirtschaftliche-grundlagen",
     "section": "03-WiSo"
+  },
+  {
+    "question": "Welche der folgenden sind Typ-1-Hypervisoren (Bare-Metal)?",
+    "options": [
+      "VMware ESXi",
+      "Oracle VirtualBox",
+      "Microsoft Hyper-V Server",
+      "VMware Workstation",
+      "Citrix XenServer"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "Typ-1-Hypervisoren laufen direkt auf der Hardware ohne darunterliegendes Betriebssystem. ESXi, Hyper-V Server und XenServer gehören dazu. VirtualBox und VMware Workstation sind Typ-2-Hypervisoren, die ein Host-OS benötigen.",
+    "category": "server-virtualisierung",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche RAID-Level bieten Ausfallsicherheit durch Datenredundanz?",
+    "options": [
+      "RAID 0",
+      "RAID 1",
+      "RAID 5",
+      "RAID 6",
+      "JBOD"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "explanation": "RAID 1 (Spiegelung), RAID 5 (einfache verteilte Parität, 1 Platte darf ausfallen) und RAID 6 (doppelte Parität, 2 Platten dürfen ausfallen) bieten Redundanz. RAID 0 (Striping) und JBOD bieten keine Ausfallsicherheit.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Sicherungsarten benötigen zur vollständigen Wiederherstellung zwingend die letzte Vollsicherung?",
+    "options": [
+      "Differenzielle Sicherung",
+      "Inkrementelle Sicherung",
+      "Image-basierte Sicherung",
+      "Snapshot-Replikation"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "explanation": "Sowohl die differenzielle als auch die inkrementelle Sicherung speichern nur Änderungen seit der letzten Voll- bzw. Teilsicherung. Für eine vollständige Wiederherstellung wird daher immer die letzte Vollsicherung als Basis benötigt.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche FSMO-Rollen existieren genau einmal pro Active-Directory-Gesamtstruktur (Forest)?",
+    "options": [
+      "Schema-Master",
+      "RID-Master",
+      "Domänennamen-Master",
+      "PDC-Emulator",
+      "Infrastruktur-Master"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explanation": "Nur der Schema-Master und der Domänennamen-Master existieren einmal pro Forest. Die übrigen drei Rollen (RID-Master, PDC-Emulator, Infrastruktur-Master) existieren einmal pro Domäne.",
+    "category": "active-directory",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Elemente sind Bestandteile des AGDLP-Berechtigungsprinzips in Active Directory?",
+    "options": [
+      "Benutzerkonten (Accounts)",
+      "Globale Gruppen",
+      "Domänenlokale Gruppen",
+      "Organisationseinheiten (OUs)",
+      "Berechtigungen (Permissions)"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "AGDLP steht für Accounts → Global Groups → Domain Local Groups → Permissions. Organisationseinheiten (OUs) dienen der Strukturierung des Verzeichnisses, sind aber kein Bestandteil des AGDLP-Berechtigungsprinzips.",
+    "category": "active-directory",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche der folgenden gehören zu den fünf wesentlichen Merkmalen von Cloud Computing nach NIST?",
+    "options": [
+      "On-Demand Self-Service",
+      "Dedizierte physische Hardware",
+      "Rapid Elasticity",
+      "Garantierte Verfügbarkeit von 99,999 %",
+      "Resource Pooling"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "Die fünf NIST-Merkmale sind: On-Demand Self-Service, Broad Network Access, Resource Pooling, Rapid Elasticity und Measured Service. Dedizierte Hardware und bestimmte Verfügbarkeitsgarantien gehören nicht dazu.",
+    "category": "cloud-konzepte",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche der folgenden sind symmetrische Verschlüsselungsverfahren?",
+    "options": [
+      "AES",
+      "RSA",
+      "Blowfish",
+      "Diffie-Hellman",
+      "3DES"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "AES, Blowfish und 3DES verwenden denselben Schlüssel zum Ver- und Entschlüsseln (symmetrisch). RSA ist ein asymmetrisches Verfahren und Diffie-Hellman ein Schlüsselaustauschprotokoll.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Maßnahmen gehören zur Zutrittskontrolle im Rahmen der technisch-organisatorischen Maßnahmen (TOMs)?",
+    "options": [
+      "Schlüsselkarten für den Serverraum",
+      "Passwortrichtlinien für Benutzerkonten",
+      "Videoüberwachung am Gebäudeeingang",
+      "Festplattenverschlüsselung",
+      "Schließanlage mit Zugangsprotokollierung"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "Zutrittskontrolle verhindert den physischen Zugang Unbefugter zu Datenverarbeitungsanlagen. Schlüsselkarten, Videoüberwachung und Schließanlagen sind typische Maßnahmen. Passwortrichtlinien gehören zur Zugangskontrolle, Festplattenverschlüsselung zur Weitergabekontrolle.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche der folgenden SQL-Befehle gehören zur Data Manipulation Language (DML)?",
+    "options": [
+      "SELECT",
+      "CREATE TABLE",
+      "INSERT",
+      "ALTER TABLE",
+      "UPDATE"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "SELECT, INSERT, UPDATE und DELETE sind DML-Befehle zur Abfrage und Manipulation von Daten. CREATE TABLE und ALTER TABLE gehören zur Data Definition Language (DDL), die die Struktur der Datenbank definiert.",
+    "category": "sql-code",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche der folgenden Werkzeuge werden für Infrastructure as Code (IaC) eingesetzt?",
+    "options": [
+      "Terraform",
+      "Wireshark",
+      "Ansible",
+      "Nagios",
+      "Puppet"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "Terraform, Ansible und Puppet sind IaC-Werkzeuge zur automatisierten Bereitstellung und Konfiguration von IT-Infrastruktur. Wireshark ist ein Netzwerkanalyse-Tool und Nagios ein Monitoring-System.",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Protokolle arbeiten auf der Anwendungsschicht (OSI-Schicht 7)?",
+    "options": [
+      "HTTP",
+      "TCP",
+      "DNS",
+      "IP",
+      "SMTP"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "HTTP, DNS und SMTP arbeiten auf der Anwendungsschicht (Layer 7). TCP gehört zur Transportschicht (Layer 4) und IP zur Vermittlungsschicht (Layer 3).",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden Protokolle verwenden standardmäßig TCP als Transportprotokoll?",
+    "options": [
+      "HTTP",
+      "TFTP",
+      "SMTP",
+      "DHCP",
+      "FTP"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "HTTP (Port 80/443), SMTP (Port 25/587) und FTP (Port 20/21) nutzen TCP für zuverlässige, verbindungsorientierte Übertragung. TFTP (Port 69) und DHCP (Port 67/68) verwenden UDP.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden IP-Adressbereiche gehören zu den privaten Adressbereichen nach RFC 1918?",
+    "options": [
+      "10.0.0.0/8",
+      "169.254.0.0/16",
+      "172.16.0.0/12",
+      "100.64.0.0/10",
+      "192.168.0.0/16"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "Die drei privaten Adressbereiche nach RFC 1918 sind 10.0.0.0/8, 172.16.0.0/12 und 192.168.0.0/16. Der Bereich 169.254.0.0/16 ist für Link-Local-Adressen (APIPA) reserviert, 100.64.0.0/10 für Carrier-Grade NAT (RFC 6598).",
+    "category": "subnetting",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden sind gültige IPv6-Adresstypen?",
+    "options": [
+      "Link-Local (fe80::/10)",
+      "Broadcast",
+      "Global Unicast (2000::/3)",
+      "Unique Local (fc00::/7)",
+      "Subnet-Directed Broadcast"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "IPv6 kennt Link-Local-, Global-Unicast- und Unique-Local-Adressen. Broadcast existiert in IPv6 nicht — weder als allgemeiner noch als Subnet-Directed Broadcast. Stattdessen wird Multicast (ff00::/8) verwendet.",
+    "category": "subnetting",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden Routingprotokolle sind Interior Gateway Protocols (IGP)?",
+    "options": [
+      "OSPF",
+      "BGP",
+      "RIP",
+      "IS-IS",
+      "EGP"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "OSPF, RIP und IS-IS sind Interior Gateway Protocols für das Routing innerhalb eines autonomen Systems. BGP ist ein Exterior Gateway Protocol für das Inter-AS-Routing. EGP ist das veraltete Vorgängerprotokoll von BGP.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Informationen sind typischerweise in einer Routing-Tabelle enthalten?",
+    "options": [
+      "Zielnetzwerk mit Subnetzmaske",
+      "MAC-Adresse des Absenders",
+      "Next-Hop-Adresse (Gateway)",
+      "Metrik bzw. Kosten",
+      "Ausgangsschnittstelle"
+    ],
+    "correct": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "explanation": "Eine Routing-Tabelle enthält Zielnetzwerk, Next-Hop-Adresse, Metrik und Ausgangsschnittstelle. MAC-Adressen werden in der ARP-Tabelle (Layer 2) gespeichert, nicht in der Routing-Tabelle (Layer 3).",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden sind gültige Port-Zustände im Spanning Tree Protocol (802.1D STP)?",
+    "options": [
+      "Blocking",
+      "Forwarding",
+      "Established",
+      "Learning",
+      "Listening"
+    ],
+    "correct": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "explanation": "Die STP-Port-Zustände sind Disabled, Blocking, Listening, Learning und Forwarding. 'Established' ist ein TCP-Verbindungszustand und kein STP-Port-Zustand.",
+    "category": "switching-vlans",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Vorteile bietet der Einsatz von VLANs in einem Netzwerk?",
+    "options": [
+      "Reduzierung von Broadcast-Domänen",
+      "Automatische Verschlüsselung des Datenverkehrs",
+      "Erhöhung der Netzwerksicherheit durch Segmentierung",
+      "Flexible logische Gruppierung unabhängig vom physischen Standort",
+      "Erhöhung der physischen Bandbreite"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "VLANs reduzieren Broadcast-Domänen, erhöhen die Sicherheit durch logische Segmentierung und ermöglichen flexible Gruppierung unabhängig vom Standort. VLANs bieten weder automatische Verschlüsselung noch erhöhen sie die physische Bandbreite.",
+    "category": "switching-vlans",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden sind VPN-Protokolle oder -Technologien?",
+    "options": [
+      "IPsec",
+      "SNMP",
+      "OpenVPN (SSL/TLS)",
+      "WireGuard",
+      "Syslog"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "IPsec, OpenVPN und WireGuard sind VPN-Protokolle zum Aufbau verschlüsselter Tunnelverbindungen. SNMP ist ein Netzwerkmanagement-Protokoll und Syslog ein Logging-Standard — beide haben nichts mit VPN zu tun.",
+    "category": "netzwerksicherheit-vpn",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Netzwerkdiagnose-Tools verwenden das ICMP-Protokoll?",
+    "options": [
+      "ping",
+      "nslookup",
+      "traceroute / tracert",
+      "netstat",
+      "pathping"
+    ],
+    "correct": [
+      0,
+      2,
+      4
+    ],
+    "explanation": "ping, traceroute (tracert) und pathping nutzen ICMP-Pakete (Echo Request/Reply bzw. Time Exceeded). nslookup verwendet DNS-Anfragen (UDP/TCP Port 53) und netstat zeigt lokale Verbindungsinformationen ohne ICMP.",
+    "category": "netzwerkdiagnose",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche der folgenden gehören zu den Pflichten des Ausbildenden nach dem Berufsbildungsgesetz (BBiG)?",
+    "options": [
+      "Kostenlose Bereitstellung der Ausbildungsmittel",
+      "Zahlung einer angemessenen Vergütung",
+      "Freistellung für Berufsschule und Prüfungen",
+      "Übernahmegarantie nach Abschluss der Ausbildung",
+      "Vermittlung der Fertigkeiten und Kenntnisse gemäß Ausbildungsrahmenplan"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Der Ausbildende muss Ausbildungsmittel bereitstellen, angemessen vergüten, für Berufsschule und Prüfungen freistellen und die Ausbildungsinhalte vermitteln (§§ 14–19 BBiG). Eine Übernahmegarantie nach der Ausbildung besteht gesetzlich nicht.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche der folgenden gehören zu den fünf Säulen der gesetzlichen Sozialversicherung in Deutschland?",
+    "options": [
+      "Krankenversicherung",
+      "Private Haftpflichtversicherung",
+      "Rentenversicherung",
+      "Pflegeversicherung",
+      "Unfallversicherung"
+    ],
+    "correct": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "explanation": "Die fünf Säulen der Sozialversicherung sind Kranken-, Renten-, Pflege-, Unfall- und Arbeitslosenversicherung. Die private Haftpflichtversicherung ist eine freiwillige Individualversicherung und gehört nicht zur gesetzlichen Sozialversicherung.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche der folgenden sind Kaufvertragsstörungen nach BGB?",
+    "options": [
+      "Lieferverzug (Schuldnerverzug)",
+      "Mangelhafte Lieferung (Schlechtleistung)",
+      "Ordnungsgemäße Vertragserfüllung",
+      "Zahlungsverzug des Käufers",
+      "Annahmeverzug (Gläubigerverzug)"
+    ],
+    "correct": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "explanation": "Lieferverzug, mangelhafte Lieferung, Zahlungsverzug und Annahmeverzug sind typische Kaufvertragsstörungen. Die ordnungsgemäße Vertragserfüllung ist keine Störung, sondern der vertragsgemäße Normalfall.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche der folgenden sind Grundsätze der DSGVO für die Verarbeitung personenbezogener Daten (Art. 5)?",
+    "options": [
+      "Datenminimierung",
+      "Gewinnmaximierung",
+      "Zweckbindung",
+      "Richtigkeit",
+      "Speicherbegrenzung"
+    ],
+    "correct": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "explanation": "Datenminimierung, Zweckbindung, Richtigkeit und Speicherbegrenzung sind Grundsätze nach Art. 5 DSGVO. Weitere Grundsätze sind Rechtmäßigkeit, Integrität und Vertraulichkeit. Gewinnmaximierung ist kein Datenschutzgrundsatz.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Bei welchen der folgenden Angelegenheiten hat der Betriebsrat ein Mitbestimmungsrecht nach § 87 BetrVG?",
+    "options": [
+      "Beginn und Ende der täglichen Arbeitszeit",
+      "Einstellung von Geschäftsführern",
+      "Aufstellung des Urlaubsplans",
+      "Einführung technischer Überwachungseinrichtungen",
+      "Festlegung der Unternehmensstrategie"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "Der Betriebsrat hat nach § 87 BetrVG Mitbestimmungsrecht bei der Arbeitszeitgestaltung, Urlaubsplanung und der Einführung technischer Überwachungseinrichtungen. Die Einstellung von Geschäftsführern und die Unternehmensstrategie fallen nicht unter die betriebliche Mitbestimmung.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Gegeben ist die folgende Routing-Tabelle eines Routers. An welchen Next Hop wird ein Paket mit der Ziel-IP 10.10.5.42 weitergeleitet?",
+    "options": [
+      "192.168.1.1",
+      "192.168.1.254",
+      "192.168.1.3",
+      "192.168.1.2"
+    ],
+    "correct": 2,
+    "explanation": "Das Paket mit Ziel 10.10.5.42 passt auf drei Einträge: 10.0.0.0/8, 10.10.0.0/16 und 10.10.5.0/24. Nach dem Longest-Prefix-Match-Verfahren wird der spezifischste Eintrag gewählt – hier /24. Der zugehörige Next Hop ist 192.168.1.3.",
+    "category": "routing",
+    "section": "02-Netzwerke",
+    "table": {
+      "headers": [
+        "Zielnetz",
+        "Subnetzmaske",
+        "Next Hop",
+        "Interface",
+        "Metrik"
+      ],
+      "rows": [
+        [
+          "10.0.0.0",
+          "255.0.0.0 (/8)",
+          "192.168.1.1",
+          "eth0",
+          "10"
+        ],
+        [
+          "10.10.0.0",
+          "255.255.0.0 (/16)",
+          "192.168.1.2",
+          "eth0",
+          "20"
+        ],
+        [
+          "10.10.5.0",
+          "255.255.255.0 (/24)",
+          "192.168.1.3",
+          "eth1",
+          "30"
+        ],
+        [
+          "0.0.0.0",
+          "0.0.0.0 (/0)",
+          "192.168.1.254",
+          "eth0",
+          "100"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Router hat die folgende Routing-Tabelle. Über welchen Next Hop wird ein Paket mit der Ziel-IP 172.16.10.200 weitergeleitet?",
+    "options": [
+      "10.0.0.1",
+      "10.0.0.254",
+      "10.0.0.2",
+      "10.0.0.3"
+    ],
+    "correct": 3,
+    "explanation": "Die IP 172.16.10.200 liegt im Bereich 172.16.10.128–172.16.10.255 und passt somit auf den Eintrag 172.16.10.128/25 (spezifischster Match). Nach dem Longest-Prefix-Match-Prinzip wird das Paket an den Next Hop 10.0.0.3 weitergeleitet.",
+    "category": "routing",
+    "section": "02-Netzwerke",
+    "table": {
+      "headers": [
+        "Zielnetz",
+        "Subnetzmaske",
+        "Next Hop",
+        "Interface",
+        "Metrik"
+      ],
+      "rows": [
+        [
+          "172.16.0.0",
+          "255.240.0.0 (/12)",
+          "10.0.0.1",
+          "eth0",
+          "10"
+        ],
+        [
+          "172.16.10.0",
+          "255.255.255.0 (/24)",
+          "10.0.0.2",
+          "eth0",
+          "20"
+        ],
+        [
+          "172.16.10.128",
+          "255.255.255.128 (/25)",
+          "10.0.0.3",
+          "eth1",
+          "15"
+        ],
+        [
+          "0.0.0.0",
+          "0.0.0.0 (/0)",
+          "10.0.0.254",
+          "eth0",
+          "100"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Unternehmen verwendet die folgende Firewall-Regeltabelle (Regeln werden von oben nach unten abgearbeitet). Wird ein HTTPS-Zugriff (Port 443, TCP) von 192.168.1.50 auf den Webserver 10.0.0.10 erlaubt?",
+    "options": [
+      "Ja, Regel 3 erlaubt HTTPS für das gesamte Subnetz",
+      "Nein, Regel 2 blockiert jeglichen Verkehr von 192.168.1.50 zu 10.0.0.10",
+      "Ja, Regel 1 erlaubt bereits den Zugriff",
+      "Nein, Regel 4 (Deny All) blockiert den Zugriff"
+    ],
+    "correct": 1,
+    "explanation": "Firewall-Regeln werden von oben nach unten ausgewertet und die erste zutreffende Regel wird angewendet. Regel 1 greift nicht (Port 80, nicht 443). Regel 2 matcht: Quelle 192.168.1.50, Ziel 10.0.0.10, ANY Port → DENY. Obwohl Regel 3 HTTPS für das Subnetz erlauben würde, wird sie nie erreicht.",
+    "category": "netzwerksicherheit-vpn",
+    "section": "02-Netzwerke",
+    "table": {
+      "headers": [
+        "Nr",
+        "Aktion",
+        "Quelle",
+        "Ziel",
+        "Port",
+        "Protokoll"
+      ],
+      "rows": [
+        [
+          "1",
+          "ALLOW",
+          "192.168.1.0/24",
+          "10.0.0.10",
+          "80",
+          "TCP"
+        ],
+        [
+          "2",
+          "DENY",
+          "192.168.1.50",
+          "10.0.0.10",
+          "ANY",
+          "ANY"
+        ],
+        [
+          "3",
+          "ALLOW",
+          "192.168.1.0/24",
+          "10.0.0.10",
+          "443",
+          "TCP"
+        ],
+        [
+          "4",
+          "DENY",
+          "ANY",
+          "ANY",
+          "ANY",
+          "ANY"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Gegeben ist die folgende Firewall-Konfiguration. Darf der Client 10.0.1.15 eine HTTP-Verbindung (Port 80, TCP) zum Server 172.16.0.5 aufbauen?",
+    "options": [
+      "Nein, Regel 3 verbietet den HTTP-Zugriff auf 172.16.0.5 explizit",
+      "Ja, Regel 4 erlaubt HTTP-Zugriff auf beliebige Ziele",
+      "Ja, Regel 1 erlaubt den Zugriff auf 172.16.0.5",
+      "Nein, Regel 5 (Deny All) blockiert den Zugriff"
+    ],
+    "correct": 0,
+    "explanation": "Die Regeln werden von oben nach unten abgearbeitet. Regel 1 (Port 443) und Regel 2 (Port 53/UDP) treffen nicht zu. Regel 3 verbietet explizit HTTP (Port 80) von 10.0.1.0/24 an 172.16.0.5 → DENY. Regel 4 wird nicht mehr erreicht, obwohl sie HTTP allgemein erlauben würde.",
+    "category": "netzwerksicherheit-vpn",
+    "section": "02-Netzwerke",
+    "table": {
+      "headers": [
+        "Nr",
+        "Aktion",
+        "Quelle",
+        "Ziel",
+        "Port",
+        "Protokoll"
+      ],
+      "rows": [
+        [
+          "1",
+          "ALLOW",
+          "10.0.1.0/24",
+          "172.16.0.5",
+          "443",
+          "TCP"
+        ],
+        [
+          "2",
+          "ALLOW",
+          "10.0.1.0/24",
+          "ANY",
+          "53",
+          "UDP"
+        ],
+        [
+          "3",
+          "DENY",
+          "10.0.1.0/24",
+          "172.16.0.5",
+          "80",
+          "TCP"
+        ],
+        [
+          "4",
+          "ALLOW",
+          "10.0.1.0/24",
+          "ANY",
+          "80",
+          "TCP"
+        ],
+        [
+          "5",
+          "DENY",
+          "ANY",
+          "ANY",
+          "ANY",
+          "ANY"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Der Administrator überprüft die DHCP-Lease-Tabelle des Netzwerks. Welcher Client hat ein Verbindungsproblem und was ist die wahrscheinliche Ursache?",
+    "options": [
+      "PC-01 – falsches Standardgateway konfiguriert",
+      "PC-04 – doppelte IP-Adresse im Netzwerk",
+      "PC-03 – Der DHCP-Server ist nicht erreichbar, es wurde eine APIPA-Adresse (169.254.x.x) zugewiesen",
+      "PC-02 – DNS-Server nicht konfiguriert"
+    ],
+    "correct": 2,
+    "explanation": "PC-03 hat die IP-Adresse 169.254.47.12 aus dem APIPA-Bereich (169.254.0.0/16). Diese Adresse wird automatisch vergeben, wenn ein Client per DHCP keine Adresse vom Server erhalten kann. Ursachen können ein ausgefallener DHCP-Server, ein defektes Kabel oder ein falsch konfigurierter Switch-Port sein.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "table": {
+      "headers": [
+        "Hostname",
+        "IP-Adresse",
+        "MAC-Adresse",
+        "Lease-Dauer",
+        "Gateway"
+      ],
+      "rows": [
+        [
+          "PC-01",
+          "192.168.10.20",
+          "AA:BB:CC:11:22:01",
+          "24h",
+          "192.168.10.1"
+        ],
+        [
+          "PC-02",
+          "192.168.10.21",
+          "AA:BB:CC:11:22:02",
+          "24h",
+          "192.168.10.1"
+        ],
+        [
+          "PC-03",
+          "169.254.47.12",
+          "AA:BB:CC:11:22:03",
+          "-",
+          "-"
+        ],
+        [
+          "PC-04",
+          "192.168.10.23",
+          "AA:BB:CC:11:22:04",
+          "24h",
+          "192.168.10.1"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Server soll mit folgender Festplattenkonfiguration eingerichtet werden. Wie hoch ist die nutzbare Nettokapazität?",
+    "options": [
+      "24 TB",
+      "16 TB",
+      "20 TB",
+      "12 TB"
+    ],
+    "correct": 1,
+    "explanation": "Von den 6 Festplatten wird 1 als Hot-Spare reserviert. Es verbleiben 5 Festplatten im RAID-5-Verbund. Bei RAID 5 geht die Kapazität einer Festplatte für Parität verloren: (5 − 1) × 4 TB = 16 TB Nettokapazität.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration",
+    "table": {
+      "headers": [
+        "Eigenschaft",
+        "Wert"
+      ],
+      "rows": [
+        [
+          "Anzahl Festplatten",
+          "6"
+        ],
+        [
+          "Kapazität pro Festplatte",
+          "4 TB"
+        ],
+        [
+          "RAID-Level",
+          "RAID 5"
+        ],
+        [
+          "Hot-Spare-Laufwerke",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Fileserver wird mit der folgenden RAID-Konfiguration geplant. Welche Nettokapazität steht für Daten zur Verfügung?",
+    "options": [
+      "16 TB",
+      "12 TB",
+      "14 TB",
+      "10 TB"
+    ],
+    "correct": 3,
+    "explanation": "Von 8 Festplatten wird 1 als Hot-Spare abgezogen, es bleiben 7 Platten im RAID 6. Bei RAID 6 gehen 2 Festplatten für die doppelte Parität verloren: (7 − 2) × 2 TB = 10 TB nutzbare Nettokapazität. RAID 6 toleriert den gleichzeitigen Ausfall von 2 Festplatten.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration",
+    "table": {
+      "headers": [
+        "Eigenschaft",
+        "Wert"
+      ],
+      "rows": [
+        [
+          "Anzahl Festplatten",
+          "8"
+        ],
+        [
+          "Kapazität pro Festplatte",
+          "2 TB"
+        ],
+        [
+          "RAID-Level",
+          "RAID 6"
+        ],
+        [
+          "Hot-Spare-Laufwerke",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Gegeben ist die Tabelle 'Mitarbeiter' mit den folgenden Daten. Die Tabelle 'Abteilung' enthält: (AbteilungsID 1 = Vertrieb), (AbteilungsID 2 = IT), (AbteilungsID 3 = Personal). Wie viele Zeilen liefert diese Abfrage?\n\nSELECT m.Name, a.Bezeichnung\nFROM Mitarbeiter m\nINNER JOIN Abteilung a ON m.AbteilungsID = a.AbteilungsID;",
+    "options": [
+      "4 Zeilen – alle Mitarbeiter werden angezeigt",
+      "3 Zeilen – Müller, Schmidt und Fischer mit ihren Abteilungen",
+      "2 Zeilen – nur die Mitarbeiter aus dem Vertrieb",
+      "5 Zeilen – alle Kombinationen beider Tabellen"
+    ],
+    "correct": 1,
+    "explanation": "Ein INNER JOIN gibt nur Zeilen zurück, bei denen in beiden Tabellen ein passender Wert existiert. Weber hat AbteilungsID NULL und wird nicht gejoint. Die Abteilung 'Personal' (ID 3) hat keinen zugehörigen Mitarbeiter. Ergebnis: Müller → Vertrieb, Schmidt → IT, Fischer → Vertrieb = 3 Zeilen.",
+    "category": "sql-code",
+    "section": "01-Konzeption-Administration",
+    "table": {
+      "headers": [
+        "MitarbeiterID",
+        "Name",
+        "AbteilungsID"
+      ],
+      "rows": [
+        [
+          "1",
+          "Müller",
+          "1"
+        ],
+        [
+          "2",
+          "Schmidt",
+          "2"
+        ],
+        [
+          "3",
+          "Weber",
+          "NULL"
+        ],
+        [
+          "4",
+          "Fischer",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Gegeben ist die Tabelle 'Bestellung' mit den folgenden Daten. Wie viele Datensätze liefert diese SQL-Abfrage?\n\nSELECT KundenID, SUM(Betrag) AS Gesamt\nFROM Bestellung\nGROUP BY KundenID\nHAVING SUM(Betrag) > 200;",
+    "options": [
+      "1 Datensatz",
+      "3 Datensätze",
+      "2 Datensätze",
+      "0 Datensätze"
+    ],
+    "correct": 2,
+    "explanation": "Die Abfrage gruppiert nach KundenID und summiert die Beträge: KundenID 101 = 150 + 300 = 450 (> 200 ✓), KundenID 102 = 200 + 100 = 300 (> 200 ✓), KundenID 103 = 50 (> 200 ✗). HAVING filtert Gruppen mit Summe ≤ 200 heraus. Ergebnis: 2 Datensätze.",
+    "category": "sql-code",
+    "section": "01-Konzeption-Administration",
+    "table": {
+      "headers": [
+        "BestellID",
+        "KundenID",
+        "Betrag"
+      ],
+      "rows": [
+        [
+          "1",
+          "101",
+          "150,00"
+        ],
+        [
+          "2",
+          "102",
+          "200,00"
+        ],
+        [
+          "3",
+          "101",
+          "300,00"
+        ],
+        [
+          "4",
+          "103",
+          "50,00"
+        ],
+        [
+          "5",
+          "102",
+          "100,00"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein deutsches Unternehmen benötigt einen Cloud-Anbieter, der DSGVO-konform ist und Managed Kubernetes anbietet. Welcher Anbieter aus der Vergleichstabelle ist geeignet?",
+    "options": [
+      "Cloud-C",
+      "Cloud-A",
+      "Cloud-B",
+      "Alle drei Anbieter erfüllen die Anforderungen"
+    ],
+    "correct": 0,
+    "explanation": "Cloud-A ist zwar DSGVO-konform und hat ein EU-Rechenzentrum, bietet aber kein Managed Kubernetes an. Cloud-B bietet Kubernetes, ist aber weder DSGVO-konform noch hat es ein EU-Rechenzentrum. Nur Cloud-C erfüllt beide Kriterien: DSGVO-Konformität und Managed Kubernetes.",
+    "category": "cloud-konzepte",
+    "section": "01-Konzeption-Administration",
+    "table": {
+      "headers": [
+        "Kriterium",
+        "Cloud-A",
+        "Cloud-B",
+        "Cloud-C"
+      ],
+      "rows": [
+        [
+          "Rechenzentrum in EU",
+          "Ja",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "DSGVO-konform",
+          "Ja",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "Kosten/Monat",
+          "500 EUR",
+          "350 EUR",
+          "480 EUR"
+        ],
+        [
+          "SLA-Verfügbarkeit",
+          "99,9 %",
+          "99,99 %",
+          "99,95 %"
+        ],
+        [
+          "Managed Kubernetes",
+          "Nein",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Unternehmen bewertet drei Anbieter mithilfe einer Nutzwertanalyse. Die Punkte (1–5) werden mit der Gewichtung multipliziert. Welcher Anbieter erzielt den höchsten Gesamtnutzwert?",
+    "options": [
+      "Anbieter A mit 3,80 Punkten",
+      "Anbieter B mit 3,85 Punkten",
+      "Anbieter A mit 4,00 Punkten",
+      "Anbieter C mit 3,90 Punkten"
+    ],
+    "correct": 3,
+    "explanation": "Berechnung: Anbieter A = 0,35×4 + 0,30×5 + 0,20×3 + 0,15×2 = 1,40 + 1,50 + 0,60 + 0,30 = 3,80. Anbieter B = 0,35×3 + 0,30×4 + 0,20×5 + 0,15×4 = 1,05 + 1,20 + 1,00 + 0,60 = 3,85. Anbieter C = 0,35×5 + 0,30×3 + 0,20×4 + 0,15×3 = 1,75 + 0,90 + 0,80 + 0,45 = 3,90. Anbieter C gewinnt mit 3,90.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo",
+    "table": {
+      "headers": [
+        "Kriterium",
+        "Gewichtung",
+        "Anbieter A",
+        "Anbieter B",
+        "Anbieter C"
+      ],
+      "rows": [
+        [
+          "Preis",
+          "35 %",
+          "4",
+          "3",
+          "5"
+        ],
+        [
+          "Qualität",
+          "30 %",
+          "5",
+          "4",
+          "3"
+        ],
+        [
+          "Service",
+          "20 %",
+          "3",
+          "5",
+          "4"
+        ],
+        [
+          "Lieferzeit",
+          "15 %",
+          "2",
+          "4",
+          "3"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Aus der folgenden Lohnabrechnung soll das Nettogehalt ermittelt werden. Wie hoch ist das monatliche Nettogehalt des Arbeitnehmers?",
+    "options": [
+      "2.006,50 EUR",
+      "2.388,00 EUR",
+      "2.037,50 EUR",
+      "1.956,50 EUR"
+    ],
+    "correct": 0,
+    "explanation": "Sozialversicherungsbeiträge (AN-Anteil): 243 + 279 + 39 + 51 = 612,00 EUR. Steuern: 350 + 31,50 = 381,50 EUR. Gesamtabzüge: 612 + 381,50 = 993,50 EUR. Nettogehalt: 3.000,00 − 993,50 = 2.006,50 EUR.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo",
+    "table": {
+      "headers": [
+        "Position",
+        "Betrag"
+      ],
+      "rows": [
+        [
+          "Bruttogehalt",
+          "3.000,00 EUR"
+        ],
+        [
+          "KV (AN-Anteil, 8,1 %)",
+          "243,00 EUR"
+        ],
+        [
+          "RV (AN-Anteil, 9,3 %)",
+          "279,00 EUR"
+        ],
+        [
+          "AV (AN-Anteil, 1,3 %)",
+          "39,00 EUR"
+        ],
+        [
+          "PV (AN-Anteil, 1,7 %)",
+          "51,00 EUR"
+        ],
+        [
+          "Lohnsteuer",
+          "350,00 EUR"
+        ],
+        [
+          "Kirchensteuer (9 %)",
+          "31,50 EUR"
+        ]
+      ]
+    }
+  },
+  {
+    "question": "Ein Benutzer meldet, dass er keine Netzwerkverbindung hat. Sie führen 'ipconfig /all' auf seinem Rechner aus und erhalten die folgende Ausgabe. Was ist die wahrscheinlichste Ursache des Problems?",
+    "options": [
+      "Die Netzwerkkarte ist hardwareseitig defekt",
+      "Der DNS-Server ist falsch konfiguriert",
+      "Der DHCP-Server ist nicht erreichbar – dem Client wurde eine APIPA-Adresse (169.254.x.x) zugewiesen",
+      "Das Netzwerkkabel ist an den falschen Switch-Port angeschlossen"
+    ],
+    "correct": 2,
+    "explanation": "Die IP-Adresse 169.254.23.105 liegt im APIPA-Bereich (169.254.0.0/16). Windows vergibt automatisch eine Adresse aus diesem Bereich, wenn DHCP aktiviert ist, aber kein DHCP-Server antwortet. Typische Ursachen: DHCP-Server ausgefallen, Netzwerkkabel getrennt oder Switch-Port deaktiviert.",
+    "category": "netzwerkdiagnose",
+    "section": "02-Netzwerke",
+    "code": "Windows-IP-Konfiguration\n\nEthernet-Adapter LAN-Verbindung:\n\n   Verbindungsspezifisches DNS-Suffix  : \n   DHCP aktiviert. . . . . . . . . . . : Ja\n   Autokonfiguration aktiviert . . . . : Ja\n   IPv4-Adresse. . . . . . . . . . . . : 169.254.23.105\n   Subnetzmaske. . . . . . . . . . . . : 255.255.0.0\n   Standardgateway . . . . . . . . . . : \n   DNS-Server. . . . . . . . . . . . . : "
+  },
+  {
+    "question": "Sie können den Server server.firma.de nicht erreichen. Die Ausgabe von 'tracert' zeigt das folgende Ergebnis. An welcher Stelle liegt das Problem?",
+    "options": [
+      "Der lokale Router (192.168.1.1) ist ausgefallen",
+      "Die Verbindung wird nach dem zweiten Hop (10.0.0.1) unterbrochen – der nächste Router antwortet nicht",
+      "Der Zielserver (203.0.113.50) ist heruntergefahren",
+      "Die DNS-Auflösung funktioniert nicht"
+    ],
+    "correct": 1,
+    "explanation": "Hop 1 (lokaler Router) und Hop 2 (10.0.0.1) antworten mit normalen Laufzeiten. Ab Hop 3 tritt nur noch 'Zeitüberschreitung' auf. Das bedeutet, dass der Router nach 10.0.0.1 nicht erreichbar ist oder Pakete nicht weiterleitet. Die DNS-Auflösung funktioniert (der Hostname wurde in 203.0.113.50 aufgelöst).",
+    "category": "netzwerkdiagnose",
+    "section": "02-Netzwerke",
+    "code": "Routenverfolgung zu server.firma.de [203.0.113.50]\nueber maximal 30 Hops:\n\n  1    <1 ms    <1 ms    <1 ms  192.168.1.1\n  2     3 ms     2 ms     3 ms  10.0.0.1\n  3     *        *        *     Zeitueberschreitung der Anforderung.\n  4     *        *        *     Zeitueberschreitung der Anforderung.\n  5     *        *        *     Zeitueberschreitung der Anforderung.\n\nAblaufverfolgung beendet."
+  },
+  {
+    "question": "Gegeben ist die Tabelle 'Mitarbeiter' mit den Spalten (Nachname, Vorname, Gehalt) und folgenden Gehältern: Müller (3200), Schmidt (4100), Weber (2800), Fischer (3600), Bauer (3800). Welches Ergebnis liefert die folgende SQL-Abfrage?",
+    "options": [
+      "Alle 5 Mitarbeiter, aufsteigend sortiert",
+      "Müller und Weber – Mitarbeiter unter dem Durchschnitt",
+      "Schmidt, Fischer, Bauer und Müller – alle über 3000 EUR",
+      "Schmidt, Bauer, Fischer – Mitarbeiter mit Gehalt über dem Durchschnitt, absteigend sortiert"
+    ],
+    "correct": 3,
+    "explanation": "Durchschnitt: (3200 + 4100 + 2800 + 3600 + 3800) / 5 = 3500 EUR. Über dem Durchschnitt liegen: Schmidt (4100), Fischer (3600) und Bauer (3800). Sortiert nach Gehalt DESC: Schmidt (4100), Bauer (3800), Fischer (3600). Müller (3200) und Weber (2800) werden ausgefiltert.",
+    "category": "sql-code",
+    "section": "01-Konzeption-Administration",
+    "code": "SELECT Nachname, Vorname, Gehalt\nFROM Mitarbeiter\nWHERE Gehalt > (SELECT AVG(Gehalt) FROM Mitarbeiter)\nORDER BY Gehalt DESC;"
+  },
+  {
+    "question": "Welche Ausgabe erzeugt das folgende C#-Programm?",
+    "options": [
+      "18",
+      "30",
+      "12",
+      "24"
+    ],
+    "correct": 0,
+    "explanation": "Die Schleife durchläuft i von 1 bis 10. Die Bedingung i % 3 == 0 trifft auf 3, 6 und 9 zu. Diese Werte werden aufsummiert: 3 + 6 + 9 = 18. Die Ausgabe ist daher 18.",
+    "category": "sql-code",
+    "section": "01-Konzeption-Administration",
+    "code": "int ergebnis = 0;\nfor (int i = 1; i <= 10; i++)\n{\n    if (i % 3 == 0)\n    {\n        ergebnis += i;\n    }\n}\nConsole.WriteLine(ergebnis);"
+  },
+  {
+    "question": "Was bewirkt das folgende PowerShell-Skript?",
+    "options": [
+      "Es erstellt Backups aller .bak-Dateien im Ordner C:\\Backup",
+      "Es komprimiert alle .bak-Dateien, die älter als 90 Tage sind",
+      "Es verschiebt alte Sicherungsdateien in einen Archivordner",
+      "Es löscht alle .bak-Dateien im Ordner C:\\Backup und Unterordnern, die seit mehr als 90 Tagen nicht verändert wurden"
+    ],
+    "correct": 3,
+    "explanation": "Das Skript sucht rekursiv (-Recurse) im Ordner C:\\Backup nach Dateien mit der Endung .bak, deren letztes Änderungsdatum (LastWriteTime) mehr als 90 Tage zurückliegt. Diese werden mit Remove-Item -Force unwiderruflich gelöscht. Abschließend wird die Anzahl der gelöschten Dateien ausgegeben.",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration",
+    "code": "$pfad = \"C:\\Backup\"\n$grenze = (Get-Date).AddDays(-90)\n$dateien = Get-ChildItem -Path $pfad -Filter \"*.bak\" -Recurse |\n    Where-Object { $_.LastWriteTime -lt $grenze }\n$dateien | Remove-Item -Force\nWrite-Host \"$($dateien.Count) alte Sicherungen entfernt.\""
+  },
+  {
+    "question": "Wann wird das Skript cleanup.sh gemäß dem folgenden Crontab-Eintrag ausgeführt?",
+    "options": [
+      "Jeden Tag um 02:30 Uhr",
+      "Am 1. jedes Monats um 02:30 Uhr",
+      "Jeden Montag um 02:30 Uhr",
+      "Am 30. Februar jedes Jahres"
+    ],
+    "correct": 1,
+    "explanation": "Das Crontab-Format lautet: Minute Stunde Tag Monat Wochentag. Der Eintrag '30 2 1 * *' bedeutet: Minute 30, Stunde 2, Tag 1, jeden Monat (*), jeden Wochentag (*). Das Skript wird somit am 1. jedes Monats um 02:30 Uhr ausgeführt. Die Ausgabe wird in /var/log/cleanup.log geschrieben (2>&1 leitet auch Fehler dorthin um).",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration",
+    "code": "30 2 1 * * /opt/scripts/cleanup.sh >> /var/log/cleanup.log 2>&1"
+  },
+  {
+    "question": "Welcher Port wird standardmäßig für SSH verwendet?",
+    "accepts": [
+      "22",
+      "Port 22"
+    ],
+    "explanation": "SSH (Secure Shell) verwendet standardmäßig den TCP-Port 22. SSH dient zur verschlüsselten Fernwartung und sicheren Datenübertragung.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Portnummer ein."
+  },
+  {
+    "question": "Welcher Port wird standardmäßig für HTTPS verwendet?",
+    "accepts": [
+      "443",
+      "Port 443"
+    ],
+    "explanation": "HTTPS (HTTP Secure) verwendet standardmäßig den TCP-Port 443. HTTPS verschlüsselt die HTTP-Kommunikation mittels TLS/SSL.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Portnummer ein."
+  },
+  {
+    "question": "Welcher Port wird standardmäßig für DNS verwendet?",
+    "accepts": [
+      "53",
+      "Port 53"
+    ],
+    "explanation": "DNS (Domain Name System) verwendet standardmäßig den Port 53. DNS-Anfragen nutzen in der Regel UDP/53, bei größeren Antworten oder Zonentransfers wird TCP/53 eingesetzt.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Portnummer ein."
+  },
+  {
+    "question": "Auf welchem Port läuft ein DHCP-Server standardmäßig?",
+    "accepts": [
+      "67",
+      "Port 67",
+      "UDP 67"
+    ],
+    "explanation": "Der DHCP-Server lauscht auf UDP-Port 67. Der DHCP-Client sendet seine Anfragen von Port 68 an Port 67 des Servers.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Portnummer ein."
+  },
+  {
+    "question": "Ein Host hat die IP-Adresse 192.168.10.67/26. Wie lautet die Netzadresse?",
+    "accepts": [
+      "192.168.10.64",
+      "192.168.10.64/26"
+    ],
+    "explanation": "Bei /26 beträgt die Subnetzmaske 255.255.255.192 (Blockgröße 64). Die letzte Oktett-Berechnung: 67 ÷ 64 = 1 Rest 3 → Netzadresse beginnt bei 1 × 64 = 64. Die Netzadresse ist daher 192.168.10.64.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Netzadresse ein (z. B. 192.168.1.0)."
+  },
+  {
+    "question": "Ein Host hat die IP-Adresse 172.16.5.130/25. Wie lautet die Broadcast-Adresse dieses Subnetzes?",
+    "accepts": [
+      "172.16.5.255",
+      "172.16.5.255/25"
+    ],
+    "explanation": "Bei /25 beträgt die Subnetzmaske 255.255.255.128 (Blockgröße 128). Das letzte Oktett 130 liegt im Block 128–255. Die Broadcast-Adresse ist die letzte Adresse des Blocks: 172.16.5.255.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Broadcast-Adresse ein (z. B. 192.168.1.255)."
+  },
+  {
+    "question": "Wie viele nutzbare Host-Adressen hat ein Subnetz mit der Präfixlänge /28?",
+    "accepts": [
+      "14"
+    ],
+    "explanation": "Bei /28 bleiben 32 − 28 = 4 Host-Bits übrig. Anzahl Adressen: 2⁴ = 16. Abzüglich Netz- und Broadcast-Adresse: 16 − 2 = 14 nutzbare Hosts.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Anzahl der nutzbaren Hosts ein."
+  },
+  {
+    "question": "Wie lautet die Subnetzmaske für die CIDR-Notation /20 in Dezimalschreibweise?",
+    "accepts": [
+      "255.255.240.0"
+    ],
+    "explanation": "/20 bedeutet 20 Netz-Bits: 11111111.11111111.11110000.00000000. Das dritte Oktett: 11110000 = 128 + 64 + 32 + 16 = 240. Ergebnis: 255.255.240.0.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Subnetzmaske in Dezimalschreibweise ein (z. B. 255.255.255.0)."
+  },
+  {
+    "question": "Welche CIDR-Notation entspricht der Subnetzmaske 255.255.255.224?",
+    "accepts": [
+      "/27",
+      "27"
+    ],
+    "explanation": "255.255.255.224 → letztes Oktett 224 = 11100000 (3 gesetzte Bits). Insgesamt: 8 + 8 + 8 + 3 = 27 Netz-Bits → /27.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Präfixlänge ein (z. B. /24 oder 24)."
+  },
+  {
+    "question": "Wie viele /64-Subnetze können aus einem IPv6-Präfix /48 gebildet werden?",
+    "accepts": [
+      "65536",
+      "65.536",
+      "2^16"
+    ],
+    "explanation": "Von /48 zu /64 sind es 64 − 48 = 16 zusätzliche Bits für die Subnetz-ID. Damit ergeben sich 2¹⁶ = 65.536 mögliche /64-Subnetze.",
+    "category": "subnetting",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib die Anzahl der Subnetze ein."
+  },
+  {
+    "question": "Ein Server hat 5 Festplatten à 4 TiB im RAID 5, davon ist 1 Platte als Hot-Spare konfiguriert. Wie hoch ist die Nettokapazität?",
+    "accepts": [
+      "12 TiB",
+      "12",
+      "12TiB"
+    ],
+    "explanation": "Von 5 Platten wird 1 als Hot-Spare reserviert → 4 aktive Platten im RAID 5. RAID 5 benötigt die Kapazität einer Platte für Parität: (4 − 1) × 4 TiB = 12 TiB.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib den Wert in TiB ein."
+  },
+  {
+    "question": "6 Festplatten à 2 TiB werden im RAID 6 betrieben. Wie hoch ist die Nettokapazität?",
+    "accepts": [
+      "8 TiB",
+      "8",
+      "8TiB"
+    ],
+    "explanation": "RAID 6 verwendet zwei Platten für Paritätsdaten (doppelte Parität): (6 − 2) × 2 TiB = 4 × 2 TiB = 8 TiB Nettokapazität.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib den Wert in TiB ein."
+  },
+  {
+    "question": "4 Festplatten à 8 TiB werden im RAID 10 betrieben. Wie hoch ist die Nettokapazität?",
+    "accepts": [
+      "16 TiB",
+      "16",
+      "16TiB"
+    ],
+    "explanation": "RAID 10 (Kombination aus RAID 1 + RAID 0) spiegelt die Daten, sodass die Hälfte der Gesamtkapazität nutzbar ist: (4 × 8 TiB) / 2 = 16 TiB.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib den Wert in TiB ein."
+  },
+  {
+    "question": "chmod 755 – Welche Rechte hat der Owner (Besitzer)?",
+    "accepts": [
+      "rwx",
+      "7",
+      "lesen schreiben ausführen"
+    ],
+    "explanation": "Die erste Ziffer 7 steht für den Owner: 7 = 4 (read) + 2 (write) + 1 (execute) → rwx. Der Besitzer darf die Datei lesen, schreiben und ausführen.",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib die Rechte ein (z. B. rwx oder den Zahlenwert)."
+  },
+  {
+    "question": "chmod 640 – Welche Rechte hat Others (Andere)?",
+    "accepts": [
+      "---",
+      "keine",
+      "0",
+      "keine Rechte"
+    ],
+    "explanation": "Die dritte Ziffer 0 steht für Others: 0 bedeutet keine Berechtigung (---). Andere Benutzer dürfen die Datei weder lesen, noch schreiben, noch ausführen.",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib die Rechte ein (z. B. r-x oder den Zahlenwert)."
+  },
+  {
+    "question": "Welchen chmod-Wert (numerisch) braucht man für die Rechtekombination rw-r--r--?",
+    "accepts": [
+      "644"
+    ],
+    "explanation": "rw- = 4 + 2 + 0 = 6 (Owner), r-- = 4 + 0 + 0 = 4 (Group), r-- = 4 + 0 + 0 = 4 (Others). Zusammengesetzt ergibt das den chmod-Wert 644.",
+    "category": "automatisierung-scripting",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib den numerischen chmod-Wert ein (z. B. 755)."
+  },
+  {
+    "question": "Ein Unternehmen investiert 40.000 € in eine neue IT-Infrastruktur. Der jährliche Gewinn durch die Investition beträgt 8.000 €. Wie hoch ist der ROI in Prozent?",
+    "accepts": [
+      "20",
+      "20%",
+      "20 %",
+      "20 Prozent"
+    ],
+    "explanation": "ROI = (Gewinn / Investitionskosten) × 100 = (8.000 € / 40.000 €) × 100 = 20 %. Die Investition erwirtschaftet also eine Rendite von 20 %.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo",
+    "inputHint": "Gib den ROI in Prozent ein (z. B. 20 oder 20%)."
+  },
+  {
+    "question": "Eine IT-Investition kostet 36.000 €. Durch die Maßnahme werden monatlich 3.000 € eingespart. Nach wie vielen Monaten hat sich die Investition amortisiert?",
+    "accepts": [
+      "12",
+      "12 Monate"
+    ],
+    "explanation": "Amortisationszeit = Investitionskosten / monatliche Einsparung = 36.000 € / 3.000 € = 12 Monate. Nach einem Jahr hat sich die Investition vollständig amortisiert.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo",
+    "inputHint": "Gib die Anzahl der Monate ein."
+  },
+  {
+    "question": "Wie hoch ist das Mindestkapital (Stammkapital) einer GmbH in Euro?",
+    "accepts": [
+      "25000",
+      "25.000",
+      "25000 Euro",
+      "25.000 Euro",
+      "25.000 €",
+      "25000 €",
+      "25000€",
+      "25.000€"
+    ],
+    "explanation": "Nach § 5 GmbHG beträgt das Mindeststammkapital einer GmbH 25.000 €. Bei der Gründung muss mindestens die Hälfte (12.500 €) einbezahlt werden.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo",
+    "inputHint": "Gib den Betrag in Euro ein."
+  },
+  {
+    "question": "Wie lang ist ein SHA-256-Hash in Bit?",
+    "accepts": [
+      "256",
+      "256 Bit"
+    ],
+    "explanation": "SHA-256 erzeugt einen Hash-Wert mit einer festen Länge von 256 Bit (32 Byte). Der Name des Algorithmus enthält bereits die Ausgabelänge.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib die Länge in Bit ein."
+  },
+  {
+    "question": "Wie heißt der 4. Schritt im DHCP-Prozess (DORA)?",
+    "accepts": [
+      "Acknowledge",
+      "ACK",
+      "DHCP ACK",
+      "DHCP Acknowledge",
+      "DHCPACK"
+    ],
+    "explanation": "DORA steht für Discover → Offer → Request → Acknowledge. Im 4. Schritt (Acknowledge) bestätigt der DHCP-Server die IP-Adresszuweisung an den Client.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke",
+    "inputHint": "Gib den Namen des Schritts ein."
+  },
+  {
+    "question": "Wie hoch ist die Umschaltzeit einer VFI-USV (Online-USV)?",
+    "accepts": [
+      "0 ms",
+      "0",
+      "0ms",
+      "null",
+      "keine"
+    ],
+    "explanation": "Eine VFI-USV (Voltage and Frequency Independent) versorgt die angeschlossenen Geräte dauerhaft über den Wechselrichter. Es gibt keine Umschaltzeit (0 ms), da der Strom permanent über die USV geleitet wird – im Gegensatz zu VI- oder VFD-USV-Typen.",
+    "category": "server-virtualisierung",
+    "section": "01-Konzeption-Administration",
+    "inputHint": "Gib die Umschaltzeit ein (z. B. in ms)."
   }
 ];

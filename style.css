@@ -210,6 +210,49 @@ body {
   border-color: var(--accent);
 }
 
+/* ===== ROUND SIZE ===== */
+
+.round-size-section {
+  margin-bottom: 1.5rem;
+}
+
+.round-size-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-dim);
+}
+
+.round-size-grid {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 0.45rem 1.15rem;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.size-btn:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.size-btn.selected {
+  border-color: var(--accent);
+  background: rgba(108, 140, 255, 0.10);
+  color: var(--accent);
+}
+
 .start-actions {
   text-align: center;
   margin-bottom: 1rem;
@@ -319,6 +362,145 @@ body {
   border-color: var(--wrong);
   background: var(--wrong-bg);
   color: var(--wrong);
+}
+
+.option-btn.selected {
+  border-color: var(--accent);
+  background: rgba(108, 140, 255, 0.12);
+  color: var(--accent);
+}
+
+.multi-hint {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0;
+}
+
+.btn-check {
+  margin-top: 0.75rem;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-check:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== TABLES IN QUESTIONS ===== */
+
+.q-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.q-table th,
+.q-table td {
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+}
+
+.q-table th {
+  background: var(--surface-hover);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.q-table td {
+  background: var(--bg);
+}
+
+.q-table tr:hover td {
+  background: var(--surface-hover);
+}
+
+/* ===== CODE BLOCKS IN QUESTIONS ===== */
+
+.q-code {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--text);
+}
+
+/* ===== FREETEXT INPUT ===== */
+
+.freetext-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition);
+  margin-bottom: 0.5rem;
+}
+
+.freetext-input:focus {
+  border-color: var(--accent);
+}
+
+.freetext-input:disabled {
+  opacity: 0.7;
+}
+
+.freetext-input.freetext-correct {
+  border-color: var(--correct);
+  color: var(--correct);
+}
+
+.freetext-input.freetext-wrong {
+  border-color: var(--wrong);
+  color: var(--wrong);
+}
+
+.freetext-feedback {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.freetext-feedback.correct {
+  background: var(--correct-bg);
+  color: var(--correct);
+}
+
+.freetext-feedback.wrong {
+  background: var(--wrong-bg);
+  color: var(--text);
+}
+
+.freetext-feedback .fb-wrong {
+  color: var(--wrong);
+}
+
+.freetext-feedback strong {
+  color: var(--correct);
 }
 
 .quiz-footer {

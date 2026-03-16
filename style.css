@@ -1210,34 +1210,49 @@ body {
   margin-right: 0.25rem;
 }
 
-.btn-self {
-  font-size: 0.8rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 100px;
+.self-eval-points-row {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.btn-self-pt {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 8px;
   border: 1.5px solid var(--border);
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
   font-family: inherit;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all var(--transition);
 }
 
-.btn-self:hover {
+.btn-self-pt:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.btn-self-pt.chosen {
+  color: #fff;
+  background: var(--accent);
   border-color: var(--accent);
 }
 
-.btn-self.correct { border-color: var(--correct); color: var(--correct); }
-.btn-self.partial { border-color: #fbbf24; color: #fbbf24; }
-.btn-self.wrong { border-color: var(--wrong); color: var(--wrong); }
-
-.btn-self.chosen {
-  color: #fff;
+.btn-self-pt.zero.chosen {
+  background: var(--wrong);
+  border-color: var(--wrong);
 }
 
-.btn-self.correct.chosen { background: var(--correct); }
-.btn-self.partial.chosen { background: #fbbf24; color: #000; }
-.btn-self.wrong.chosen { background: var(--wrong); }
+.btn-self-pt.full.chosen {
+  background: var(--correct);
+  border-color: var(--correct);
+}
 
 /* Image in questions */
 

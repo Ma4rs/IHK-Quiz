@@ -639,23 +639,26 @@
             <p class="self-eval-text">${r.modelAnswer}</p>
           </div>
           <div class="self-eval-buttons" id="self-eval-${idx}">
-            <span class="self-eval-label">${r.maxPoints} Punkte möglich:</span>
-            <button class="btn btn-self correct" data-pts="${r.maxPoints}">Richtig (${r.maxPoints}P)</button>
-            <button class="btn btn-self partial" data-pts="${Math.round(r.maxPoints / 2)}">Teilweise (${Math.round(r.maxPoints / 2)}P)</button>
-            <button class="btn btn-self wrong" data-pts="0">Falsch (0P)</button>
+            <span class="self-eval-label">Punkte vergeben (0–${r.maxPoints}):</span>
+            <div class="self-eval-points-row">
+              ${Array.from({ length: r.maxPoints + 1 }, (_, p) =>
+                `<button class="btn btn-self-pt${p === 0 ? " zero" : p === r.maxPoints ? " full" : ""}" data-pts="${p}">${p}</button>`
+              ).join("")}
+            </div>
           </div>
         </div>
       `;
       list.appendChild(item);
 
       setTimeout(() => {
-        const btns = item.querySelectorAll(".btn-self");
+        const btns = item.querySelectorAll(".btn-self-pt");
         btns.forEach((b) => {
           b.addEventListener("click", () => {
             btns.forEach((x) => x.classList.remove("chosen"));
             b.classList.add("chosen");
+            const prev = selfEvalPending[r.qIdx];
             selfEvalPending[r.qIdx] = parseInt(b.dataset.pts);
-            evaluated++;
+            if (prev === undefined) evaluated++;
 
             if (evaluated === pending.length) {
               const finishBtn = $("#btn-finish-selfeval");

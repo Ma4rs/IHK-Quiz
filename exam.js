@@ -12,6 +12,7 @@
   let remainingSeconds = 0;
   let startTime = 0;
   let selfEvalPending = {};
+  let examScreenOriginalHTML = "";
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
@@ -75,14 +76,18 @@
 
     $("#exam-select-section").style.display = "block";
 
-    $("#btn-submit-exam").addEventListener("click", confirmSubmit);
-    $("#btn-exam-prev").addEventListener("click", () => navigateExam(-1));
-    $("#btn-exam-next").addEventListener("click", () => navigateExam(1));
-    $("#btn-flag").addEventListener("click", toggleFlag);
-    $("#btn-exam-review").addEventListener("click", () => showScreen("exam-review"));
-    $("#btn-exam-restart").addEventListener("click", endExam);
-    $("#btn-exam-back-result").addEventListener("click", () => showScreen("exam-result"));
-    $("#btn-exam-restart2").addEventListener("click", endExam);
+    if (!window._examEventsbound) {
+      window._examEventsbound = true;
+      examScreenOriginalHTML = $("#screen-exam").innerHTML;
+      $("#btn-submit-exam").addEventListener("click", confirmSubmit);
+      $("#btn-exam-prev").addEventListener("click", () => navigateExam(-1));
+      $("#btn-exam-next").addEventListener("click", () => navigateExam(1));
+      $("#btn-flag").addEventListener("click", toggleFlag);
+      $("#btn-exam-review").addEventListener("click", () => showScreen("exam-review"));
+      $("#btn-exam-restart").addEventListener("click", endExam);
+      $("#btn-exam-back-result").addEventListener("click", () => showScreen("exam-result"));
+      $("#btn-exam-restart2").addEventListener("click", endExam);
+    }
   }
 
   function showExamParts(term) {
@@ -776,6 +781,12 @@
     examAnswers = {};
     flagged = new Set();
     selfEvalPending = {};
+
+    if (examScreenOriginalHTML) {
+      $("#screen-exam").innerHTML = examScreenOriginalHTML;
+      window._examEventsbound = false;
+    }
+
     const oldBack = $(".exam-back-btn");
     if (oldBack) oldBack.remove();
     $(".exam-select-label").textContent = "Prüfungssimulation";

@@ -367,6 +367,15 @@
       .filter((b) => b.classList.contains("selected"))
       .map((b) => parseInt(b.dataset.idx));
 
+    if (chosenIndices.length === 0) {
+      const checkBtn = $("#btn-check-options");
+      if (checkBtn) {
+        checkBtn.classList.add("shake");
+        setTimeout(() => checkBtn.classList.remove("shake"), 400);
+      }
+      return;
+    }
+
     const correctIndices = isMulti(q) ? q.correct : [q.correct];
     const correctSet = new Set(correctIndices);
     const chosenSet = new Set(chosenIndices);

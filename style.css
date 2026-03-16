@@ -560,6 +560,130 @@ body {
   background: #ef5350;
 }
 
+/* ===== MATCH / ZUORDNUNG ===== */
+
+.match-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.match-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.match-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.match-left {
+  flex: 1;
+  background: var(--surface-hover);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+}
+
+.match-dropzone {
+  flex: 1;
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.match-dropzone.drag-over {
+  border-color: var(--accent);
+  background: rgba(108, 140, 255, 0.08);
+}
+
+.match-dropzone.filled {
+  border-style: solid;
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(108, 140, 255, 0.06);
+  cursor: grab;
+}
+
+.match-dropzone.locked {
+  cursor: default;
+}
+
+.match-dropzone.correct {
+  border-color: var(--correct);
+  background: var(--correct-bg);
+  color: var(--correct);
+}
+
+.match-dropzone.wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-bg);
+  color: var(--wrong);
+}
+
+.match-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 3rem;
+}
+
+.match-chip {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: grab;
+  user-select: none;
+  transition: opacity var(--transition);
+}
+
+.match-chip.dragging {
+  opacity: 0.4;
+}
+
+.match-correction {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--correct-bg);
+  border-left: 3px solid var(--correct);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--correct);
+}
+
+.match-correction strong {
+  color: var(--correct);
+}
+
+@media (max-width: 520px) {
+  .match-row {
+    flex-direction: column;
+  }
+}
+
 .quiz-footer {
   text-align: center;
 }

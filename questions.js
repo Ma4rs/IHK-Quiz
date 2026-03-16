@@ -3992,5 +3992,273 @@ const QUESTIONS_DATA = [
     "category": "server-virtualisierung",
     "section": "01-Konzeption-Administration",
     "inputHint": "Gib die Umschaltzeit ein (z. B. in ms)."
+  },
+  {
+    "question": "Ordne die Protokolle der richtigen OSI-Schicht zu.",
+    "pairs": [
+      {
+        "left": "HTTP",
+        "right": "Schicht 7 (Anwendung)"
+      },
+      {
+        "left": "TCP",
+        "right": "Schicht 4 (Transport)"
+      },
+      {
+        "left": "IP",
+        "right": "Schicht 3 (Vermittlung)"
+      },
+      {
+        "left": "Ethernet",
+        "right": "Schicht 2 (Sicherung)"
+      }
+    ],
+    "explanation": "HTTP arbeitet auf der Anwendungsschicht (7), TCP auf der Transportschicht (4), IP auf der Vermittlungsschicht (3) und Ethernet auf der Sicherungsschicht (2).",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ordne die Ports dem richtigen Dienst zu.",
+    "pairs": [
+      {
+        "left": "22",
+        "right": "SSH"
+      },
+      {
+        "left": "53",
+        "right": "DNS"
+      },
+      {
+        "left": "80",
+        "right": "HTTP"
+      },
+      {
+        "left": "443",
+        "right": "HTTPS"
+      },
+      {
+        "left": "3389",
+        "right": "RDP"
+      }
+    ],
+    "explanation": "SSH=22, DNS=53, HTTP=80, HTTPS=443, RDP=3389. Diese Standard-Ports sind Pflicht für die IHK-Prüfung.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ordne die DNS-Record-Typen ihrer Funktion zu.",
+    "pairs": [
+      {
+        "left": "A",
+        "right": "IPv4-Adresse"
+      },
+      {
+        "left": "MX",
+        "right": "Mailserver"
+      },
+      {
+        "left": "CNAME",
+        "right": "Alias für anderen Hostnamen"
+      },
+      {
+        "left": "PTR",
+        "right": "Reverse-DNS-Auflösung"
+      }
+    ],
+    "explanation": "A-Record löst Hostname in IPv4 auf, MX verweist auf den Mailserver, CNAME erstellt einen Alias und PTR ermöglicht die umgekehrte Auflösung.",
+    "category": "netzwerkprotokolle-osi",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ordne die Backup-Typen ihrer Beschreibung zu.",
+    "pairs": [
+      {
+        "left": "Vollbackup",
+        "right": "Sichert alle Daten vollständig"
+      },
+      {
+        "left": "Inkrementell",
+        "right": "Sichert Änderungen seit letztem Backup"
+      },
+      {
+        "left": "Differentiell",
+        "right": "Sichert Änderungen seit letztem Vollbackup"
+      }
+    ],
+    "explanation": "Vollbackup = alles, inkrementell = seit letztem Backup egal welcher Art, differentiell = seit letztem Vollbackup.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die RAID-Level ihrer Eigenschaft zu.",
+    "pairs": [
+      {
+        "left": "RAID 0",
+        "right": "Striping ohne Redundanz"
+      },
+      {
+        "left": "RAID 1",
+        "right": "Spiegelung"
+      },
+      {
+        "left": "RAID 5",
+        "right": "Striping mit verteilter Parität"
+      },
+      {
+        "left": "RAID 10",
+        "right": "Spiegelung + Striping"
+      }
+    ],
+    "explanation": "RAID 0 = nur Performance, RAID 1 = Spiegel, RAID 5 = Parität verteilt, RAID 10 = Kombi aus 1+0.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die Schutzziele der Informationssicherheit (CIA) der passenden Maßnahme zu.",
+    "pairs": [
+      {
+        "left": "Vertraulichkeit",
+        "right": "Verschlüsselung"
+      },
+      {
+        "left": "Integrität",
+        "right": "Hashwerte / Prüfsummen"
+      },
+      {
+        "left": "Verfügbarkeit",
+        "right": "Redundanz / USV"
+      }
+    ],
+    "explanation": "CIA-Triade: Vertraulichkeit durch Verschlüsselung, Integrität durch Hashes, Verfügbarkeit durch Redundanz.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die TOMs der richtigen Kategorie zu.",
+    "pairs": [
+      {
+        "left": "Chipkarte Serverraum",
+        "right": "Zutrittskontrolle"
+      },
+      {
+        "left": "Passwortrichtlinie",
+        "right": "Zugangskontrolle"
+      },
+      {
+        "left": "NTFS-Berechtigungen",
+        "right": "Zugriffskontrolle"
+      },
+      {
+        "left": "TLS-Verschlüsselung",
+        "right": "Weitergabekontrolle"
+      }
+    ],
+    "explanation": "Zutritt = physisch (Tür), Zugang = logisch (Anmeldung), Zugriff = Daten (Berechtigung), Weitergabe = Übertragung.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die Cloud-Service-Modelle dem passenden Beispiel zu.",
+    "pairs": [
+      {
+        "left": "IaaS",
+        "right": "AWS EC2 (virtuelle Server)"
+      },
+      {
+        "left": "PaaS",
+        "right": "Google App Engine (Plattform)"
+      },
+      {
+        "left": "SaaS",
+        "right": "Microsoft 365 (fertige Software)"
+      }
+    ],
+    "explanation": "IaaS = Infrastruktur, PaaS = Plattform, SaaS = fertige Anwendung. Je höher, desto mehr verwaltet der Anbieter.",
+    "category": "cloud-konzepte",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die VPN-Typen ihrem Einsatzzweck zu.",
+    "pairs": [
+      {
+        "left": "Site-to-Site",
+        "right": "Standortvernetzung zwischen Firmenstandorten"
+      },
+      {
+        "left": "End-to-Site",
+        "right": "Homeoffice / Remote Access einzelner Nutzer"
+      }
+    ],
+    "explanation": "Site-to-Site = zwei Netzwerke permanent verbunden. End-to-Site = einzelne Clients temporär angebunden.",
+    "category": "netzwerksicherheit-vpn",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ordne die USV-Typen ihrer Umschaltzeit zu.",
+    "pairs": [
+      {
+        "left": "VFD (Offline)",
+        "right": "5-12 ms Umschaltzeit"
+      },
+      {
+        "left": "VI (Line-Interactive)",
+        "right": "2-4 ms Umschaltzeit"
+      },
+      {
+        "left": "VFI (Online)",
+        "right": "0 ms (unterbrechungsfrei)"
+      }
+    ],
+    "explanation": "VFD hat die längste Umschaltzeit, VI regelt Spannung aktiv, VFI versorgt permanent über den Wechselrichter.",
+    "category": "server-virtualisierung",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ordne die Sozialversicherungen ihrem Träger zu.",
+    "pairs": [
+      {
+        "left": "Krankenversicherung",
+        "right": "Krankenkassen"
+      },
+      {
+        "left": "Rentenversicherung",
+        "right": "Deutsche Rentenversicherung"
+      },
+      {
+        "left": "Arbeitslosenversicherung",
+        "right": "Bundesagentur für Arbeit"
+      },
+      {
+        "left": "Unfallversicherung",
+        "right": "Berufsgenossenschaften"
+      }
+    ],
+    "explanation": "Jeder Zweig hat einen eigenen Träger. Unfallversicherung wird allein vom Arbeitgeber getragen.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Ordne die AGDLP-Komponenten ihrer Bedeutung zu.",
+    "pairs": [
+      {
+        "left": "A",
+        "right": "Account / Benutzerkonto"
+      },
+      {
+        "left": "G",
+        "right": "Globale Gruppe"
+      },
+      {
+        "left": "DL",
+        "right": "Domänenlokale Gruppe"
+      },
+      {
+        "left": "P",
+        "right": "Permission / Berechtigung"
+      }
+    ],
+    "explanation": "AGDLP: Benutzer (A) in globale Gruppe (G), diese in domänenlokale Gruppe (DL), darauf die Berechtigung (P).",
+    "category": "active-directory",
+    "section": "01-Konzeption-Administration"
   }
 ];

@@ -50,6 +50,10 @@
     return Array.isArray(q.accepts);
   }
 
+  function isMatch(q) {
+    return Array.isArray(q.pairs);
+  }
+
   // ───── SCREENS ─────
 
   function showScreen(id) {
@@ -303,7 +307,9 @@
       container.insertAdjacentHTML("beforeend", buildCodeHTML(q.code));
     }
 
-    if (isFreetext(q)) {
+    if (isMatch(q)) {
+      renderMatch(container, q);
+    } else if (isFreetext(q)) {
       renderFreetext(container, q);
     } else {
       renderOptions(container, q);
@@ -483,6 +489,183 @@
     showNextButton();
   }
 
+  // ───── MATCH / ZUORDNUNG ─────
+
+  function renderMatch(container, q) {
+    const hint = document.createElement("p");
+    hint.className = "multi-hint";
+    hint.textContent = "Ziehe die Begriffe auf die passende Zuordnung.";
+    container.appendChild(hint);
+
+    const matchArea = document.createElement("div");
+    matchArea.className = "match-area";
+
+    const leftItems = q.pairs.map((p) => p.left);
+    const rightItems = q.pairs.map((p) => p.right);
+    shuffle(rightItems);
+
+    const slots = document.createElement("div");
+    slots.className = "match-slots";
+
+    leftItems.forEach((left, i) => {
+      const row = document.createElement("div");
+      row.className = "match-row";
+      row.innerHTML = `<div class="match-left">${left}</div>`;
+
+      const dropzone = document.createElement("div");
+      dropzone.className = "match-dropzone";
+      dropzone.dataset.left = left;
+      dropzone.dataset.slotIdx = i;
+      dropzone.textContent = "Hierher ziehen";
+
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropzone.classList.add("drag-over");
+      });
+      dropzone.addEventListener("dragleave", () => {
+        dropzone.classList.remove("drag-over");
+      });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("drag-over");
+        const text = e.dataTransfer.getData("text/plain");
+        const sourceId = e.dataTransfer.getData("source-id");
+
+        if (dropzone.dataset.filled) {
+          const oldText = dropzone.textContent;
+          const pool = $(".match-pool");
+          const chip = document.createElement("div");
+          chip.className = "match-chip";
+          chip.draggable = true;
+          chip.textContent = oldText;
+          chip.id = "chip-" + Math.random().toString(36).slice(2);
+          bindChipDrag(chip);
+          pool.appendChild(chip);
+        }
+
+        dropzone.textContent = text;
+        dropzone.dataset.filled = "true";
+        dropzone.classList.add("filled");
+
+        const srcEl = document.getElementById(sourceId);
+        if (srcEl) srcEl.remove();
+
+        if (dropzone.querySelector) {
+          dropzone.draggable = true;
+          dropzone.addEventListener("dragstart", (ev) => {
+            if (dropzone.classList.contains("locked")) return ev.preventDefault();
+            ev.dataTransfer.setData("text/plain", dropzone.textContent);
+            ev.dataTransfer.setData("source-id", dropzone.id || "");
+            ev.dataTransfer.setData("from-slot", "true");
+            setTimeout(() => {
+              dropzone.textContent = "Hierher ziehen";
+              dropzone.classList.remove("filled");
+              delete dropzone.dataset.filled;
+            }, 0);
+          });
+        }
+      });
+
+      row.appendChild(dropzone);
+      slots.appendChild(row);
+    });
+
+    matchArea.appendChild(slots);
+
+    const pool = document.createElement("div");
+    pool.className = "match-pool";
+
+    rightItems.forEach((right, i) => {
+      const chip = document.createElement("div");
+      chip.className = "match-chip";
+      chip.draggable = true;
+      chip.textContent = right;
+      chip.id = "chip-" + i;
+      bindChipDrag(chip);
+      pool.appendChild(chip);
+    });
+
+    matchArea.appendChild(pool);
+    container.appendChild(matchArea);
+
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "btn btn-check";
+    checkBtn.textContent = "Prüfen";
+    checkBtn.addEventListener("click", () => onCheckMatch(q));
+    container.appendChild(checkBtn);
+  }
+
+  function bindChipDrag(chip) {
+    chip.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", chip.textContent);
+      e.dataTransfer.setData("source-id", chip.id);
+      e.dataTransfer.effectAllowed = "move";
+      chip.classList.add("dragging");
+    });
+    chip.addEventListener("dragend", () => {
+      chip.classList.remove("dragging");
+    });
+  }
+
+  function onCheckMatch(q) {
+    const dropzones = $$(".match-dropzone");
+    const alreadyLocked = [...dropzones].some((d) => d.classList.contains("locked"));
+    if (alreadyLocked) return;
+
+    const correctMap = {};
+    q.pairs.forEach((p) => (correctMap[p.left] = p.right));
+
+    let allCorrect = true;
+    const userPairs = [];
+
+    dropzones.forEach((dz) => {
+      dz.classList.add("locked");
+      const left = dz.dataset.left;
+      const chosen = dz.dataset.filled ? dz.textContent : "";
+      const expected = correctMap[left];
+      const correct = chosen === expected;
+
+      userPairs.push({ left, chosen, expected, correct });
+
+      if (correct) {
+        dz.classList.add("correct");
+      } else {
+        dz.classList.add("wrong");
+        allCorrect = false;
+      }
+    });
+
+    $$(".match-chip").forEach((c) => (c.draggable = false));
+
+    const checkBtn = $(".btn-check");
+    if (checkBtn) checkBtn.style.display = "none";
+
+    answered = true;
+
+    if (!allCorrect) {
+      const corrDiv = document.createElement("div");
+      corrDiv.className = "match-correction";
+      corrDiv.innerHTML = "<strong>Richtige Zuordnung:</strong><br>" +
+        q.pairs.map((p) => `${p.left} → ${p.right}`).join("<br>");
+      $("#options-container").appendChild(corrDiv);
+    }
+
+    answers.push({
+      question: q.question,
+      isCorrect: allCorrect,
+      explanation: q.explanation,
+      type: "match",
+      pairs: q.pairs,
+      userPairs,
+      table: q.table || null,
+      code: q.code || null,
+      _sourceQuestion: q,
+    });
+
+    showInlineExplanation($("#options-container"), q.explanation);
+    showNextButton();
+  }
+
   // ───── NAVIGATION ─────
 
   function showNextButton() {
@@ -556,7 +739,17 @@
       if (a.table) html += buildTableHTML(a.table);
       if (a.code) html += buildCodeHTML(a.code);
 
-      if (a.type === "freetext") {
+      if (a.type === "match") {
+        if (!a.isCorrect) {
+          const wrongPairs = a.userPairs.filter((p) => !p.correct);
+          html += wrongPairs
+            .map((p) => `<p class="review-answer your-wrong">${p.left} → ${p.chosen || "(leer)"}</p>`)
+            .join("");
+        }
+        html += a.pairs
+          .map((p) => `<p class="review-answer the-correct">${p.left} → ${p.right}</p>`)
+          .join("");
+      } else if (a.type === "freetext") {
         if (!a.isCorrect) {
           html += `<p class="review-answer your-wrong">Deine Antwort: ${a.chosen}</p>`;
         }

@@ -503,6 +503,63 @@ body {
   color: var(--correct);
 }
 
+/* ===== INLINE EXPLANATION ===== */
+
+.inline-explanation {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface-hover);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+  animation: fadeIn 0.3s ease;
+}
+
+.inline-explanation strong {
+  color: var(--accent);
+}
+
+/* ===== KEYBOARD HINTS ===== */
+
+.key-hint {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.4em;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  background: var(--border);
+  color: var(--text-dim);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.option-btn.selected .key-hint {
+  background: var(--accent);
+  color: #fff;
+}
+
+.option-btn.correct .key-hint,
+.option-btn.wrong .key-hint {
+  opacity: 0.4;
+}
+
+/* ===== RETRY BUTTON ===== */
+
+.btn-retry {
+  background: var(--wrong);
+  color: #fff;
+}
+
+.btn-retry:hover {
+  background: #ef5350;
+}
+
 .quiz-footer {
   text-align: center;
 }

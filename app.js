@@ -37,6 +37,7 @@
   let selectedSection = null;
   let selectedCategory = null;
   let questionsPerRound = 10;
+  let answered = false;
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
@@ -69,6 +70,7 @@
 
     updateCounts();
     bindEvents();
+    bindKeyboard();
     showScreen("start");
   }
 
@@ -104,6 +106,48 @@
       showScreen("result")
     );
     $("#btn-restart-review").addEventListener("click", resetToStart);
+  }
+
+  // ───── KEYBOARD SHORTCUTS ─────
+
+  function bindKeyboard() {
+    document.addEventListener("keydown", (e) => {
+      if (!$("#screen-quiz").classList.contains("active")) return;
+      if (e.target.tagName === "INPUT") {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          if (!answered) {
+            const checkBtn = $(".btn-check");
+            if (checkBtn) checkBtn.click();
+          } else {
+            nextQuestion();
+          }
+        }
+        return;
+      }
+
+      const q = currentRound[currentIndex];
+
+      if (!answered && !isFreetext(q)) {
+        const optBtns = [...$$(".option-btn")];
+        const keyNum = parseInt(e.key);
+        if (keyNum >= 1 && keyNum <= optBtns.length) {
+          e.preventDefault();
+          optBtns[keyNum - 1].click();
+          return;
+        }
+      }
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (!answered) {
+          const checkBtn = $(".btn-check");
+          if (checkBtn) checkBtn.click();
+        } else {
+          nextQuestion();
+        }
+      }
+    });
   }
 
   function onSizeClick(btn) {
@@ -206,6 +250,7 @@
     currentRound = pool.slice(0, count);
     currentIndex = 0;
     answers = [];
+    answered = false;
 
     const label = selectedCategory
       ? CATEGORY_LABELS[selectedCategory]
@@ -218,10 +263,31 @@
     renderQuestion();
   }
 
+  function startRetryWrong() {
+    const wrongQuestions = [];
+    answers.forEach((a) => {
+      if (!a.isCorrect && a._sourceQuestion) {
+        wrongQuestions.push(a._sourceQuestion);
+      }
+    });
+    if (wrongQuestions.length === 0) return;
+
+    shuffle(wrongQuestions);
+    currentRound = wrongQuestions;
+    currentIndex = 0;
+    answers = [];
+    answered = false;
+
+    $("#quiz-category-label").textContent = "Falsche wiederholen";
+    showScreen("quiz");
+    renderQuestion();
+  }
+
   function renderQuestion() {
     const q = currentRound[currentIndex];
     const num = currentIndex + 1;
     const total = currentRound.length;
+    answered = false;
 
     $("#quiz-progress").textContent = `${num} / ${total}`;
     $("#progress-fill").style.width = `${(num / total) * 100}%`;
@@ -246,17 +312,27 @@
     $("#btn-next").style.display = "none";
   }
 
+  // ───── INLINE EXPLANATION ─────
+
+  function showInlineExplanation(container, explanation) {
+    const expDiv = document.createElement("div");
+    expDiv.className = "inline-explanation";
+    expDiv.innerHTML = `<strong>Erklärung:</strong> ${explanation}`;
+    container.appendChild(expDiv);
+  }
+
   // ───── OPTIONS (unified: works for single AND multi) ─────
 
   function renderOptions(container, q) {
     const indices = q.options.map((_, i) => i);
     shuffle(indices);
 
-    indices.forEach((origIdx) => {
+    indices.forEach((origIdx, displayIdx) => {
       const btn = document.createElement("button");
       btn.className = "option-btn";
-      btn.textContent = q.options[origIdx];
       btn.dataset.idx = origIdx;
+      btn.dataset.key = displayIdx + 1;
+      btn.innerHTML = `<span class="key-hint">${displayIdx + 1}</span> ${q.options[origIdx]}`;
       btn.addEventListener("click", () => onToggleOption(btn));
       container.appendChild(btn);
     });
@@ -307,6 +383,8 @@
     const checkBtn = $("#btn-check-options");
     if (checkBtn) checkBtn.style.display = "none";
 
+    answered = true;
+
     answers.push({
       question: q.question,
       options: q.options,
@@ -317,8 +395,10 @@
       type: "options",
       table: q.table || null,
       code: q.code || null,
+      _sourceQuestion: q,
     });
 
+    showInlineExplanation($("#options-container"), q.explanation);
     showNextButton();
   }
 
@@ -337,7 +417,11 @@
     input.placeholder = "Antwort eingeben…";
     input.autocomplete = "off";
     input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") onCheckFreetext(q);
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (!answered) onCheckFreetext(q);
+        else nextQuestion();
+      }
     });
     container.appendChild(input);
 
@@ -381,6 +465,8 @@
     const checkBtns = $$(".btn-check");
     checkBtns.forEach((b) => (b.style.display = "none"));
 
+    answered = true;
+
     answers.push({
       question: q.question,
       correct: q.accepts[0],
@@ -390,8 +476,10 @@
       type: "freetext",
       table: q.table || null,
       code: q.code || null,
+      _sourceQuestion: q,
     });
 
+    showInlineExplanation($("#options-container"), q.explanation);
     showNextButton();
   }
 
@@ -447,6 +535,8 @@
 
     const wrongAnswers = answers.filter((a) => !a.isCorrect);
     $("#btn-review").style.display =
+      wrongAnswers.length > 0 ? "inline-block" : "none";
+    $("#btn-retry-wrong").style.display =
       wrongAnswers.length > 0 ? "inline-block" : "none";
 
     buildReview();
@@ -511,4 +601,6 @@
   // ───── BOOT ─────
 
   document.addEventListener("DOMContentLoaded", init);
+
+  window._quizRetryWrong = startRetryWrong;
 })();

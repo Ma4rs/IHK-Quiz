@@ -239,18 +239,16 @@
 
     if (isFreetext(q)) {
       renderFreetext(container, q);
-    } else if (isMulti(q)) {
-      renderMultiSelect(container, q);
     } else {
-      renderSingleChoice(container, q);
+      renderOptions(container, q);
     }
 
     $("#btn-next").style.display = "none";
   }
 
-  // ───── SINGLE-CHOICE RENDER ─────
+  // ───── OPTIONS (unified: works for single AND multi) ─────
 
-  function renderSingleChoice(container, q) {
+  function renderOptions(container, q) {
     const indices = q.options.map((_, i) => i);
     shuffle(indices);
 
@@ -259,79 +257,24 @@
       btn.className = "option-btn";
       btn.textContent = q.options[origIdx];
       btn.dataset.idx = origIdx;
-      btn.addEventListener("click", () => onAnswerSingle(btn, origIdx, q));
-      container.appendChild(btn);
-    });
-  }
-
-  function onAnswerSingle(btn, chosenIdx, q) {
-    const allBtns = $$(".option-btn");
-    const alreadyAnswered = [...allBtns].some((b) =>
-      b.classList.contains("locked")
-    );
-    if (alreadyAnswered) return;
-
-    allBtns.forEach((b) => b.classList.add("locked"));
-
-    const isCorrect = chosenIdx === q.correct;
-    if (isCorrect) {
-      btn.classList.add("correct");
-    } else {
-      btn.classList.add("wrong");
-      allBtns.forEach((b) => {
-        if (parseInt(b.dataset.idx) === q.correct) b.classList.add("correct");
-      });
-    }
-
-    answers.push({
-      question: q.question,
-      options: q.options,
-      correct: q.correct,
-      chosen: chosenIdx,
-      isCorrect,
-      explanation: q.explanation,
-      type: "single",
-      table: q.table || null,
-      code: q.code || null,
-    });
-
-    showNextButton();
-  }
-
-  // ───── MULTI-SELECT RENDER ─────
-
-  function renderMultiSelect(container, q) {
-    const hint = document.createElement("p");
-    hint.className = "multi-hint";
-    hint.textContent = "Mehrere Antworten sind richtig. Wähle alle richtigen aus.";
-    container.appendChild(hint);
-
-    const indices = q.options.map((_, i) => i);
-    shuffle(indices);
-
-    indices.forEach((origIdx) => {
-      const btn = document.createElement("button");
-      btn.className = "option-btn";
-      btn.textContent = q.options[origIdx];
-      btn.dataset.idx = origIdx;
-      btn.addEventListener("click", () => onToggleMulti(btn));
+      btn.addEventListener("click", () => onToggleOption(btn));
       container.appendChild(btn);
     });
 
     const checkBtn = document.createElement("button");
     checkBtn.className = "btn btn-check";
     checkBtn.textContent = "Prüfen";
-    checkBtn.id = "btn-check-multi";
-    checkBtn.addEventListener("click", () => onCheckMulti(q));
+    checkBtn.id = "btn-check-options";
+    checkBtn.addEventListener("click", () => onCheckOptions(q));
     container.appendChild(checkBtn);
   }
 
-  function onToggleMulti(btn) {
+  function onToggleOption(btn) {
     if (btn.classList.contains("locked")) return;
     btn.classList.toggle("selected");
   }
 
-  function onCheckMulti(q) {
+  function onCheckOptions(q) {
     const allBtns = $$(".option-btn");
     const alreadyAnswered = [...allBtns].some((b) =>
       b.classList.contains("locked")
@@ -342,7 +285,8 @@
       .filter((b) => b.classList.contains("selected"))
       .map((b) => parseInt(b.dataset.idx));
 
-    const correctSet = new Set(q.correct);
+    const correctIndices = isMulti(q) ? q.correct : [q.correct];
+    const correctSet = new Set(correctIndices);
     const chosenSet = new Set(chosenIndices);
 
     const isCorrect =
@@ -360,17 +304,17 @@
       }
     });
 
-    const checkBtn = $("#btn-check-multi");
+    const checkBtn = $("#btn-check-options");
     if (checkBtn) checkBtn.style.display = "none";
 
     answers.push({
       question: q.question,
       options: q.options,
-      correct: q.correct,
+      correct: correctIndices,
       chosen: chosenIndices,
       isCorrect,
       explanation: q.explanation,
-      type: "multi",
+      type: "options",
       table: q.table || null,
       code: q.code || null,
     });
@@ -527,18 +471,14 @@
           html += `<p class="review-answer your-wrong">Deine Antwort: ${a.chosen}</p>`;
         }
         html += `<p class="review-answer the-correct">Richtige Antwort: ${a.correct}</p>`;
-      } else if (a.type === "multi") {
+      } else {
         if (!a.isCorrect) {
           const chosenLabels = a.chosen.map((idx) => a.options[idx]);
           html += `<p class="review-answer your-wrong">Deine Auswahl: ${chosenLabels.join(", ") || "(keine)"}</p>`;
         }
         const correctLabels = a.correct.map((idx) => a.options[idx]);
-        html += `<p class="review-answer the-correct">Richtige Antworten: ${correctLabels.join(", ")}</p>`;
-      } else {
-        if (!a.isCorrect) {
-          html += `<p class="review-answer your-wrong">Deine Antwort: ${a.options[a.chosen]}</p>`;
-        }
-        html += `<p class="review-answer the-correct">Richtige Antwort: ${a.options[a.correct]}</p>`;
+        const label = correctLabels.length === 1 ? "Richtige Antwort" : "Richtige Antworten";
+        html += `<p class="review-answer the-correct">${label}: ${correctLabels.join(", ")}</p>`;
       }
 
       html += `<div class="review-explanation">${a.explanation}</div>`;

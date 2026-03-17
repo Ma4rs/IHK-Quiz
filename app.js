@@ -38,6 +38,7 @@
   let selectedCategory = null;
   let questionsPerRound = 10;
   let answered = false;
+  let seenQuestions = new Set();
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
@@ -169,6 +170,7 @@
 
     selectedSection = section;
     selectedCategory = null;
+    seenQuestions.clear();
 
     if (section === "all") {
       $("#subcategory-section").style.display = "none";
@@ -215,6 +217,7 @@
   function onSubcatClick(chip, section) {
     $$(".subcat-chip").forEach((c) => c.classList.remove("selected"));
     chip.classList.add("selected");
+    seenQuestions.clear();
 
     const cat = chip.dataset.cat;
     if (cat === "__all__") {
@@ -248,7 +251,13 @@
   // ───── QUIZ LOGIC ─────
 
   function startQuiz() {
-    const pool = [...filteredQuestions];
+    let pool = filteredQuestions.filter((q) => !seenQuestions.has(q));
+
+    if (pool.length === 0) {
+      seenQuestions.clear();
+      pool = [...filteredQuestions];
+    }
+
     shuffle(pool);
     const count = Math.min(questionsPerRound, pool.length);
     currentRound = pool.slice(0, count);
@@ -256,12 +265,19 @@
     answers = [];
     answered = false;
 
+    currentRound.forEach((q) => seenQuestions.add(q));
+
     const label = selectedCategory
       ? CATEGORY_LABELS[selectedCategory]
       : selectedSection === "all"
         ? "Alle Themen"
         : SECTION_LABELS[selectedSection];
     $("#quiz-category-label").textContent = label;
+
+    const remaining = filteredQuestions.filter((q) => !seenQuestions.has(q)).length;
+    $("#hint-text").textContent = remaining > 0
+      ? `Noch ${remaining} neue Fragen in dieser Kategorie.`
+      : "Alle Fragen waren dran — nächste Runde mischt neu.";
 
     showScreen("quiz");
     renderQuestion();

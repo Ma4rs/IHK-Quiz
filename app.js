@@ -181,6 +181,19 @@
     }
 
     $("#btn-start").disabled = false;
+    updateHint();
+  }
+
+  function updateHint() {
+    const remaining = filteredQuestions.filter((q) => !seenQuestions.has(q)).length;
+    const total = filteredQuestions.length;
+    if (remaining === total) {
+      $("#hint-text").textContent = `${total} Fragen verfügbar.`;
+    } else if (remaining > 0) {
+      $("#hint-text").textContent = `Noch ${remaining} von ${total} neuen Fragen in dieser Kategorie.`;
+    } else {
+      $("#hint-text").textContent = "Alle Fragen waren dran — nächste Runde mischt neu.";
+    }
   }
 
   function showSubcategories(section) {
@@ -227,6 +240,7 @@
       selectedCategory = cat;
       filteredQuestions = allQuestions.filter((q) => q.category === cat);
     }
+    updateHint();
   }
 
   // ───── TABLE / CODE RENDERING ─────
@@ -274,10 +288,7 @@
         : SECTION_LABELS[selectedSection];
     $("#quiz-category-label").textContent = label;
 
-    const remaining = filteredQuestions.filter((q) => !seenQuestions.has(q)).length;
-    $("#hint-text").textContent = remaining > 0
-      ? `Noch ${remaining} neue Fragen in dieser Kategorie.`
-      : "Alle Fragen waren dran — nächste Runde mischt neu.";
+    updateHint();
 
     showScreen("quiz");
     renderQuestion();

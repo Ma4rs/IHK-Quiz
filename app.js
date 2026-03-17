@@ -345,8 +345,21 @@
 
   // ───── OPTIONS (unified: works for single AND multi) ─────
 
+  function selectDisplayOptions(q, maxShow) {
+    const correctIndices = new Set(isMulti(q) ? q.correct : [q.correct]);
+    const allIndices = q.options.map((_, i) => i);
+
+    if (allIndices.length <= maxShow) return allIndices;
+
+    const correct = allIndices.filter((i) => correctIndices.has(i));
+    const wrong = allIndices.filter((i) => !correctIndices.has(i));
+    shuffle(wrong);
+    const needed = maxShow - correct.length;
+    return [...correct, ...wrong.slice(0, needed)];
+  }
+
   function renderOptions(container, q) {
-    const indices = q.options.map((_, i) => i);
+    const indices = selectDisplayOptions(q, 4);
     shuffle(indices);
 
     indices.forEach((origIdx, displayIdx) => {

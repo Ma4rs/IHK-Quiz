@@ -111,6 +111,11 @@
       showScreen("result")
     );
     $("#btn-restart-review").addEventListener("click", resetToStart);
+    $("#reset-seen-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      seenQuestions.clear();
+      updateHint();
+    });
   }
 
   // ───── KEYBOARD SHORTCUTS ─────
@@ -170,7 +175,6 @@
 
     selectedSection = section;
     selectedCategory = null;
-    seenQuestions.clear();
 
     if (section === "all") {
       $("#subcategory-section").style.display = "none";
@@ -187,12 +191,21 @@
   function updateHint() {
     const remaining = filteredQuestions.filter((q) => !seenQuestions.has(q)).length;
     const total = filteredQuestions.length;
-    if (remaining === total) {
+    const seen = total - remaining;
+    const resetLink = $("#reset-seen-link");
+
+    if (total === 0) {
+      $("#hint-text").textContent = "Wähle eine Kategorie, dann starte das Quiz.";
+      if (resetLink) resetLink.style.display = "none";
+    } else if (remaining === total) {
       $("#hint-text").textContent = `${total} Fragen verfügbar.`;
+      if (resetLink) resetLink.style.display = "none";
     } else if (remaining > 0) {
-      $("#hint-text").textContent = `Noch ${remaining} von ${total} neuen Fragen in dieser Kategorie.`;
+      $("#hint-text").textContent = `Noch ${remaining} von ${total} neuen Fragen übrig.`;
+      if (resetLink) resetLink.style.display = "inline";
     } else {
-      $("#hint-text").textContent = "Alle Fragen waren dran — nächste Runde mischt neu.";
+      $("#hint-text").textContent = `Alle ${total} Fragen waren dran — nächste Runde mischt neu.`;
+      if (resetLink) resetLink.style.display = "inline";
     }
   }
 
@@ -230,7 +243,6 @@
   function onSubcatClick(chip, section) {
     $$(".subcat-chip").forEach((c) => c.classList.remove("selected"));
     chip.classList.add("selected");
-    seenQuestions.clear();
 
     const cat = chip.dataset.cat;
     if (cat === "__all__") {
@@ -829,6 +841,9 @@
     $$(".cat-card").forEach((c) => c.classList.remove("selected"));
     $("#subcategory-section").style.display = "none";
     $("#btn-start").disabled = true;
+    $("#hint-text").textContent = "Wähle eine Kategorie, dann starte das Quiz.";
+    const resetLink = $("#reset-seen-link");
+    if (resetLink) resetLink.style.display = "none";
     showScreen("start");
   }
 

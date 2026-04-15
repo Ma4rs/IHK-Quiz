@@ -5227,5 +5227,1727 @@ const QUESTIONS_DATA = [
     "explanation": "AGDLP: Benutzer (A) in globale Gruppe (G), diese in domänenlokale Gruppe (DL), darauf die Berechtigung (P).",
     "category": "active-directory",
     "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ein /27-Netz soll fuer ein VLAN verwendet werden. Wie viele Hostadressen sind nutzbar?",
+    "options": [
+      "14",
+      "30",
+      "62",
+      "126",
+      "28",
+      "32",
+      "29",
+      "254"
+    ],
+    "correct": 1,
+    "explanation": "/27 hat 32 Adressen pro Subnetz. Abzueglich Netz- und Broadcastadresse bleiben 30 nutzbare Hostadressen.",
+    "category": "subnetting",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Wildcard-Maske passt in einer Cisco-ACL zu 192.168.10.0/24?",
+    "options": [
+      "255.255.255.0",
+      "0.0.0.255",
+      "0.0.255.255",
+      "255.255.0.0",
+      "0.255.255.255",
+      "255.0.0.0",
+      "0.0.0.0",
+      "255.255.255.255"
+    ],
+    "correct": 1,
+    "explanation": "Die Wildcard ist das bitweise Inverse der Subnetzmaske. Aus 255.255.255.0 wird 0.0.0.255.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Aussage zu OSPF ist korrekt?",
+    "options": [
+      "OSPF verwendet ausschliesslich Metrik in Hop-Counts",
+      "OSPF ist ein Distanzvektorprotokoll",
+      "OSPF waehlt immer den kuerzesten physikalischen Kabelweg",
+      "OSPF nutzt den SPF-Algorithmus und bildet eine Link-State-Datenbank",
+      "OSPF funktioniert nur mit classful Netzen",
+      "OSPF unterstuetzt keine Area-Struktur",
+      "OSPF verteilt nur Default-Routen",
+      "OSPF kann keine ECMP-Routen installieren"
+    ],
+    "correct": 3,
+    "explanation": "OSPF ist ein Link-State-Protokoll, baut eine LSDB auf und berechnet Pfade mit dem Dijkstra-SPF-Algorithmus.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Nach welchen Kriterien waehlt STP standardmaessig die Root Bridge?",
+    "options": [
+      "Niedrigste Port-Prioritaet",
+      "Hoechste MAC-Adresse",
+      "Niedrigste Bridge-ID (Prioritaet, dann MAC)",
+      "Hoechste Uptime",
+      "Niedrigste CPU-Last",
+      "Geringste Anzahl aktiver VLANs",
+      "Switch mit Management-IP",
+      "Erster eingeschalteter Switch"
+    ],
+    "correct": 2,
+    "explanation": "STP waehlt die Bridge mit der niedrigsten Bridge-ID als Root. Die Bridge-ID besteht aus Prioritaet und MAC-Adresse.",
+    "category": "switching-vlan",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Reihenfolge beschreibt den DHCPv4-Prozess korrekt?",
+    "options": [
+      "Offer -> Discover -> Request -> Acknowledge",
+      "Discover -> Offer -> Request -> Acknowledge",
+      "Discover -> Request -> Offer -> Acknowledge",
+      "Request -> Discover -> Offer -> Acknowledge",
+      "Discover -> Offer -> Acknowledge -> Request",
+      "Offer -> Request -> Discover -> Acknowledge",
+      "Acknowledge -> Discover -> Offer -> Request",
+      "Request -> Offer -> Discover -> Acknowledge"
+    ],
+    "correct": 1,
+    "explanation": "Der Standardablauf ist DORA: Discover, Offer, Request, Acknowledge.",
+    "category": "netzwerkdienste",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Was beschreibt NAT Overload (PAT) am treffendsten?",
+    "options": [
+      "1:1-Zuordnung interner zu oeffentlichen Adressen",
+      "Mehrere interne Clients teilen eine oeffentliche IP ueber verschiedene Quellports",
+      "IPv6 wird in IPv4-Netze getunnelt",
+      "Eine oeffentliche IP wird auf mehrere VLANs verteilt",
+      "NAT Overload ist nur mit TCP moeglich",
+      "NAT Overload ersetzt eine Firewall vollstaendig",
+      "Bei PAT bleibt der Quellport unveraendert",
+      "PAT funktioniert nur bei statischem Routing"
+    ],
+    "correct": 1,
+    "explanation": "PAT multiplexed viele interne Verbindungen ueber eine oder wenige oeffentliche IPs durch Portumsetzung.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche TCP-Flags werden beim Verbindungsaufbau (3-Way-Handshake) verwendet?",
+    "options": [
+      "FIN, ACK, RST",
+      "SYN, SYN-ACK, ACK",
+      "PSH, ACK, URG",
+      "ACK, ACK, ACK",
+      "SYN, FIN, ACK",
+      "RST, SYN, ACK",
+      "SYN, PSH, FIN",
+      "URG, SYN-ACK, FIN"
+    ],
+    "correct": 1,
+    "explanation": "Der 3-Way-Handshake besteht aus SYN, SYN-ACK und abschliessendem ACK.",
+    "category": "netzwerkprotokolle",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Aussage zu IPv6-SLAAC ist korrekt?",
+    "options": [
+      "SLAAC benoetigt zwingend einen DHCPv6-Server fuer die Adressvergabe",
+      "SLAAC basiert auf Router Advertisements",
+      "SLAAC funktioniert nur in Punkt-zu-Punkt-Netzen",
+      "SLAAC vergibt keine Prefixlaenge",
+      "SLAAC ist nur fuer Link-Local-Adressen nutzbar",
+      "SLAAC kann nicht mit statischen DNS-Eintraegen kombiniert werden",
+      "SLAAC setzt NAT64 voraus",
+      "SLAAC deaktiviert standardmaessig ICMPv6"
+    ],
+    "correct": 1,
+    "explanation": "Bei SLAAC teilt ein Router via ICMPv6 Router Advertisements Prefix und Parameter mit, aus denen Hosts ihre Adresse bilden.",
+    "category": "ipv6",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Warum steigt bei traceroute die TTL schrittweise an?",
+    "options": [
+      "Um die Ziel-IP zu verschleiern",
+      "Damit nur Layer-2-Switches antworten",
+      "Um jeden Hop durch Time-Exceeded-Antworten sichtbar zu machen",
+      "Um Paketverlust zu reduzieren",
+      "Damit Firewalls umgangen werden",
+      "Um DNS-Aufloesung zu beschleunigen",
+      "Weil ICMP keine feste TTL erlaubt",
+      "Damit nur der letzte Router antwortet"
+    ],
+    "correct": 2,
+    "explanation": "Traceroute provoziert Time-Exceeded-Meldungen je Hop durch schrittweise TTL-Erhoehung.",
+    "category": "netzwerkdiagnose",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Massnahmen haerten einen Access-Switch-Port sinnvoll ab? (Mehrfachauswahl)",
+    "options": [
+      "Port Security mit MAC-Limit",
+      "BPDU Guard auf Endgeraete-Ports",
+      "Nicht genutzte Ports deaktivieren",
+      "Native VLAN als produktives Benutzer-VLAN verwenden",
+      "DTP Trunk-Aushandlung auf User-Ports deaktivieren",
+      "Root-Guard auf allen Uplink-Ports deaktivieren",
+      "Switchport Mode Dynamic Desirable auf Clients",
+      "Loopback-Adresse auf Client-PC konfigurieren"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Typische Hardening-Massnahmen sind Port Security, BPDU Guard, Abschalten ungenutzter Ports und kein dynamischer Trunk auf User-Ports.",
+    "category": "it-sicherheit",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ein Access-Port ist im VLAN 20, der Uplink zum Core ist ein 802.1Q-Trunk. Wo wird das VLAN-Tag hinzugefuegt?",
+    "options": [
+      "Am Endgeraet auf dem Access-Port",
+      "Nur im Router",
+      "Auf dem Trunk-Link durch den sendenden Switch",
+      "Im DHCP-Server",
+      "Im DNS-Server",
+      "Das Tag wird im Access-Netz nie verwendet",
+      "Durch STP beim Topologie-Change",
+      "Nur auf Layer-1 durch das Patchkabel"
+    ],
+    "correct": 2,
+    "explanation": "Frames auf Access-Ports sind ungetaggt. Das 802.1Q-Tag wird auf Trunk-Links zwischen Switches/Routern genutzt.",
+    "category": "switching-vlan",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Nenne die CIDR-Schreibweise fuer die Subnetzmaske 255.255.255.248.",
+    "accepts": [
+      "/29",
+      "29"
+    ],
+    "explanation": "255.255.255.248 entspricht 29 gesetzten Bits und damit /29.",
+    "category": "subnetting",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Ordne Schicht und typisches Geraet/Protokoll korrekt zu.",
+    "pairs": [
+      {
+        "left": "Layer 2",
+        "right": "Switch / MAC"
+      },
+      {
+        "left": "Layer 3",
+        "right": "Router / IP"
+      },
+      {
+        "left": "Layer 4",
+        "right": "TCP/UDP / Portnummern"
+      },
+      {
+        "left": "Layer 7",
+        "right": "HTTP, DNS, SMTP"
+      }
+    ],
+    "explanation": "OSI-Verstaendnis ist IHK-klassisch: L2 Vermittlung, L3 Routing, L4 Transport, L7 Anwendung.",
+    "category": "netzwerkprotokolle",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Aussage zu RAID 10 ist korrekt?",
+    "options": [
+      "RAID 10 nutzt einfache Paritaet",
+      "RAID 10 benoetigt mindestens 3 Festplatten",
+      "RAID 10 kombiniert Mirroring und Striping und benoetigt mindestens 4 Festplatten",
+      "RAID 10 ist langsamer beim Lesen als RAID 5",
+      "RAID 10 toleriert generell den Ausfall beliebig vieler Platten",
+      "RAID 10 ist identisch zu RAID 0",
+      "RAID 10 kann nur mit SSDs betrieben werden",
+      "RAID 10 bietet keine Redundanz"
+    ],
+    "correct": 2,
+    "explanation": "RAID 10 = Striping ueber gespiegelte Sets. Mindestanzahl sind 4 Datentraeger.",
+    "category": "raid-backup",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Ein Fachbereich fordert: maximal 30 Minuten Datenverlust, Wiederanlauf in 4 Stunden. Welche Kennzahlen beschreiben das?",
+    "options": [
+      "RPO = 4h, RTO = 30min",
+      "RPO = 30min, RTO = 4h",
+      "RPO = 30min, MTTD = 4h",
+      "RTO = 30min, MTTR = 4h",
+      "SLA = 30min, SLO = 4h",
+      "RTO = 4h, RRA = 30min",
+      "RPO = 4h, MTBF = 30min",
+      "RPO und RTO sind identisch"
+    ],
+    "correct": 1,
+    "explanation": "RPO = maximal tolerierter Datenverlust in Zeit, RTO = maximal tolerierte Wiederherstellungsdauer.",
+    "category": "backup-recovery",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Aenderung ist typischerweise ein Standard Change nach ITIL?",
+    "options": [
+      "Erstmalige Migration eines ERP-Systems",
+      "Patchen von 200 Servern nach neuer kritischer Luecke ohne Prozess",
+      "Regelmaessige, vorab genehmigte Passwort-Policy-Umsetzung nach dokumentiertem Verfahren",
+      "Rollback einer fehlgeschlagenen Datenbankmigration",
+      "Einmalige Netzsegmentierung im Rechenzentrum",
+      "Notfallmassnahme waehrend Incident mit unbekanntem Risiko",
+      "Austausch einer Kernfirewall ohne Wartungsfenster",
+      "Sicherheitsvorfallanalyse durch Forensik-Team"
+    ],
+    "correct": 2,
+    "explanation": "Standard Changes sind risikoarm, wiederkehrend und vorab freigegeben.",
+    "category": "it-service-management",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Vorgehensweise folgt dem Least-Privilege-Prinzip in Active Directory am besten?",
+    "options": [
+      "Jeder Benutzer erhaelt direkte NTFS-Rechte auf Dateien",
+      "Benutzer in globale Gruppen, globale Gruppen in domänenlokale Gruppen, Rechte nur auf Gruppen",
+      "Alle Benutzer in Domain Admins",
+      "Freigaberechte immer Vollzugriff fuer Authenticated Users",
+      "Rechte werden ausschliesslich per GPO auf Benutzerobjekte geschrieben",
+      "Dienstkonten teilen sich ein gemeinsames Admin-Konto",
+      "Jeder Ordner bekommt individuelle Benutzer-ACLs ohne Gruppen",
+      "Passwoerter von Admin-Konten werden teamweit geteilt"
+    ],
+    "correct": 1,
+    "explanation": "AGDLP mit Gruppen statt Direktberechtigungen ist wartbar und minimiert ueberprivilegierte Einzelkonten.",
+    "category": "active-directory",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Reihenfolge ist im Incident-Handling fachlich korrekt?",
+    "options": [
+      "Lessons Learned -> Recovery -> Detection -> Containment -> Eradication",
+      "Detection/Identification -> Containment -> Eradication -> Recovery -> Lessons Learned",
+      "Containment -> Detection -> Recovery -> Eradication -> Lessons Learned",
+      "Recovery -> Eradication -> Detection -> Containment -> Reporting",
+      "Eradication -> Containment -> Detection -> Recovery -> Lessons Learned",
+      "Detection -> Recovery -> Containment -> Eradication -> Abschluss",
+      "Lessons Learned -> Detection -> Containment -> Recovery -> Eradication",
+      "Containment -> Lessons Learned -> Detection -> Eradication -> Recovery"
+    ],
+    "correct": 1,
+    "explanation": "Erst erkennen und eingrenzen, dann Ursache beseitigen, Systeme wiederherstellen und abschliessend nachbereiten.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Aussage zur asymmetrischen Kryptografie ist korrekt?",
+    "options": [
+      "Verschluesselung und Entschluesselung erfolgen immer mit demselben Schluessel",
+      "Digitale Signatur erfolgt mit dem oeffentlichen Schluessel des Senders",
+      "Zur Vertraulichkeit wird mit dem oeffentlichen Schluessel des Empfaengers verschluesselt",
+      "Asymmetrische Verfahren sind fuer grosse Datenmengen typischerweise schneller als AES",
+      "Asymmetrische Verfahren bieten keine Integritaet",
+      "Private Keys duerfen an Kommunikationspartner verteilt werden",
+      "TLS verwendet ausschliesslich asymmetrische Verfahren fuer Nutzdaten",
+      "RSA ist ein Hash-Verfahren"
+    ],
+    "correct": 2,
+    "explanation": "Fuer Vertraulichkeit wird mit dem Public Key des Empfaengers verschluesselt; entschluesseln kann nur dessen Private Key.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Welche Massnahmen verbessern Passwortsicherheit in Unternehmen wirklich? (Mehrfachauswahl)",
+    "options": [
+      "MFA aktivieren",
+      "Lange Passphrasen statt kurzer komplexer Muster erzwingen",
+      "Gemeinsame Team-Admin-Konten nutzen, damit niemand ausgesperrt wird",
+      "Passwort-Manager mit individuellen Tresoren einsetzen",
+      "Regelmaessiges Security-Awareness-Training",
+      "Passwoerter in Browser-Notizen dokumentieren",
+      "Default-Passwoerter bei Inbetriebnahme unveraendert lassen",
+      "Nur quartalsweise Passwortwechsel ohne Anlass als alleinige Massnahme"
+    ],
+    "correct": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "explanation": "Wirksam sind MFA, starke/passende Passwortregeln, sichere Verwaltung und Nutzeraufklaerung. Unsichere Workarounds erhoehen Risiko.",
+    "category": "it-sicherheit",
+    "section": "01-Konzeption-Administration"
+  },
+  {
+    "question": "Was ist der Hauptvorteil von Split-DNS in Unternehmensnetzwerken?",
+    "options": [
+      "Interne und externe Namensaufloesung koennen unterschiedlich bereitgestellt werden",
+      "DNSSEC wird dadurch ueberfluessig",
+      "Alle internen Hosts sind automatisch aus dem Internet erreichbar",
+      "Split-DNS ersetzt Reverse-Lookups",
+      "Es verringert die Anzahl noetiger DNS-Server auf exakt einen",
+      "Es eliminiert Caching-Probleme vollstaendig",
+      "Es funktioniert nur mit IPv6",
+      "Es ist identisch mit NAT Hairpinning"
+    ],
+    "correct": 0,
+    "explanation": "Split-DNS erlaubt unterschiedliche Antworten fuer intern und extern, z. B. interne Ziel-IP statt oeffentlicher Adresse.",
+    "category": "netzwerkdienste",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche BGP-Entscheidung ist korrekt, wenn mehrere Routen zum selben Prefix vorliegen?",
+    "options": [
+      "Route mit hoechster MED wird bevorzugt",
+      "Route mit laengster AS-PATH wird bevorzugt",
+      "Route mit hoeherem Local Preference wird bevorzugt",
+      "eBGP wird immer gegen iBGP verworfen",
+      "Niedrigste Bandbreite gewinnt immer",
+      "Route mit juengstem Zeitstempel gewinnt",
+      "Die groesste Prefixlaenge wird ignoriert",
+      "BGP kennt keine Attribut-basierte Auswahl"
+    ],
+    "correct": 2,
+    "explanation": "Local Preference ist ein zentrales BGP-Attribut fuer ausgehende Pfadpraeferenz innerhalb eines AS.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche zusammengefasste Route deckt 10.20.0.0/24 bis 10.20.3.0/24 korrekt ab?",
+    "options": [
+      "10.20.0.0/21",
+      "10.20.0.0/22",
+      "10.20.0.0/23",
+      "10.20.0.0/24",
+      "10.20.0.0/20",
+      "10.20.2.0/23",
+      "10.20.1.0/22",
+      "10.20.0.0/25"
+    ],
+    "correct": 1,
+    "explanation": "Vier aufeinanderfolgende /24-Netze lassen sich zu einem /22 zusammenfassen.",
+    "category": "routing",
+    "section": "02-Netzwerke"
+  },
+  {
+    "question": "Welche Kostenart ist in der KLR eine variable Kostenart?",
+    "options": [
+      "Miete fuer Buero",
+      "Abschreibung auf Serverraum",
+      "Leasingrate mit fixer Monatsgebuehr",
+      "Lizenz pro aktivem Benutzerkonto",
+      "Grundgebuehr Internetanschluss",
+      "Versicherungsbeitrag Jahrespauschale",
+      "Gehalt IT-Leitung",
+      "Kammerbeitrag"
+    ],
+    "correct": 3,
+    "explanation": "Variable Kosten veraendern sich mit der Ausbringungsmenge, z. B. nutzungsabhaengige Lizenzen pro User.",
+    "category": "kostenrechnung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Aussage zur DSGVO ist bei externer Cloud-Nutzung korrekt?",
+    "options": [
+      "Ein Auftragsverarbeitungsvertrag ist nicht noetig, wenn der Anbieter ISO-zertifiziert ist",
+      "Der Verantwortliche bleibt fuer die Datenverarbeitung verantwortlich",
+      "Bei Verschluesselung entfaellt jede Informationspflicht",
+      "Personenbezogene Daten duerfen grundsaetzlich ohne Rechtsgrundlage verarbeitet werden",
+      "Datenschutz-Folgenabschaetzung ist nie erforderlich",
+      "Auftragsverarbeiter duerfen Unterauftragsverarbeiter frei und ohne Information einsetzen",
+      "Betroffenenrechte gelten nur fuer Daten im Inland",
+      "Loeschkonzepte sind nur fuer Papierakten relevant"
+    ],
+    "correct": 1,
+    "explanation": "Auch bei Cloud-Auslagerung bleibt der Verantwortliche verantwortlich. AVV und geeignete TOMs sind Pflicht.",
+    "category": "datenschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Ordne die Rechtsform dem Haftungsprinzip korrekt zu.",
+    "pairs": [
+      {
+        "left": "Einzelunternehmen",
+        "right": "Unbeschraenkte Haftung mit Privatvermoegen"
+      },
+      {
+        "left": "GmbH",
+        "right": "Haftung grundsaetzlich auf Gesellschaftsvermoegen beschraenkt"
+      },
+      {
+        "left": "OHG",
+        "right": "Gesellschafter haften unbeschraenkt und gesamtschuldnerisch"
+      },
+      {
+        "left": "AG",
+        "right": "Haftung grundsaetzlich auf Gesellschaftsvermoegen beschraenkt"
+      }
+    ],
+    "explanation": "Personengesellschaften und Einzelunternehmen haften regelmaessig persoenlich, Kapitalgesellschaften grundsaetzlich mit Gesellschaftsvermoegen.",
+    "category": "unternehmensrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Ziele verfolgt das magische Viereck der Wirtschaftspolitik? (Mehrfachauswahl)",
+    "options": [
+      "Preisniveaustabilitaet",
+      "Hoher Beschaeftigungsstand",
+      "Aussenwirtschaftliches Gleichgewicht",
+      "Stetiges und angemessenes Wirtschaftswachstum",
+      "Vollstaendige Steuerfreiheit fuer Unternehmen",
+      "Maximale Exportquote ohne Importe",
+      "Verbot aller Zinserhoehungen",
+      "Fixer Wechselkurs in jeder Wirtschaftslage"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Die vier klassischen Ziele sind Preisstabilitaet, hoher Beschaeftigungsstand, aussenwirtschaftliches Gleichgewicht und Wachstum.",
+    "category": "wirtschaftspolitik",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wozu dient das Europass-Dokumentensystem laut typischer IHK/PuG-Beschreibung?",
+    "options": [
+      "Nur zur Meldung bei der Arbeitsagentur",
+      "Qualifikationen europaweit vergleichbar darstellen und Bewerbungen im Ausland erleichtern",
+      "Zur steuerlichen Erfassung von Grenzgaengern",
+      "Als Ersatz fuer den Ausbildungsnachweis im Berichtsheft",
+      "Ausschliesslich fuer akademische Abschluesse in der EU",
+      "Zur Zulassung als Handwerksmeister",
+      "Als Pflichtdokument fuer jede Betriebsratswahl",
+      "Nur fuer die Anmeldung zur IHK-Abschlusspruefung"
+    ],
+    "correct": 1,
+    "explanation": "Europass ist ein kostenloses, standardisiertes Dokumentensystem fuer Qualifikationen und Berufserfahrung mit hoher Transparenz im europaeischen Bildungs- und Arbeitsbereich.",
+    "category": "lebenslanges-lernen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche drei Saeulen der Altersvorsorge werden in der PuG-Literatur meist genannt?",
+    "options": [
+      "ELStAM, BBG, Riester",
+      "Gesetzliche Rente, betriebliche Altersvorsorge, private Vorsorge",
+      "Kranken-, Renten-, Pflegeversicherung",
+      "Aktien, Anleihen, Tagesgeld",
+      "Tarifvertrag, Betriebsvereinbarung, Arbeitsvertrag",
+      "Haftpflicht, Rechtsschutz, Lebensversicherung",
+      "Bund, Laender, Kommunen",
+      "Basisrente, Aufstockung, Zuschuss"
+    ],
+    "correct": 1,
+    "explanation": "Das Drei-Saeulen-Modell umfasst die gesetzliche Rentenversicherung (umlagefinanziert), die betriebliche Altersvorsorge und die private Altersvorsorge (z. B. Riester, Ruerup, Sparen).",
+    "category": "lebenslanges-lernen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was beschreibt die Umschulung im Sinne der Zusammenfassung?",
+    "options": [
+      "Nur ein kuerzeres duales Ausbildungsjahr",
+      "Qualifizierung fuer einen anderen Beruf, wenn der bisherige nicht mehr ausgeuebt werden kann oder zur Vermeidung von Arbeitslosigkeit",
+      "Wechsel der Gewerkschaftszugehoerigkeit",
+      "Automatischer Aufstieg nach drei Jahren Betriebszugehoerigkeit",
+      "Die Verkuerzung der Ausbildungszeit durch die IHK",
+      "Ein Wechsel in die Elternzeit",
+      "Die Umwandlung einer OHG in eine GmbH",
+      "Nur Fortbildung innerhalb desselben Berufs ohne Abschluss"
+    ],
+    "correct": 1,
+    "explanation": "Umschulung dient der Neuqualifizierung fuer einen anderen Beruf bei Wegfall des alten Berufs, drohender Arbeitslosigkeit oder zum Nachholen eines Berufsabschlusses als Erwachsener.",
+    "category": "lebenslanges-lernen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Aussage zur Existenzgruendung trifft als Grenze/Risiko zu?",
+    "options": [
+      "Es gibt keine persoenliche Haftung bei Kapitalgesellschaften",
+      "Hohes finanzielles Risiko und unsicheres Einkommen",
+      "Der Staat uebernimmt immer die Sozialversicherungsbeitraege",
+      "Keine Marktkenntnis ist erforderlich",
+      "Gewerbeanmeldung entfaellt bei Online-Shop",
+      "Skalierung ist gesetzlich auf 10 Mitarbeiter begrenzt",
+      "Steuern entfallen in den ersten fuenf Jahren",
+      "Fremdfinanzierung ist in Deutschland verboten"
+    ],
+    "correct": 1,
+    "explanation": "Typische Risiken sind finanzielle Unsicherheit, persoenliche Haftung je nach Rechtsform, hoher Zeitaufwand und eigene Verantwortung fuer die soziale Absicherung.",
+    "category": "unternehmensfuehrung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welcher Wirtschaftssektor umfasst typischerweise Dienstleistungen?",
+    "options": [
+      "Primaerer Sektor",
+      "Sekundaerer Sektor",
+      "Tertiaerer Sektor",
+      "Quartaerer Sektor ausschliesslich Landwirtschaft",
+      "Sektor der Rohstoffveredelung ohne Verkauf",
+      "Nur oeffentliche Verwaltung",
+      "Ausschliesslich Bergbau",
+      "Nur Energieerzeugung"
+    ],
+    "correct": 2,
+    "explanation": "Primaer = Rohstoffproduktion, Sekundaer = Industrie/Verarbeitung, Tertiaer = Dienstleistungen.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was kennzeichnet erwerbswirtschaftliche Betriebe laut Skript?",
+    "options": [
+      "Sie verfolgen ausschliesslich gemeinnuetzige Zwecke",
+      "Gewinnorientierung und langfristige Gewinnmaximierung (ggf. Eigenkapitalrendite)",
+      "Sie duerfen keine GmbH oder AG sein",
+      "Sie sind von der Gewerbesteuer befreit",
+      "Sie arbeiten ohne Wettbewerb",
+      "Sie sind immer im Handelsregister eingetragen",
+      "Sie duerfen keine Fremdfinanzierung nutzen",
+      "Sie unterliegen nicht dem Kartellrecht"
+    ],
+    "correct": 1,
+    "explanation": "Erwerbswirtschaftliche Unternehmen sind gewinnorientiert; Hauptziel ist typischerweise langfristige Gewinnmaximierung.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Faktoren gehoeren zur Standortwahl laut Zusammenfassung?",
+    "options": [
+      "Nur die Hoehe der Umsatzsteuer vor Ort",
+      "Konkurrenz, Nachfrage/Kaufkraft, Verkehr, Kosten, Auflagen, Gewerbesteuer",
+      "Ausschliesslich die Naehe zur IHK",
+      "Nur die durchschnittliche Regenmenge",
+      "Ausschliesslich die Farbe des Firmenlogos",
+      "Nur die Anzahl der Filialen im Ausland",
+      "Ausschliesslich die Hoehe der Kapitalertragsteuer",
+      "Nur die Entfernung zum naechsten Flughafen, alle anderen Faktoren sind egal"
+    ],
+    "correct": 1,
+    "explanation": "Standortentscheidungen beruecksichtigen Markt, Infrastruktur, Kosten und kommunale Belastungen; die Umsatzsteuer ist deutschlandweit einheitlich und daher kein lokaler Standortfaktor.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer haftet in einer KG typischerweise nur mit der Einlage (Kapitalgeber)?",
+    "options": [
+      "Der Komplementaer",
+      "Der Kommanditist",
+      "Alle Gesellschafter gesamtschuldnerisch unbeschraenkt",
+      "Nur der GmbH-Geschaeftsfuehrer",
+      "Die GmbH & Co. KG allein ohne Personen",
+      "Der Betriebsrat",
+      "Die Hausbank automatisch",
+      "Der Steuerberater"
+    ],
+    "correct": 1,
+    "explanation": "Der Kommanditist haftet grundsaetzlich nur bis zur Haftsumme (Einlage); der Komplementaer haftet unbeschraenkt und fuehrt die Geschaefte.",
+    "category": "unternehmensrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Gesellschaften werden im Handelsregister typischerweise in Teil B eingetragen?",
+    "options": [
+      "OHG und GbR",
+      "e.K. und Partnerschaftsgesellschaften",
+      "Kapitalgesellschaften wie GmbH und AG",
+      "Nur Einzelkaufleute",
+      "Nur Vereine ohne Wirtschaftsbetrieb",
+      "Ausschliesslich Genossenschaften, niemals GmbH",
+      "Nur die Berufsgenossenschaften",
+      "Nur natuerliche Personen ohne Gewerbe"
+    ],
+    "correct": 2,
+    "explanation": "Teil B dient vor allem Kapitalgesellschaften (z. B. GmbH, AG); Teil A fasst u. a. Einzelkaufleute und Personengesellschaften zusammen.",
+    "category": "unternehmensrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was trifft auf den Ist-Kaufmann zu?",
+    "options": [
+      "Er wird erst mit Eintragung Kaufmann, unabhaengig von der Geschaeftsausuebung",
+      "Kaufmaennische Geschaeftsausuebung in Umfang und Art ueber Kleingewerbe hinaus; Eintragung hat nur deklaratorische Wirkung",
+      "Er darf kein Handelsgewerbe betreiben",
+      "Er ist identisch mit dem formellen Kaufmann ohne Unterschied",
+      "Er braucht kein Handelsregister",
+      "Er gilt nur fuer juristische Personen",
+      "Er entsteht nur durch Genehmigung der IHK",
+      "Er existiert nur im Auslandsgeschaeft"
+    ],
+    "correct": 1,
+    "explanation": "Ist-Kaufmann ist, wer ein Handelsgewerbe in kaufmaennischer Weise betreibt und damit das Kleingewerbe uebersteigt; die Eintragung bestaetigt oft nur einen bereits bestehenden Status.",
+    "category": "unternehmensrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Organisationsform hat eine rein beratende Stabstelle zur Entlastung der Leitung?",
+    "options": [
+      "Mehrliniensystem",
+      "Matrixorganisation",
+      "Stab-Linien-System",
+      "Reine Linienorganisation ohne Stab",
+      "Holding-Struktur ohne Toechter",
+      "Konzernleitung ohne Betriebe",
+      "Netzwerkorganisation ohne Hierarchie",
+      "Projektorganisation ohne Linienvorgesetzte"
+    ],
+    "correct": 2,
+    "explanation": "Im Stab-Linien-System uebernehmen Staebe beratende Funktionen und entlasten die Linienfuehrung.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was ist ein Konzern laut Skript?",
+    "options": [
+      "Jede GbR mit zwei Personen",
+      "Unternehmensgruppe unter einheitlicher Leitung eines herrschenden Unternehmens",
+      "Zwei konkurrierende Einzelhaendler ohne Vertrag",
+      "Nur eine staatliche Behoerde",
+      "Eine Kartellstruktur ohne wirtschaftliche Verbindung",
+      "Ein Betrieb ohne Betriebsrat",
+      "Jede AG an der Boerse",
+      "Ein Tarifvertrag zwischen Gewerkschaft und Verband"
+    ],
+    "correct": 1,
+    "explanation": "Ein Konzern bündelt rechtlich selbstaendige Unternehmen unter einheitlicher Fuehrung.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Behoerde ist in Deutschland zentrale Wettbewerbsbehoerde bei Kartellen?",
+    "options": [
+      "Bundeskartellamt",
+      "Bundesagentur fuer Arbeit",
+      "Deutsche Rentenversicherung",
+      "IHK",
+      "Finanzamt",
+      "TUEV",
+      "Datenschutzkonferenz",
+      "EU-Kommission allein ohne nationale Ebene"
+    ],
+    "correct": 0,
+    "explanation": "Kartelle beschraenken Wettbewerb; das Bundeskartellamt ist die zentrale Wettbewerbsbehoerde in Deutschland.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie berechnet sich die Wirtschaftlichkeit in der genannten Formel?",
+    "options": [
+      "Aufwand geteilt durch Ertrag",
+      "Ertrag geteilt durch Aufwand",
+      "Gewinn mal Umsatz",
+      "Output minus Input ohne Quotient",
+      "Eigenkapital geteilt durch Fremdkapital",
+      "Umsatz geteilt durch Mitarbeiterzahl allein",
+      "Abschreibung plus Zinsen",
+      "Lagerbestand durch Umschlag"
+    ],
+    "correct": 1,
+    "explanation": "Wirtschaftlichkeit = Ertrag / Aufwand; je groesser der Wert im Vergleich, desto wirtschaftlicher.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie lautet die Kennzahl Rentabilitaet (vereinfacht) laut Skript?",
+    "options": [
+      "Output / Input",
+      "Ertrag (z. B. Gewinn) / Bilanzgroesse (z. B. Eigenkapital) mal 100",
+      "Umsatz / Personalaufwand",
+      "Liquiditaet 1. Grades",
+      "Deckungsbeitrag pro Stueck",
+      "Anzahlungen / Verbindlichkeiten",
+      "Forderungslaufzeit in Tagen",
+      "Materialintensitaet"
+    ],
+    "correct": 1,
+    "explanation": "Rentabilitaet bezieht den Ertrag auf eine Bilanzgroesse, typisch Eigenkapital, und wird hauefig in Prozent ausgedrueckt.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Zielbeziehung liegt vor, wenn sich Ziele gegenseitig nicht beeinflussen?",
+    "options": [
+      "Komplementaer",
+      "Konkurrierend",
+      "Indifferent",
+      "Identisch",
+      "Subordiniert",
+      "Synergistisch",
+      "Kumulativ",
+      "Dynamisch"
+    ],
+    "correct": 2,
+    "explanation": "Indifferente Ziele stehen zueinander neutral; komplementaere ergaenzen sich, konkurrierende stehen im Spannungsfeld.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was bedeutet das Maximalprinzip?",
+    "options": [
+      "Mit gegebenem Aufwand maximalen Ertrag erzielen",
+      "Mit maximalem Aufwand minimales Ziel erreichen",
+      "Nur Gewinnmaximierung ohne Ruecksicht auf Kosten",
+      "Minimierung aller Preise",
+      "Maximierung der Schulden",
+      "Minimierung der Produktion",
+      "Festlegung eines Deckungsbeitrags von null",
+      "Minimierung der Steuern ohne Umsatz"
+    ],
+    "correct": 0,
+    "explanation": "Maximalprinzip: aus gegebenem Aufwand den groesstmoeglichen Ertrag herausholen.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welches Merkmal passt typischerweise zur Hochkonjunktur (Boom)?",
+    "options": [
+      "Zwei Quartale schrumpfendes BIP",
+      "Hohe Investitionen, Engpaesse, stark steigende Preise, sehr gute Lohnverhandlungsposition",
+      "Stark fallende Preise und Massenarbeitslosigkeit",
+      "Dauerhaft sinkende Zinsen ohne Nachfrage",
+      "Vollstaendige Stilllegung der Produktion",
+      "Nullbeschaeftigung",
+      "Dauerhafte Deflation ohne Erholung",
+      "Stagnation der Loehne ueber 10 Jahre ohne Ausnahme"
+    ],
+    "correct": 1,
+    "explanation": "Im Boom sind Auslastung und Gewinne hoch, Engpaesse moeglich, Preise steigen stark; Arbeitnehmer haben eine sehr gute Verhandlungsposition.",
+    "category": "wirtschaftspolitik",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann spricht man in der Regel von einer Rezession (Abschwung)?",
+    "options": [
+      "Wenn die Inflation exakt 2 Prozent betraegt",
+      "Zwei aufeinanderfolgende Quartale mit schrumpfender Wirtschaftsleistung (gaengige Definition)",
+      "Wenn die Boerse einen Tag faellt",
+      "Wenn ein einzelner Betrieb kuendigt",
+      "Wenn die EZB den Leitzins senkt",
+      "Wenn Urlaubsgeld ausgezahlt wird",
+      "Wenn Tarifvertraege neu verhandelt werden",
+      "Wenn eine Fusion angekuendigt wird"
+    ],
+    "correct": 1,
+    "explanation": "Im Abschwung sinken Nachfrage und Produktion; ueblich ist die Definition mit zwei negativen Quartalen hintereinander.",
+    "category": "wirtschaftspolitik",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was ist antizyklische Wirtschaftspolitik laut Skript?",
+    "options": [
+      "Immer gleichbleibende Staatsausgaben",
+      "Im Abschwung Nachfrage staerken, im Boom daempfen (z. B. ueber Zinsen, Steuern, Investitionen)",
+      "Nur Steuererhoehungen in der Rezession",
+      "Ausschliesslich Lohnzurueckhalt in Boomphasen ohne andere Instrumente",
+      "Verbot von Staatsanleihen",
+      "Dauerhaft hoechste Leitzinsen",
+      "Keine Rolle der EZB",
+      "Nur Exportfoerderung ohne Binnennachfrage"
+    ],
+    "correct": 1,
+    "explanation": "Antizyklisch glaettet: in schwachen Phasen Anreize/Nachfrage erhoehen, in Ueberhitzung drosseln; Schulden sollen im Tief steigen und im Boom abgebaut werden.",
+    "category": "wirtschaftspolitik",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Annahme gehoert zum Modell der vollstaendigen Konkurrenz?",
+    "options": [
+      "Ein Anbieter setzt den Preis dauerhaft allein (Monopol)",
+      "Homogene Gueter, rationale Akteure, keine Markteintrittsbarrieren, Preis wird vom Markt bestimmt",
+      "Immer nur ein Nachfrager",
+      "Staatlich fixierte Preise fuer alle Gueter",
+      "Informationen sind immer vollkommen geheim",
+      "Produkte sind immer stark differenziert",
+      "Patente sind Pflicht fuer jedes Produkt",
+      "Transportkosten sind immer unendlich hoch"
+    ],
+    "correct": 1,
+    "explanation": "Vollkommener Markt: u. a. homogene Produkte, freier Marktzutritt und Preisbildung durch Angebot und Nachfrage.",
+    "category": "wirtschaftspolitik",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Merkmale schuetzt das AGG bei Benachteiligungen typischerweise ab?",
+    "options": [
+      "Nur die Betriebszugehoerigkeit",
+      "Rasse, Ethnische Herkunft, Geschlecht, Religion/Weltanschauung, Behinderung, Alter, sexuelle Identitaet",
+      "Nur die Schuhgroesse",
+      "Nur die Wahl der Krankenkasse",
+      "Ausschliesslich die Steuerklasse",
+      "Nur die Programmiersprache im Team",
+      "Nur die Postleitzahl des Arbeitgebers",
+      "Nur die Hoehe des Firmenwagens"
+    ],
+    "correct": 1,
+    "explanation": "Das Allgemeine Gleichbehandlungsgesetz schuetzt vor Diskriminierung aus den genannten Gruenden u. a. bei Einstellung, Aufstieg und Arbeitsbedingungen.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was ist Diversity Management im Vergleich zum AGG laut Text?",
+    "options": [
+      "Identisch mit dem AGG, kein Unterschied",
+      "Geht ueber den Schutz vor Diskriminierung hinaus und will Potenziale der Vielfalt nutzbar machen",
+      "Ersetzt Tarifvertraege vollstaendig",
+      "Verbietet jede Personalbefragung",
+      "Schafft automatisch Betriebsratsfreiheit",
+      "Gilt nur fuer Beamte",
+      "Ist dasselbe wie Sozialauswahl",
+      "Bezieht sich nur auf Gehaltszahlungen in Bitcoin"
+    ],
+    "correct": 1,
+    "explanation": "Diversity Management nutzt Vielfalt strategisch; das AGG ist vor allem Schutzrecht gegen Diskriminierung.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Frage ist im Bewerbungsgespraech typischerweise unzulaessig?",
+    "options": [
+      "Welche relevanten Kenntnisse bringen Sie mit?",
+      "Mitgliedschaft in einer Gewerkschaft",
+      "Ob Sie die Stelle zeitlich schaffen",
+      "Nachweis der Arbeitsgenehmigung falls rechtlich noetig",
+      "Verfuegbarkeit zum vereinbarten Antrittstermin",
+      "Fragen zur konkreten Taetigkeit",
+      "Sprachkenntnisse fuer die Stelle",
+      "Fahrerlaubnis wenn fuer die Taetigkeit erforderlich"
+    ],
+    "correct": 1,
+    "explanation": "Nach den Leitfaellen der Zusammenfassung sind u. a. Gewerkschaftsmitgliedschaft, Kinderwunsch-Fragen oder politische Parteizugehoerigkeit unzulaessig.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann ist eine personenbedingte Kuendigung typischerweise begruendet?",
+    "options": [
+      "Wenn der Umsatz leicht sinkt",
+      "Wenn die persoenliche Eignung oder Faehigkeit zur geschuldeten Leistung dauerhaft fehlt (z. B. fehlende Arbeitserlaubnis, negative Krankheitsprognose)",
+      "Wenn der Arbeitnehmer einmalig 5 Minuten zu spaet kommt",
+      "Wenn der Betriebsrat nicht gewaehlt wurde",
+      "Wenn der Arbeitgeber neue Software einfuehren will",
+      "Wenn ein Kollege kuendigt",
+      "Wenn die Steuerklasse wechselt",
+      "Wenn Urlaubsanspruch besteht"
+    ],
+    "correct": 1,
+    "explanation": "Personenbedingt betrifft die Leistungsfaehigkeit des Arbeitnehmers; Krankheitskuendigung setzt oft eine negative Zukunftsprognose voraus.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann liegt eine verhaltensbedingte Kuendigung typischerweise vor?",
+    "options": [
+      "Automatisch bei jedem Krankenstand",
+      "Schuldhafte Pflichtverletzung; oft Abmahnung, ausser bei schwerem Fehlverhalten",
+      "Wenn der Betrieb modernisiert wird",
+      "Wenn Tarifverhandlungen scheitern",
+      "Wenn die Gewerkschaft streikt",
+      "Wenn die Probezeit noch laeuft",
+      "Wenn der Arbeitnehmer ueber tariflich liegt",
+      "Wenn die Elternzeit beginnt"
+    ],
+    "correct": 1,
+    "explanation": "Verhaltensbedingt knuepft an Pflichtverletzungen an; meist ist Abmahnung erforderlich, ausser das Fehlverhalten ist so schwer, dass Fortsetzung unzumutbar ist.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Frist gilt fuer die außerordentliche Kuendigung nach Bekanntwerden des Kuendigungsgrundes (gaengige Pruefungsnennung)?",
+    "options": [
+      "4 Wochen zum Monatsende",
+      "14 Tage / zwei Wochen",
+      "6 Monate",
+      "1 Jahr",
+      "3 Arbeitstage ohne Begruendung",
+      "10 Jahre",
+      "24 Stunden ohne Ausnahme",
+      "Nur innerhalb der Probezeit"
+    ],
+    "correct": 1,
+    "explanation": "Die fristlose Kuendigung muss innerhalb der gesetzlichen Ausschlussfrist erfolgen, in der Praxis oft als zwei Wochen bzw. 14 Tage formuliert.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Schutzfristen gehoeren typischerweise zum Mutterschutz (Orientierung)?",
+    "options": [
+      "Keine Beschaeftigungsverbote",
+      "6 Wochen vor der Geburt (relativ) und 8 Wochen danach (absolut, ggf. 12)",
+      "Nur ein Tag vor der Geburt",
+      "Nur zwei Wochen nach der Geburt freiwillig",
+      "Ein Jahr vor der Geburt",
+      "Nur fuer Vaeter, nicht fuer Muetter",
+      "Nur in Betrieben ohne Betriebsrat",
+      "Nur bei Minijobs"
+    ],
+    "correct": 1,
+    "explanation": "Zentrale Schutzfristen sind die Beschaeftigungsverbote um die Geburt; dazu kommen Mutterschaftsgeld, besonderer Kuendigungsschutz und Gesundheitsschutz.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer genießt laut Skript besonderen Kuendigungsschutz (Auswahl)?",
+    "options": [
+      "Nur Praktikanten unter einer Woche",
+      "Schwerbehinderte, Schwangere, Betriebsrats- und JAV-Mitglieder, Datenschutzbeauftragte, Azubis nach der Probezeit u. a.",
+      "Nur leitende Angestellte",
+      "Nur Minijobber ohne weiteren Anspruch",
+      "Nur Freelancer",
+      "Nur Geschaeftsfuehrer einer GmbH",
+      "Nur Zeitarbeitnehmer ohne Befristung",
+      "Nur Auszubildende in der Probezeit"
+    ],
+    "correct": 1,
+    "explanation": "Die Zusammenfassung nennt u. a. Schwerbehinderte, Schwangere, Betriebsrat, JAV, internen Datenschutzbeauftragten und Auszubildende nach der Probezeit; ergaenzend auch Elternzeit, Pflegezeit, Wehrdienst.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie endet ein sachgrundlos befristeter Arbeitsvertrag nach TzBfG typischerweise?",
+    "options": [
+      "Automatisch mit Zeitablauf ohne extra Kuendigung",
+      "Nur durch gerichtliche Aufloesung",
+      "Nur wenn der Betriebsrat zustimmt",
+      "Nur mit Kuendigungsschutzklage",
+      "Er verlaengert sich stillschweigend immer um 10 Jahre",
+      "Er wird durch Tarifvertrag automatisch unbefristet",
+      "Er endet nur an Weihnachten",
+      "Er bedarf immer einer notariellen Beurkundung der Beendigung"
+    ],
+    "correct": 0,
+    "explanation": "Befristete Verhaeltnisse enden mit Ablauf der Zeit; eine Kuendigung ist dafuer nicht erforderlich.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Form ist fuer die Befristung eines Arbeitsvertrags grundsaetzlich erforderlich?",
+    "options": [
+      "Mundlich vor Zeugen",
+      "Schriftlich",
+      "Nur per WhatsApp-Stimme",
+      "Telefonische Bestaetigung durch die Gewerkschaft",
+      "Reine Textform per Social-Media-Kommentar",
+      "Nur durch Betriebsvereinbarung ohne Vertrag",
+      "Durch Pressemitteilung",
+      "Durch Aushang in der Kantine allein"
+    ],
+    "correct": 1,
+    "explanation": "Die Befristung muss schriftlich vereinbart sein, sonst ist sie unwirksam.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie lange darf eine sachgrundlose Befristung nach der Zusammenfassung maximal dauern?",
+    "options": [
+      "6 Monate",
+      "1 Jahr",
+      "2 Jahre",
+      "4 Jahre",
+      "10 Jahre",
+      "Unbegrenzt",
+      "30 Tage",
+      "5 Jahre ohne Ausnahme"
+    ],
+    "correct": 2,
+    "explanation": "Ohne Sachgrund ist die Befristung auf hoechstens zwei Jahre begrenzt (mit Verlaengerungsmoeglichkeiten im gesetzlichen Rahmen).",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer bestimmt laut Skript die Entlohnung eines Zeitarbeitnehmers?",
+    "options": [
+      "Der Entleiher allein ohne Vertrag",
+      "Der Verleiher",
+      "Die Gewerkschaft des Entleihers automatisch",
+      "Das Finanzamt",
+      "Der Betriebsrat des Entleihers allein",
+      "Die Bundesagentur fuer Arbeit pauschal",
+      "Die Krankenkasse",
+      "Der Mindestlohn wird vom Arbeitnehmer festgelegt"
+    ],
+    "correct": 1,
+    "explanation": "Bei Arbeitnehmerueberlassung regelt der Verleiher die Verguetung des Zeitarbeitnehmers.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Mindest-Urlaubstage nennt die Zusammenfassung fuer eine 6-Tage-Woche nach BUrlG?",
+    "options": [
+      "18 Werktage",
+      "20 Werktage",
+      "24 Werktage",
+      "30 Werktage",
+      "12 Werktage",
+      "6 Werktage",
+      "14 Werktage",
+      "28 Werktage"
+    ],
+    "correct": 2,
+    "explanation": "Der Mindesturlaubsanspruch betraegt 24 Werktage bei Sechs-Tage-Woche; bei fuenf Tagen/Woche rechnet man entsprechend herunter.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann besteht laut BUrlG-Zusammenfassung der volle Urlaubsanspruch erstmals?",
+    "options": [
+      "Ab dem ersten Arbeitstag ungeschmaelert",
+      "Erst nach sechsmonatigem Bestehen des Arbeitsverhaeltnisses",
+      "Erst nach zwei Jahren",
+      "Nur nach Probezeit im Ausbildungsvertrag",
+      "Erst nach 10 Jahren Betriebszugehoerigkeit",
+      "Nur in Schaltjahren",
+      "Nur wenn tariflich vereinbart",
+      "Nur nach Betriebsratswahl"
+    ],
+    "correct": 1,
+    "explanation": "Der volle gesetzliche Mindesturlaub entsteht erst nach Wartezeit von sechs Monaten im Arbeitsverhaeltnis.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer ist laut Skript fuer die Unterweisung zu Unfall- und Gesundheitsgefahren verantwortlich?",
+    "options": [
+      "Nur der Betriebsrat",
+      "Arbeitgeber bzw. betriebliche Vorgesetzte",
+      "Nur die Berufsgenossenschaft ohne Betrieb",
+      "Die Gewerkschaft",
+      "Das Finanzamt",
+      "Die Krankenkasse",
+      "Nur der Arbeitnehmer selbst",
+      "Nur externe Trainer ohne betriebliche Beteiligung"
+    ],
+    "correct": 1,
+    "explanation": "Das Arbeitsschutzgesetz verpflichtet den Arbeitgeber bzw. Vorgesetzte zur Belehrung bei Aufnahme und in regelmaessigen Abstaenden.",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Ab welcher Betriebsgroesse ist ein Arbeitsschutzbeauftragter laut Zusammenfassung typischerweise verpflichtend?",
+    "options": [
+      "Ab 5 Beschaeftigten",
+      "Ab 10 Beschaeftigten",
+      "Ab 20 Beschaeftigten",
+      "Ab 50 Beschaeftigten",
+      "Ab 100 Beschaeftigten",
+      "Ab 200 Beschaeftigten",
+      "Nur ab 1000 Beschaeftigten",
+      "Nie, freiwillig immer"
+    ],
+    "correct": 2,
+    "explanation": "Der Arbeitsschutzbeauftragte ist ab 20 Mitarbeitern in der Regel zu bestellen und unterstuetzt den Arbeitgeber beim Arbeitsschutz.",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer meldet einen Arbeitsunfall gesetzlich typischerweise?",
+    "options": [
+      "Nur der Arbeitnehmer privat beim Finanzamt",
+      "Der Arbeitgeber dem zustaendigen Unfallversicherungstraeger (Berufsgenossenschaft)",
+      "Nur die Polizei ohne Arbeitgeber",
+      "Die Krankenkasse allein ohne Arbeitgeber",
+      "Der Betriebsrat statt des Arbeitgebers immer",
+      "Die IHK",
+      "Die Gemeindeverwaltung",
+      "Niemand bei leichten Faellen"
+    ],
+    "correct": 1,
+    "explanation": "Arbeitsunfaelle sind vom Arbeitgeber dem zustaendigen Traeger der gesetzlichen Unfallversicherung zu melden.",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Reihenfolge beschreibt die Sofortmassnahmen im Brandfall sinngemaess?",
+    "options": [
+      "Loeschten, dann Alarmieren, dann Retten",
+      "Alarmieren, retten/warnen, ggf. loeschen",
+      "Fenster oeffnen, dann warten",
+      "Fahrstuhl nutzen fuer schnelle Flucht",
+      "Zuerst social media posten",
+      "Erst Inventur, dann Alarm",
+      "Nur weiterarbeiten bis Feuer loescht sich selbst",
+      "Erst Mittagspause, dann Alarm"
+    ],
+    "correct": 1,
+    "explanation": "Grundregel: alarmieren, Personen retten/warnen, erst dann risikoarm loeschen; Fahrstuehle meiden, Fenster nicht sinnlos oeffnen.",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wofuer steht PASS beim Feuerloescher?",
+    "options": [
+      "Parken, Anfahren, Spritzen, Stoppen",
+      "Pull, Aim, Squeeze, Sweep",
+      "Pruefen, Abklemmen, Schliessen, Sichern",
+      "Planen, Aufteilen, Schichten, Senden",
+      "Pause, Alarm, Schutz, Sanitaeter",
+      "Pumpen, Ausrichten, Schalten, Spuelen",
+      "Posten, Ausweisen, Sperren, Sammeln",
+      "Pruefen, Abblasen, Schwenken, Sammeln"
+    ],
+    "correct": 1,
+    "explanation": "PASS = Pull (entsichern), Aim (zielen), Squeeze (betaetigen), Sweep (ausloeschen).",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Farbkombination gehoert zu Warnzeichen (ISO/DIN Orientierung aus dem Skript)?",
+    "options": [
+      "Gruen/Weiss",
+      "Blau/Weiss",
+      "Gelb/Schwarz",
+      "Rot/Weiss",
+      "Weiss/Gold",
+      "Pink/Orange",
+      "Grau/Braun",
+      "Violett/Tuerkis"
+    ],
+    "correct": 2,
+    "explanation": "Warnzeichen sind dreieckig und gelb/schwarz; Gebotszeichen blau/weiss, Rettung gruen/weiss, Brandschutz rot/weiss.",
+    "category": "arbeitssicherheit-brandschutz",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was bedeutet der Blaue Engel in der Produktbewertung laut Skript?",
+    "options": [
+      "Das Produkt ist garantiert komplett schadstofffrei",
+      "Umweltfreundlicher als andere Produkte der jeweiligen Produktgruppe (nicht automatisch das gesamte Produkt)",
+      "Hoechste Leistungsklasse fuer Server",
+      "Zulassung fuer Lebensmittel",
+      "EU-weit verpflichtend fuer IT-Geraete",
+      "Nachweis steuerlicher Befreiung",
+      "Garantie fuer 24/7-Support",
+      "Zertifikat fuer unbegrenzte Updates"
+    ],
+    "correct": 1,
+    "explanation": "Der Blaue Engel bewertet umweltrelevante Eigenschaften im Vergleich innerhalb der Produktgruppe, nicht pauschal das ganze Produkt.",
+    "category": "umweltschutz-nachhaltigkeit",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Hierarchie nennt das Kreislaufwirtschaftsgesetz fuer Abfall laut Skript?",
+    "options": [
+      "Zuerst Verbrennung, dann Deponie, dann Vermeidung",
+      "Vermeidung, Wiederverwendung, Recycling/Verwertung",
+      "Zuerst Export, dann Import",
+      "Nur Deponie ohne Alternativen",
+      "Nur Recycling ohne Vermeidung",
+      "Zuerst Steuererhoehung, dann Abfall",
+      "Nur Sortierung ohne Wirkung",
+      "Zuerst Marketing, dann Entsorgung"
+    ],
+    "correct": 1,
+    "explanation": "Abfallvermeidung steht an erster Stelle, gefolgt von Wiederverwendung und Recycling/Verwertung.",
+    "category": "umweltschutz-nachhaltigkeit",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was besagt das Verursacherprinzip?",
+    "options": [
+      "Der Staat zahlt immer alle Schaeden",
+      "Wer Schaden verursacht, traegt Kosten und Beseitigung (z. B. Produktverantwortung/Ruecknahme)",
+      "Der Kunde ist immer schuld",
+      "Nur Versicherungen ohne Personen",
+      "Der Betriebsrat haftet persoenlich",
+      "Nur bei Grossfeuer",
+      "Nur im Ausland",
+      "Nur fuer Luftverkehr"
+    ],
+    "correct": 1,
+    "explanation": "Verursacherprinzip = Kostenfolge beim Verursacher; Hersteller koennen z. B. fuer Ruecknahme/Entsorgung in der Pflicht sein.",
+    "category": "umweltschutz-nachhaltigkeit",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Emissionen zaehlen laut Hinweis auch zu Umweltbelastungen?",
+    "options": [
+      "Nur CO2",
+      "Auch Schallemissionen",
+      "Nur Lichtreflexionen",
+      "Nur Waerme im Serverraum ohne Schall",
+      "Nur Papierverbrauch ohne Schall",
+      "Nur Abwasser ohne Schall",
+      "Nur optische Strahlung ohne Ton",
+      "Nur Verpackungsfarbe"
+    ],
+    "correct": 1,
+    "explanation": "Umweltbelastende Emissionen sind nicht nur Abgase, sondern u. a. auch Laerm/Schallemissionen.",
+    "category": "umweltschutz-nachhaltigkeit",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was versteht man unter Compliance in der Zusammenfassung?",
+    "options": [
+      "Nur IT-Patchmanagement",
+      "Regeltreue: Einhaltung von Gesetzen, Richtlinien und freiwilligen Kodizes",
+      "Nur Marketing fuer Banken",
+      "Ausschliesslich Steuerhinterziehung",
+      "Nur ISO-Zertifizierung ohne Gesetze",
+      "Nur Datenschutz ohne andere Regeln",
+      "Nur Lagerlogistik",
+      "Nur Personaleinstellung ohne Vertraege"
+    ],
+    "correct": 1,
+    "explanation": "Compliance meint die regelkonforme Fuehrung des Unternehmens inklusive freiwilliger Standards.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Aufgaben nennt die Zusammenfassung fuer die IHK?",
+    "options": [
+      "Nur Strafverfolgung",
+      "Beratung der Mitglieder, politische Meinungsbildung, Pruefungen in Aus- und Weiterbildung, betriebliche Ausbildungsfragen",
+      "Ausschliesslich Steuererhebung",
+      "Nur Tarifverhandlungen",
+      "Nur Arbeitsgerichtsbarkeit",
+      "Nur Krankenkassenwahl",
+      "Nur Patenterteilung",
+      "Nur Bauprojekte"
+    ],
+    "correct": 1,
+    "explanation": "IHKs vertreten Arbeitgeberinteressen, beraten, wirken auf Politikgestaltung ein und sind Pruefungs- sowie Ansprechpartner fuer betriebliche Ausbildung.",
+    "category": "wirtschaftliche-grundlagen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer ist Urheber und wer hat typischerweise Verwertungsrechte an Arbeitnehmer-Werken der IT laut Skript?",
+    "options": [
+      "Immer der Staat",
+      "Urheber ist der Arbeitnehmer, Verwertungsrechte hat der Arbeitgeber (wenn nicht anders vereinbart)",
+      "Urheber ist immer der Arbeitgeber ohne Ausnahme",
+      "Nur die Open-Source-Gemeinschaft",
+      "Nur die IHK",
+      "Nur der Kunde des Unternehmens",
+      "Niemand, Software ist urheberrechtlich frei",
+      "Nur die Krankenkasse"
+    ],
+    "correct": 1,
+    "explanation": "Ohne abweichende Vereinbarung ist der Entwickler Urheber; der Arbeitgeber erhaelt die Verwertungsrechte am Dienstwerk.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Betriebsvereinbarungen sind laut Skript oft erzwingbar (Beispiellogik)?",
+    "options": [
+      "Nur Kantinenpreise freiwillig",
+      "Personalbefragungen, Arbeitszeiten, Videoueberwachung, Urlaubsrahmenplanung u. a.",
+      "Ausschliesslich freiwillige Umweltmassnahmen ohne Mitbestimmung",
+      "Nur Weihnachtsfeier-Ort",
+      "Nur Marketingbudgets",
+      "Nur Auswahl der Kaffeemarke",
+      "Nur Firmenwagenfarbe",
+      "Nur Bueropflanzen"
+    ],
+    "correct": 1,
+    "explanation": "Erzwingbare BV betreffen oft soziale/personelle Themen, Arbeitszeit, Kontrollsysteme, Urlaubsrahmen u. a.; freiwillige BV z. B. Sozialeinrichtungen.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was gilt laut Skript zur Einmischung des Betriebsrats in die Unternehmensleitung?",
+    "options": [
+      "Der Betriebsrat darf die Geschaeftsfuehrung ersetzen",
+      "Der Betriebsrat darf sich nicht in die Leitung des Unternehmens einmischen",
+      "Der Betriebsrat entscheidet allein ueber Produkte",
+      "Der Betriebsrat verhandelt Tarifvertraege allein",
+      "Der Betriebsrat bestellt den Geschaeftsfuehrer allein",
+      "Der Betriebsrat darf Lieferanten ohne AG waehlen",
+      "Der Betriebsrat legt Steuersaetze fest",
+      "Der Betriebsrat ist oberstes Organ der AG"
+    ],
+    "correct": 1,
+    "explanation": "Mitbestimmung und Beteiligung ja, aber keine Uebernahme der unternehmerischen Leitungsfunktion.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann findet die Betriebsratswahl laut Skript in der Regel statt?",
+    "options": [
+      "Jederzeit ohne Frist",
+      "Im Zeitraum 1. Maerz bis 31. Mai, alle vier Jahre",
+      "Nur im Dezember",
+      "Alle zwei Jahre im Januar",
+      "Alle sechs Monate",
+      "Nur nach Genehmigung der Gewerkschaft",
+      "Nur wenn der Arbeitgeber Urlaub hat",
+      "Nur in Schaltjahren"
+    ],
+    "correct": 1,
+    "explanation": "Die Wahlperiode liegt gesetzlich zwischen 1. Maerz und 31. Mai; Amtszeit typischerweise vier Jahre.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer ist laut Skript in der JAV waehlbar und wahlberechtigt (vereinfacht)?",
+    "options": [
+      "Nur Geschaeftsfuehrer",
+      "Wahlberechtigt u. a. unter 18-Jaehrige und Azubis; Waehlbarkeit oft als Azubi oder unter 25, Kandidat nicht gleichzeitig Betriebsratsmitglied",
+      "Nur Betriebsratsmitglieder",
+      "Nur externe Trainer",
+      "Nur Arbeitnehmer ueber 50",
+      "Nur Minijobber ohne Ausbildung",
+      "Nur Handwerksmeister",
+      "Nur Praktikanten ueber 30 ohne Vertrag"
+    ],
+    "correct": 1,
+    "explanation": "JAV vertritt Jugendliche unter 18 und Auszubildende; Wahl alle zwei Jahre; Kandidaten duerfen nicht BR-Mitglied sein.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wann darf es laut Friedenspflicht typischerweise keine Arbeitskaempfe geben?",
+    "options": [
+      "Nie",
+      "Waehrend der Laufzeit eines Tarifvertrags",
+      "Nur an Sonntagen",
+      "Nur in der Probezeit",
+      "Nur wenn kein Betriebsrat existiert",
+      "Nur unter 5 Mitarbeitern",
+      "Nur in der Elternzeit",
+      "Nur bei Mindestlohn"
+    ],
+    "correct": 1,
+    "explanation": "Friedenspflicht: waehrend eines laufenden Tarifvertrags keine Streiks oder Aussperrungen.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Paare beschreiben das kollektive Arbeitsrecht laut Skript-Tabelle?",
+    "options": [
+      "Arbeitgeber und Arbeitnehmer im Einzelvertrag",
+      "Gewerkschaften vs Arbeitgeberverbaende, Betriebsraete vs Arbeitgeber; TVG, BetrVG, Art. 9 GG",
+      "Nur BGB und HGB",
+      "Nur Strafrecht",
+      "Nur Verwaltungsrecht der Kommunen",
+      "Nur EU-Kommission und EZB",
+      "Nur Handelsregister und Finanzamt",
+      "Nur Sozialgesetzbuecher ohne Betrieb"
+    ],
+    "correct": 1,
+    "explanation": "Kollektives Arbeitsrecht umfasst Tarifautonomie und betriebliche Mitbestimmung; individuelles Arbeitsrecht regelt v. a. den Einzelarbeitsvertrag.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Pflicht passt zum Arbeitnehmer laut Gegenueberstellung im Skript?",
+    "options": [
+      "Entgeltpflicht",
+      "Urlaubspflicht",
+      "Arbeitspflicht",
+      "Zeugnispflicht",
+      "Fuersorgepflicht",
+      "Ausbildungsplan erstellen",
+      "Krankengeld zahlen",
+      "Arbeitsmittel kostenlos stellen"
+    ],
+    "correct": 2,
+    "explanation": "Arbeitspflicht ist eine Kernpflicht des Arbeitnehmers; Entgelt- und Fuersorgepflicht liegen beim Arbeitgeber.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie heißt der reine Geldbetrag des Lohns vs. inflationsbereinigter Lohn im Skript?",
+    "options": [
+      "Nettolohn vs. Bruttolohn",
+      "Nominallohn vs. Reallohn",
+      "Mindestlohn vs. Maximalohn",
+      "Tariflohn vs. Hungerlohn",
+      "Fixlohn vs. Stundenlohn",
+      "Steuerlohn vs. Soziallohn",
+      "Einmalzahlung vs. Bonus",
+      "Lohnkonto vs. Gehaltskonto"
+    ],
+    "correct": 1,
+    "explanation": "Nominal = Geldbetrag; Real = Kaufkraft bzw. inflationsbereinigt.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wo klagt man laut Skript typischerweise gegen die Krankenkasse?",
+    "options": [
+      "Arbeitsgericht",
+      "Sozialgericht",
+      "Amtsgericht Zivilkammer immer",
+      "Bundeskartellamt",
+      "Verwaltungsgericht fuer jeden Streit",
+      "EuGH direkt ohne Instanzen",
+      "Schiedsgericht der IHK",
+      "Finanzgericht ohne Ausnahme"
+    ],
+    "correct": 1,
+    "explanation": "Sozialrechtliche Streitigkeiten mit der GKV fuehren zum Sozialgericht.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche staatliche Foerderform nennt die Zusammenfassung im Kontext vermoegenswirksame Leistungen?",
+    "options": [
+      "Nur Riester ohne Sparform",
+      "Bausparvertrag und spezieller VL-Sparplan der Bank",
+      "Nur Kryptowaehrungen",
+      "Nur Aktienoptionen",
+      "Nur Leasing",
+      "Nur Kfz-Versicherung",
+      "Nur private Krankenversicherung",
+      "Nur Studienkredite ohne Zins"
+    ],
+    "correct": 1,
+    "explanation": "VL werden u. a. ueber Bausparen oder bankseitige VL-Sparplaene staatlich gefoerdert.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Steuerklasse trifft laut Skizzierung typisch auf ledige Kinderlose zu?",
+    "options": [
+      "Steuerklasse 3",
+      "Steuerklasse 1",
+      "Steuerklasse 5",
+      "Steuerklasse 6 immer",
+      "Steuerklasse 0",
+      "Steuerklasse 10",
+      "Steuerklasse 4 nur",
+      "Steuerklasse 2 fuer alle Ledigen"
+    ],
+    "correct": 1,
+    "explanation": "Ledige ohne Kinder sind typischerweise Lohnsteuerklasse 1; SK 2 betrifft Alleinerziehende, SK 4 verheiratete u. a.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Unterlagen nennt die Zusammenfassung haeufig fuer den neuen Arbeitgeber?",
+    "options": [
+      "Nur der Personalausweis",
+      "Urlaubsbescheinigung des letzten AG auf Anforderung; Sozialversicherungsnummer, Bank, Krankenkasse, steuerliche IdNr. praktisch immer",
+      "Nur das Zeugnis der Grundschule",
+      "Nur die Mitgliedschaft im Sportverein",
+      "Nur ein Foto ohne Daten",
+      "Nur die Betriebsnummer der alten Firma",
+      "Nur die Schuhgroesse",
+      "Nur die IBAN ohne Name"
+    ],
+    "correct": 1,
+    "explanation": "Praxisnahe Unterlagen sind u. a. Urlaubsbescheinigung, SV-Nummer, Bankverbindung, Krankenkasse und IdNr.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie lange betraegt die Amtszeit der JAV laut Skript?",
+    "options": [
+      "1 Jahr",
+      "2 Jahre",
+      "3 Jahre",
+      "4 Jahre wie der Betriebsrat",
+      "5 Jahre",
+      "6 Monate",
+      "Unbegrenzt",
+      "10 Jahre"
+    ],
+    "correct": 1,
+    "explanation": "Die Jugend- und Auszubildendenvertretung wird fuer zwei Jahre gewaehlt.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Mindestinhalte muss eine Ausbildungsordnung laut Skript festlegen?",
+    "options": [
+      "Nur die Verguetung",
+      "Berufsbezeichnung, Ausbildungsdauer, Fertigkeiten/Kenntnisse, Rahmenplan, Pruefungsanforderungen",
+      "Nur die Berufsschulnoten",
+      "Nur die Farbe des Berichtshefts",
+      "Nur die Urlaubsregion",
+      "Nur die Personalnummer",
+      "Nur die Kantinenkarte",
+      "Nur die Firmenwebsite"
+    ],
+    "correct": 1,
+    "explanation": "Die Ausbildungsordnung strukturiert Beruf, Dauer, Qualifikationsziele, Rahmenplan und Pruefung.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer muss den Ausbildungsnachweis (Berichtsheft) laut Skript pruefen?",
+    "options": [
+      "Nur die Berufsschule ohne Betrieb",
+      "Der Ausbilder / Ausbildende prueft regelmaessig",
+      "Nur die Eltern",
+      "Nur die IHK monatlich zwingend",
+      "Niemand",
+      "Nur Mitschueler",
+      "Nur der Betriebsrat ohne Ausbilder",
+      "Nur das Finanzamt"
+    ],
+    "correct": 1,
+    "explanation": "Das Berichtsheft dokumentiert Ausbildungsinhalte und ist von der Ausbildungsseite zu kontrollieren; Vorlage bei Abschlusspruefung.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie kann eine Ausbildung laut Skript verkuerzt werden?",
+    "options": [
+      "Automatisch nach einem Jahr ohne Antrag",
+      "Auf Antrag mit Zustimmung der zustaendigen Kammer (z. B. IHK)",
+      "Durch alleinige Entscheidung des Azubis",
+      "Durch Betriebsratsbeschluss ohne Kammer",
+      "Durch Tarifvertrag ohne Antrag",
+      "Nur durch Gericht",
+      "Nur wenn die Pruefung nicht bestanden wurde",
+      "Gar nicht moeglich"
+    ],
+    "correct": 1,
+    "explanation": "Ausbildungsverkuerzung ist ein Antragsverfahren mit Zustimmung der IHK (bzw. zustaendigen Stelle).",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wie lange kann sich das Ausbildungsverhaeltnis laut Skript bei nicht bestandener Abschlusspruefung verlaengern?",
+    "options": [
+      "Beliebig",
+      "Hoechstens ein Jahr auf Antrag",
+      "Hoechstens sechs Monate ohne Antrag",
+      "Genau 10 Jahre",
+      "Gar nicht",
+      "Nur ein Tag",
+      "Nur wenn die IHK es verbietet",
+      "Automatisch um drei Jahre"
+    ],
+    "correct": 1,
+    "explanation": "Bei nicht bestandener Pruefung kann der Vertrag auf Antrag um maximal ein Jahr verlaengert werden.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Probezeit ist laut Skript bei einem normalen Arbeitsvertrag (nicht Ausbildung) maximal denkbar?",
+    "options": [
+      "Maximal 4 Monate immer",
+      "Maximal 6 Monate",
+      "Maximal 12 Monate immer",
+      "Maximal 1 Monat immer",
+      "Unbegrenzt",
+      "Maximal 2 Wochen",
+      "Maximal 24 Monate",
+      "Probezeit ist verboten"
+    ],
+    "correct": 1,
+    "explanation": "Im normalen Arbeitsvertrag betraegt die Probezeit haechstens sechs Monate; im Ausbildungsvertrag sind 1-4 Monate vorgegeben.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Tarifpartner schließen einen Tarifvertrag laut Skript?",
+    "options": [
+      "Betriebsrat und Arbeitgeber",
+      "Gewerkschaften und Arbeitgeberverbaende (oder einzelne AG)",
+      "IHK und Gewerkschaft",
+      "Bund und EU-Kommission",
+      "Arbeitsgericht und Betriebsrat",
+      "Finanzamt und Arbeitnehmer",
+      "Krankenkasse und Arbeitgeber",
+      "Nur Azubis untereinander"
+    ],
+    "correct": 1,
+    "explanation": "Tarifautonomie: Tarifvertraege werden zwischen Gewerkschaften und Arbeitgeberseite geschlossen.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wofuer steht ein qualifiziertes Arbeitszeugnis laut Skript?",
+    "options": [
+      "Nur Name und Adresse",
+      "Zusaetzlich umfassende Beurteilung von Taetigkeiten, Leistung und Verhalten",
+      "Nur die Steuer-ID",
+      "Nur die Krankmeldungen",
+      "Nur die Schuhgroesse",
+      "Nur die IBAN",
+      "Nur die Betriebsnummer",
+      "Nur Urlaubstage ohne Text"
+    ],
+    "correct": 1,
+    "explanation": "Das einfache Zeugnis nennt Kernfakten; das qualifizierte enthaelt wertende Aussagen zu Leistung und Verhalten.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer benoetigt laut Skript bei minderjaehrigen Azubis die Unterschrift der Erziehungsberechtigten bei der Kuendigung?",
+    "options": [
+      "Niemand",
+      "Die gesetzlichen Vertreter (Erziehungsberechtigte)",
+      "Nur die Berufsschule",
+      "Nur die IHK",
+      "Nur der Betriebsrat",
+      "Nur Zeugen",
+      "Nur die Handwerkskammer",
+      "Nur die Krankenkasse"
+    ],
+    "correct": 1,
+    "explanation": "Bei minderjaehrigen Auszubildenden ist die Mitwirkung der gesetzlichen Vertreter fuer die Kuendigung erforderlich.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Aufgaben hat die Betriebsversammlung laut Skript?",
+    "options": [
+      "Nur externe Kunden beraten",
+      "Information der Belegschaft; Teilnahme ist fuer AN moeglich, gilt als Arbeitszeit und wird freigestellt und verguetet",
+      "Tarifverhandlungen fuehren",
+      "Nur Urlaubsplanung ohne Information",
+      "Nur Bewerbungsgespraeche",
+      "Nur IT-Patchtage planen",
+      "Nur Steuererklaerungen",
+      "Nur Produktdesign ohne Personal"
+    ],
+    "correct": 1,
+    "explanation": "Betriebsversammlungen informieren die Belegschaft; Teilnahme zaehlt als Arbeitszeit und ist freizustellen.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Welche Mindestangabe fehlt laut Skript NICHT im Ausbildungsvertrag (BBiG-Orientierung)?",
+    "options": [
+      "Name des zukuenftigen Urlaubsorts",
+      "Hinweis auf geltende Tarifvertraege, Betriebs- oder Dienstvereinbarungen",
+      "Name des Betriebsratsvorsitzenden",
+      "Farbe des Firmenwagens",
+      "Private Handynummer des Geschaeftsfuehrers",
+      "Kontodaten der Berufsschule",
+      "Lieblingsfarbe des Azubis",
+      "Schuhgroesse des Ausbilders"
+    ],
+    "correct": 1,
+    "explanation": "Zu den Pflichtangaben zaehlen u. a. Vertragspartner, Gliederung, Probezeit, Verguetung, Urlaub, Kuendigungsbedingungen und Hinweis auf TV/BV/DV.",
+    "category": "arbeitsrecht",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Wer zahlt laut Skript die Rentenversicherungsbeitraege typischerweise paritaetisch?",
+    "options": [
+      "Nur der Arbeitnehmer",
+      "Arbeitnehmer und Arbeitgeber je zur Haelfte des Gesamtbeitrags",
+      "Nur die Berufsgenossenschaft",
+      "Nur die Krankenkasse",
+      "Nur das Finanzamt",
+      "Nur die IHK",
+      "Nur die EU",
+      "Niemand bei befristeten Vertraegen"
+    ],
+    "correct": 1,
+    "explanation": "Renten-, Kranken-, Arbeitslosen- und Pflegeversicherung sind paritaetisch; Unfallversicherung traegt der Arbeitgeber allein.",
+    "category": "sozialversicherungen",
+    "section": "03-WiSo"
+  },
+  {
+    "question": "Was trifft auf allgemeinverbindlich erklaerte Tarifvertraege laut Skript zu?",
+    "options": [
+      "Sie gelten nur fuer Gewerkschaftsmitglieder",
+      "Sie gelten fuer alle Arbeitnehmer der Branche unabhaengig von der Gewerkschaftszugehoerigkeit",
+      "Sie gelten nur im Ausland",
+      "Sie gelten nur fuer Geschaeftsfuehrer",
+      "Sie gelten nur in Betrieben ohne Betriebsrat",
+      "Sie gelten nur fuer Azubis",
+      "Sie gelten nur bei Mindestlohn",
+      "Sie sind ungueltig ohne IHK"
+    ],
+    "correct": 1,
+    "explanation": "Allgemeinverbindlich erklaerte Tarifvertraege entfalten Wirkung fuer alle AN der Branche, auch ohne Gewerkschaftsmitgliedschaft.",
+    "category": "betriebliche-mitbestimmung",
+    "section": "03-WiSo"
   }
 ];

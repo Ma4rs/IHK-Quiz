@@ -27,6 +27,14 @@
     "betriebliche-mitbestimmung": "Betriebliche Mitbestimmung",
     sozialversicherungen: "Sozialversicherungen",
     "wirtschaftliche-grundlagen": "Wirtschaftliche Grundlagen",
+    wirtschaftspolitik: "Konjunktur, Markt & Wirtschaftspolitik",
+    "lebenslanges-lernen": "Lebenslanges Lernen & Planung",
+    "unternehmensfuehrung": "Unternehmensführung & Gründung",
+    "arbeitssicherheit-brandschutz": "Arbeitssicherheit & Brandschutz",
+    "umweltschutz-nachhaltigkeit": "Umwelt- & Kreislaufwirtschaft",
+    kostenrechnung: "Kosten- und Leistungsrechnung",
+    datenschutz: "Datenschutz (DSGVO)",
+    unternehmensrecht: "Rechtsformen & Handelsregister",
   };
 
   let allQuestions = [];

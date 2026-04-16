@@ -1304,6 +1304,55 @@ body {
   max-height: min(55vh, 720px);
 }
 
+
+.exam-figure-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0.25rem 0 0.15rem;
+}
+
+.q-image--figure {
+  display: block;
+  max-width: min(100%, 520px);
+  max-height: min(42vh, 420px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 0 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
+}
+
+.exam-scan-details {
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.exam-scan-summary {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  list-style: none;
+}
+
+.exam-scan-summary::-webkit-details-marker {
+  display: none;
+}
+
+.exam-scan-details[open] .exam-scan-summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.exam-scan-details .q-image--exam {
+  margin: 0.5rem;
+  max-height: min(65vh, 820px);
+}
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 520px) {

@@ -284,9 +284,18 @@
     $("#exam-task-header").textContent = q._taskTitle || "";
     $("#exam-question-text").innerHTML = q.question;
 
-    if (q.image) {
+    if (q.figureImage) {
       container.insertAdjacentHTML("beforeend",
-        `<img class="q-image q-image--exam" src="${q.image}" alt="Abbildung zur Aufgabe">`);
+        `<p class="exam-figure-label">Abbildung</p><img class="q-image q-image--figure" src="${q.figureImage}" alt="Abbildung zur Aufgabe">`);
+    }
+    if (q.image) {
+      if (q.embedScanCollapsed) {
+        container.insertAdjacentHTML("beforeend",
+          `<details class="exam-scan-details"><summary class="exam-scan-summary">Vollständigen Prüfungsbogen / Scan anzeigen</summary><img class="q-image q-image--exam" src="${q.image}" alt="Prüfungsbogen"></details>`);
+      } else {
+        container.insertAdjacentHTML("beforeend",
+          `<img class="q-image q-image--exam" src="${q.image}" alt="Abbildung zur Aufgabe">`);
+      }
     }
     if (q.table) {
       container.insertAdjacentHTML("beforeend", buildTableHTML(q.table));
@@ -540,6 +549,8 @@
         points: 0,
         maxPoints: qPoints,
         image: q.image || null,
+        figureImage: q.figureImage || null,
+        embedScanCollapsed: !!q.embedScanCollapsed,
         solutionImage: q.solutionImage || null,
         table: q.table || null,
         code: q.code || null,
@@ -627,7 +638,8 @@
       item.className = "review-item self-eval-item";
       item.innerHTML = `
         <p class="review-q">${r.question}</p>
-        ${r.image ? `<img class="q-image q-image--exam" src="${r.image}" alt="">` : ""}
+        ${r.figureImage ? `<p class="exam-figure-label">Abbildung</p><img class="q-image q-image--figure" src="${r.figureImage}" alt="">` : ""}
+        ${r.image ? (r.embedScanCollapsed ? `<details class="exam-scan-details"><summary class="exam-scan-summary">Vollständigen Prüfungsbogen / Scan anzeigen</summary><img class="q-image q-image--exam" src="${r.image}" alt=""></details>` : `<img class="q-image q-image--exam" src="${r.image}" alt="">`) : ""}
         ${r.table ? buildTableHTML(r.table) : ""}
         ${r.code ? buildCodeHTML(r.code) : ""}
         <div class="self-eval-section">
@@ -756,7 +768,14 @@
       item.className = `review-item ${isCorrect ? "was-correct" : "was-wrong"}`;
 
       let html = `<p class="review-q">${i + 1}. ${r.question}</p>`;
-      if (r.image) html += `<img class="q-image q-image--exam" src="${r.image}" alt="">`;
+      if (r.figureImage) {
+        html += `<p class="exam-figure-label">Abbildung</p><img class="q-image q-image--figure" src="${r.figureImage}" alt="">`;
+      }
+      if (r.image) {
+        html += r.embedScanCollapsed
+          ? `<details class="exam-scan-details"><summary class="exam-scan-summary">Vollständigen Prüfungsbogen / Scan anzeigen</summary><img class="q-image q-image--exam" src="${r.image}" alt=""></details>`
+          : `<img class="q-image q-image--exam" src="${r.image}" alt="">`;
+      }
       if (r.table) html += buildTableHTML(r.table);
       if (r.code) html += buildCodeHTML(r.code);
 

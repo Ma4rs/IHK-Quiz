@@ -75,6 +75,7 @@ Neue `category`-Schlüssel sollten in `app.js` unter `CATEGORY_LABELS` mit lesba
 - **Lokal erforderlich:** Ordner `Prüfungen/Sommer25/` mit den JPEGs `IMG_8207.jpg` … `IMG_8246.jpg` (nebeneinander mit `index.html` im Quiz-Ordner). Die Originale liegen nach Konvertierung unter `Prüfungen/heic/` (`.gitignore`: gesamter Ordner `Prüfungen/` wird nicht versioniert).
 - Drei Teilprüfungen (Zeiten konfigurierbar in `exams-sommer25.js`): Konzeption (8207–8220), Netzwerk (8221–8236), WiSo (8237–8246). Reihenfolge der Blätter bei Bedarf dort anpassen.
 - Optional pro Frage: `solutionImage` (Pfad zu einem Lösungs-Scan) — wird in Selbstbewertung und Review angezeigt.
+- **Abbildung vs. ganzer Bogen:** Standardmäßig liegt der **Vollscan** in einem eingeklappten Bereich („Prüfungsbogen anzeigen“). **Nur Abbildungen** (Diagramm, Ausschnitt) kannst du als kleine JPEGs z. B. unter `Prüfungen/Sommer25/abb/IMG_8207.jpg` ablegen und in `exams-sommer25.js` beim jeweiligen Fragenobjekt als `figureImage: "Prüfungen/Sommer25/abb/IMG_8207.jpg"` ergänzen — dann erscheint dieses Bild oben wie ein Screenshot der Abbildung.
 
 ## Techstack
 

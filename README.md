@@ -68,6 +68,14 @@ Sections: `01-Konzeption-Administration`, `02-Netzwerke`, `03-WiSo`
 
 Neue `category`-Schlüssel sollten in `app.js` unter `CATEGORY_LABELS` mit lesbarem Namen ergänzt werden (sonst erscheint der Roh-Schlüssel in der UI).
 
+
+## Prüfungssimulation Sommer 2025
+
+- Im Startbildschirm unter **Prüfungssimulation** erscheint **„GAP Teil 2 — Sommer 2025 (Scans)“** (lädt über `exams-sommer25.js`).
+- **Lokal erforderlich:** Ordner `Prüfungen/Sommer25/` mit den JPEGs `IMG_8207.jpg` … `IMG_8246.jpg` (nebeneinander mit `index.html` im Quiz-Ordner). Die Originale liegen nach Konvertierung unter `Prüfungen/heic/` (`.gitignore`: gesamter Ordner `Prüfungen/` wird nicht versioniert).
+- Drei Teilprüfungen (Zeiten konfigurierbar in `exams-sommer25.js`): Konzeption (8207–8220), Netzwerk (8221–8236), WiSo (8237–8246). Reihenfolge der Blätter bei Bedarf dort anpassen.
+- Optional pro Frage: `solutionImage` (Pfad zu einem Lösungs-Scan) — wird in Selbstbewertung und Review angezeigt.
+
 ## Techstack
 
 Vanilla HTML/CSS/JS — keine Dependencies, kein Build-Step, kein Server.

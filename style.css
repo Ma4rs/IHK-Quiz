@@ -1279,6 +1279,31 @@ body {
   margin-bottom: 0.75rem;
 }
 
+
+/* Exam / Pruefungssimulation: Scans wie Screenshots */
+.q-image--exam {
+  display: block;
+  max-width: 100%;
+  max-height: min(70vh, 900px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0.5rem 0 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.solution-image-wrap {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+.solution-image-wrap .q-image--exam {
+  max-height: min(55vh, 720px);
+}
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 520px) {

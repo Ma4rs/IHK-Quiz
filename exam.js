@@ -286,7 +286,7 @@
 
     if (q.image) {
       container.insertAdjacentHTML("beforeend",
-        `<img class="q-image" src="${q.image}" alt="Abbildung zur Aufgabe">`);
+        `<img class="q-image q-image--exam" src="${q.image}" alt="Abbildung zur Aufgabe">`);
     }
     if (q.table) {
       container.insertAdjacentHTML("beforeend", buildTableHTML(q.table));
@@ -540,6 +540,7 @@
         points: 0,
         maxPoints: qPoints,
         image: q.image || null,
+        solutionImage: q.solutionImage || null,
         table: q.table || null,
         code: q.code || null,
       };
@@ -626,7 +627,7 @@
       item.className = "review-item self-eval-item";
       item.innerHTML = `
         <p class="review-q">${r.question}</p>
-        ${r.image ? `<img class="q-image" src="${r.image}" alt="">` : ""}
+        ${r.image ? `<img class="q-image q-image--exam" src="${r.image}" alt="">` : ""}
         ${r.table ? buildTableHTML(r.table) : ""}
         ${r.code ? buildCodeHTML(r.code) : ""}
         <div class="self-eval-section">
@@ -638,6 +639,7 @@
             <strong>Musterlösung:</strong>
             <p class="self-eval-text">${r.modelAnswer}</p>
           </div>
+          ${r.solutionImage ? `<div class="solution-image-wrap"><p class="multi-hint"><strong>Musterlösung (Scan)</strong></p><img class="q-image q-image--exam" src="${r.solutionImage}" alt=""></div>` : ""}
           <div class="self-eval-buttons" id="self-eval-${idx}">
             <span class="self-eval-label">Punkte vergeben (0–${r.maxPoints}):</span>
             <div class="self-eval-points-row">
@@ -754,7 +756,7 @@
       item.className = `review-item ${isCorrect ? "was-correct" : "was-wrong"}`;
 
       let html = `<p class="review-q">${i + 1}. ${r.question}</p>`;
-      if (r.image) html += `<img class="q-image" src="${r.image}" alt="">`;
+      if (r.image) html += `<img class="q-image q-image--exam" src="${r.image}" alt="">`;
       if (r.table) html += buildTableHTML(r.table);
       if (r.code) html += buildCodeHTML(r.code);
 
@@ -766,6 +768,9 @@
         html += `<p class="review-answer">${r.userText || "(leer)"}</p>`;
         if (r.modelAnswer) {
           html += `<p class="review-answer the-correct">Musterlösung: ${r.modelAnswer}</p>`;
+        }
+        if (r.solutionImage) {
+          html += `<p class="multi-hint"><strong>Musterlösung (Scan)</strong></p><img class="q-image q-image--exam" src="${r.solutionImage}" alt="">`;
         }
       } else if (r.type === "freetext") {
         if (!r.isCorrect) html += `<p class="review-answer your-wrong">Deine Antwort: ${r.userText}</p>`;

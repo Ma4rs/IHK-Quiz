@@ -157,8 +157,32 @@
             </div>
           </div>
         </div>
+        <aside class="exam-sidepanel" id="exam-sidepanel">
+          <div class="exam-sidecard">
+            <p class="exam-side-label">Punkte</p>
+            <p class="exam-side-value" id="exam-side-points">0 / 0</p>
+            <p class="exam-side-sub" id="exam-side-task-points">Aufgabenblock: 0 Punkte</p>
+          </div>
+          <div class="exam-sidecard">
+            <p class="exam-side-label">Abbildung / Scan</p>
+            <div class="exam-side-media-wrap" id="exam-side-media-wrap">
+              <p class="exam-side-empty">Für diese Frage ist keine Abbildung nötig.</p>
+            </div>
+            <button class="btn btn-secondary exam-side-zoom-btn" id="btn-exam-side-zoom" type="button" hidden>Bild vergrößern</button>
+          </div>
+        </aside>
       </div>
     </div>
+  </div>
+
+  <div class="image-modal" id="image-modal" hidden>
+    <button class="image-modal-close" id="image-modal-close" type="button" aria-label="Schließen">×</button>
+    <div class="image-modal-toolbar">
+      <label for="image-modal-zoom">Zoom</label>
+      <input id="image-modal-zoom" type="range" min="100" max="250" step="10" value="100">
+      <span id="image-modal-zoom-value">100%</span>
+    </div>
+    <img class="image-modal-img" id="image-modal-img" alt="Vergrößerte Abbildung">
   </div>
 
   <!-- ==================== EXAM RESULT ==================== -->

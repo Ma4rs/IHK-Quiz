@@ -13,6 +13,8 @@
   let startTime = 0;
   let selfEvalPending = {};
   let examScreenOriginalHTML = "";
+  let currentSideImage = "";
+  let modalZoom = 100;
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
@@ -31,21 +33,140 @@
     return arr;
   }
 
-  function buildTableHTML(tbl) {
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function buildTableHTML(tbl, options = {}) {
+    const tableAnswer = !!options.tableAnswer;
+    const savedTable = options.savedTable || [];
     let html = '<table class="q-table"><thead><tr>';
     tbl.headers.forEach((h) => (html += `<th>${h}</th>`));
     html += "</tr></thead><tbody>";
-    tbl.rows.forEach((row) => {
+    tbl.rows.forEach((row, rowIdx) => {
       html += "<tr>";
-      row.forEach((cell) => (html += `<td>${cell}</td>`));
+      row.forEach((cell, colIdx) => {
+        if (tableAnswer && cell === "") {
+          const value = savedTable[rowIdx] && savedTable[rowIdx][colIdx] ? savedTable[rowIdx][colIdx] : "";
+          html += `<td><textarea class="table-answer-input" data-row="${rowIdx}" data-col="${colIdx}" rows="1" placeholder="…">${escapeHtml(value)}</textarea></td>`;
+          return;
+        }
+        html += `<td>${cell}</td>`;
+      });
       html += "</tr>";
     });
     html += "</tbody></table>";
     return html;
   }
 
+  function isTableAnswer(q) {
+    return isOpen(q) && q.tableAnswer === true && !!q.table;
+  }
+
+  function collectTableAnswers(q) {
+    const matrix = q.table.rows.map((row) => row.map(() => ""));
+    const inputs = $$(".table-answer-input");
+    inputs.forEach((input) => {
+      const rowIdx = Number(input.dataset.row);
+      const colIdx = Number(input.dataset.col);
+      if (!Number.isNaN(rowIdx) && !Number.isNaN(colIdx) && matrix[rowIdx] && matrix[rowIdx][colIdx] !== undefined) {
+        matrix[rowIdx][colIdx] = input.value.trim();
+      }
+    });
+    return matrix;
+  }
+
+  function tableAnswersToText(q, matrix) {
+    const lines = [];
+    matrix.forEach((row, rowIdx) => {
+      const rowLabel = q.table.rows[rowIdx] && q.table.rows[rowIdx][0]
+        ? q.table.rows[rowIdx][0]
+        : `Zeile ${rowIdx + 1}`;
+      row.forEach((value, colIdx) => {
+        if (!value) return;
+        const header = q.table.headers[colIdx] || `Spalte ${colIdx + 1}`;
+        lines.push(`${rowLabel} — ${header}: ${value}`);
+      });
+    });
+    return lines.join("\n");
+  }
+
   function buildCodeHTML(code) {
     return `<pre class="q-code">${code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>`;
+  }
+
+  function closeImageModal() {
+    const modal = $("#image-modal");
+    const modalImg = $("#image-modal-img");
+    if (!modal || !modalImg) return;
+    modal.hidden = true;
+    modalImg.src = "";
+  }
+
+  function applyModalZoom() {
+    const modalImg = $("#image-modal-img");
+    const zoomRange = $("#image-modal-zoom");
+    const zoomValue = $("#image-modal-zoom-value");
+    if (!modalImg || !zoomRange || !zoomValue) return;
+    modalImg.style.transform = `scale(${modalZoom / 100})`;
+    zoomRange.value = String(modalZoom);
+    zoomValue.textContent = `${modalZoom}%`;
+  }
+
+  function openImageModal(src) {
+    if (!src) return;
+    const modal = $("#image-modal");
+    const modalImg = $("#image-modal-img");
+    if (!modal || !modalImg) return;
+    modalImg.src = src;
+    modal.hidden = false;
+    modalZoom = 100;
+    applyModalZoom();
+  }
+
+  function autoSizeTableInput(el) {
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 220)}px`;
+  }
+
+  function bindTableAutoSize(container) {
+    if (!container) return;
+    container.querySelectorAll(".table-answer-input").forEach((field) => {
+      autoSizeTableInput(field);
+      field.addEventListener("input", () => autoSizeTableInput(field));
+    });
+  }
+
+  function renderExamSidePanel(q) {
+    const pointsEl = $("#exam-side-points");
+    const taskPointsEl = $("#exam-side-task-points");
+    const mediaWrap = $("#exam-side-media-wrap");
+    const zoomBtn = $("#btn-exam-side-zoom");
+    if (!pointsEl || !taskPointsEl || !mediaWrap || !zoomBtn) return;
+
+    const qPoints = q.points || 0;
+    const taskPoints = q._taskPoints || 0;
+    pointsEl.textContent = `${qPoints} Punkte`;
+    taskPointsEl.textContent = `Aufgabenblock: ${taskPoints} Punkte`;
+
+    const sideImage = q.figureImage || q.image || "";
+    currentSideImage = sideImage;
+    if (!sideImage) {
+      mediaWrap.innerHTML = '<p class="exam-side-empty">Für diese Frage ist keine Abbildung nötig.</p>';
+      zoomBtn.hidden = true;
+      return;
+    }
+
+    const label = q.figureImage
+      ? "Abbildung zur Aufgabe"
+      : (q.embedScanCollapsed ? "Vollständiger Prüfungsbogen" : "Prüfungsbogen");
+    mediaWrap.innerHTML = `<img src="${sideImage}" alt="${label}" loading="lazy">`;
+    zoomBtn.hidden = false;
   }
 
   // ───── INIT ─────
@@ -87,6 +208,28 @@
       $("#btn-exam-restart").addEventListener("click", endExam);
       $("#btn-exam-back-result").addEventListener("click", () => showScreen("exam-result"));
       $("#btn-exam-restart2").addEventListener("click", endExam);
+      const zoomBtn = $("#btn-exam-side-zoom");
+      if (zoomBtn) {
+        zoomBtn.addEventListener("click", () => openImageModal(currentSideImage));
+      }
+      const zoomRange = $("#image-modal-zoom");
+      if (zoomRange) {
+        zoomRange.addEventListener("input", () => {
+          modalZoom = Number(zoomRange.value) || 100;
+          applyModalZoom();
+        });
+      }
+      const modal = $("#image-modal");
+      const closeBtn = $("#image-modal-close");
+      if (closeBtn) closeBtn.addEventListener("click", closeImageModal);
+      if (modal) {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeImageModal();
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeImageModal();
+      });
     }
   }
 
@@ -248,7 +391,16 @@
 
     if (isOpen(q)) {
       const ta = $("#exam-textarea");
-      if (ta) examAnswers[examCurrentIdx] = { type: "open", text: ta.value };
+      if (isTableAnswer(q)) {
+        const tableAnswers = collectTableAnswers(q);
+        examAnswers[examCurrentIdx] = {
+          type: "open",
+          text: tableAnswersToText(q, tableAnswers),
+          tableAnswers,
+        };
+      } else if (ta) {
+        examAnswers[examCurrentIdx] = { type: "open", text: ta.value };
+      }
     } else if (isFreetext(q)) {
       const inp = $("#exam-freetext-input");
       if (inp) examAnswers[examCurrentIdx] = { type: "freetext", text: inp.value.trim() };
@@ -284,21 +436,36 @@
     $("#exam-task-header").textContent = q._taskTitle || "";
     $("#exam-question-text").innerHTML = q.question;
 
-    if (q.figureImage) {
-      container.insertAdjacentHTML("beforeend",
-        `<p class="exam-figure-label">Abbildung</p><img class="q-image q-image--figure" src="${q.figureImage}" alt="Abbildung zur Aufgabe">`);
+    renderExamSidePanel(q);
+    const showInlineMedia = window.matchMedia("(max-width: 520px)").matches;
+    if (showInlineMedia && q.figureImage) {
+      container.insertAdjacentHTML(
+        "beforeend",
+        `<p class="exam-figure-label">Abbildung</p><img class="q-image q-image--figure" src="${q.figureImage}" alt="Abbildung zur Aufgabe">`
+      );
     }
-    if (q.image) {
+    if (showInlineMedia && q.image) {
       if (q.embedScanCollapsed) {
-        container.insertAdjacentHTML("beforeend",
-          `<details class="exam-scan-details"><summary class="exam-scan-summary">Vollständigen Prüfungsbogen / Scan anzeigen</summary><img class="q-image q-image--exam" src="${q.image}" alt="Prüfungsbogen"></details>`);
+        container.insertAdjacentHTML(
+          "beforeend",
+          `<details class="exam-scan-details"><summary class="exam-scan-summary">Vollständigen Prüfungsbogen / Scan anzeigen</summary><img class="q-image q-image--exam" src="${q.image}" alt="Prüfungsbogen"></details>`
+        );
       } else {
-        container.insertAdjacentHTML("beforeend",
-          `<img class="q-image q-image--exam" src="${q.image}" alt="Abbildung zur Aufgabe">`);
+        container.insertAdjacentHTML("beforeend", `<img class="q-image q-image--exam" src="${q.image}" alt="Abbildung zur Aufgabe">`);
       }
     }
+    const saved = examAnswers[examCurrentIdx];
     if (q.table) {
-      container.insertAdjacentHTML("beforeend", buildTableHTML(q.table));
+      container.insertAdjacentHTML(
+        "beforeend",
+        buildTableHTML(q.table, {
+          tableAnswer: isTableAnswer(q),
+          savedTable: saved && saved.tableAnswers ? saved.tableAnswers : []
+        })
+      );
+      if (isTableAnswer(q)) {
+        bindTableAutoSize(container);
+      }
     }
     if (q.code) {
       container.insertAdjacentHTML("beforeend", buildCodeHTML(q.code));
@@ -391,6 +558,13 @@
       pts.className = "exam-points-badge";
       pts.textContent = `${q.points} Punkte`;
       container.appendChild(pts);
+    }
+
+    if (isTableAnswer(q)) {
+      hint.textContent = "Trage deine Antwort direkt in die Tabelle ein.";
+      const firstInput = container.querySelector(".table-answer-input");
+      if (firstInput) firstInput.focus();
+      return;
     }
 
     const textarea = document.createElement("textarea");

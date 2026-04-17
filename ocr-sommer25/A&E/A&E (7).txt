@@ -1,0 +1,12 @@
+ekturrand
+Korrekturrand
+oder
+Geraten hinterlegt werden mussen.
+4Punkte
+Erläutern Sie deren Relevanz in Bezug auf die Funktionalitat der Tunnel:
+8Punkte
+-hardware-unterstuitzte Krypto-Algorithmen:
+-Anzahl Netzwerkports:
+-garantierteFirmware-Updates uber einen bestimmten Zeitraum:
+-Leistungsaufnahme in Watt:
+ZPAFISII

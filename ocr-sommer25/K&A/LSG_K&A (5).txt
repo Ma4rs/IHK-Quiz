@@ -1,0 +1,28 @@
+Konzeption und Administration
+(P
+WeiteremlicheManameniferuterungenuttwerdenn
+-Verwendung sicherer Passworter und Multi-Faktor-Authentifizierung (MFA)
+-Aktivierung und Konfiguration von Firewalls
+-Protokollierung und Uberwachung sicherheitsrelevanter Ereignisse
+-Verwendung eines Bildschirmschoners mit Kennwort-Schutz
+-Aktivierung einer starken Benutzerkontensteuerung (User Account Control)
+-Verwenden eines sicheren Blos-Passwortes
+Weiterfuhrende Informationen:
+heitsrelevante Attacken zu bieten.
+Least-Privilege-Prinzip:
+e
+Erfullung der jeweiligen Aufgabe erforderlich sindEine typischeMaBnahme ist die RollenbasierteRechtevergabe,
+bei der z. B. ein Sachbearbeiter keine Administratorrechte erhalt.
+Zero-Trust-Prinzip:
+Eine typische MaBnahme ist die Identitätsprufung bei jedem Zugriff, z. B. durch starke Authentifizierung, Geratezu-
+standsprufung und rollenbasierte Zugriffskontrolle.
+Es sollte noch ein Penetrationstest eingefordert werden.Hierbei werden echte Angriffe simuliert und nicht nur
+technische Lucken,sondern auch Fehlkonfigurationen und unsichere Dienste erkannt.
+AuBerdem sollte die Netzwerksicherheit uberpruft werden,um alle offenen Ports und aktiven Dienste sowie die
+Konfiguration derFirewalls und Router zu prufen.
+Weitere mogliche Tests, die fur eine Beschreibung genutzt werden konnten:
+-Auswertung der Logs
+-Prufung aller Clients auf Malware / Viren
+-Sicherheitsprufung aller Applikationen und Dienste
+-Prufung gemaB geltenden Richtlinien (firmenintern oder z. B. BSI)
+-Simulierte Social-Engineering-Tests

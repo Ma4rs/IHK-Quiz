@@ -1,0 +1,32 @@
+Losungserläuterungen Abschlusspruifung Teil 2 Sommer 2025
+Konzeption und Administration
+1. Konzeption und Administration von IT-Systemen
+1. Aufgabe
+a)
+aa) Vorteile einer Virtualisierung:
+- Kosteneinsparung durch weniger physische Hardware
+- Geringerer Energieverbrauch durch weniger physische Hardware
+Hohere Flexibilität
+- Schnellere Backups und Wiederherstellungen
+Nachteile einer Virtualisierung:
+- Komplexere Verwaltung / Administration der Infrastruktur
+- Zusätzliche Lizenzkosten oder Kosten fur zertifizierte Hardware
+- Beim Ausfall des Hostsystems sind mehrere virtuelle Server betroffen
+- Performanceprobleme bei I/O-intensiven Anwendungen
+- Leistungsstarke Hardware zwingend erforderlich
+Weiterfuhrende Informationen:
+mit mehreren Punkten bewertet (siehe Aufgabe bb). In diesem Fall sind jedoch drei Vor- und drei Nachteile gefor-
+dert, die Aufgabe ist insgesamt nur mit sechs Punkten bewertet und es stehen lediglich sechs Antwortzeilen zur
+Verfugung. Daher ist davon auszugehen, dass die reine Nennung der Vor- und Nachteile genugt, um die volle
+Punktzahl zu erreichen.
+- Normalerweise wird in IHK-Abschlussprufungen die nachfolgende Unterscheidung getroffen:
+,Erläutern Sie": Es sind vollstandige-Sätze erforderlich. Etwas muss detailliert mit Beispielen oder Begrundungen
+geschildert werden. Wird meistens mit je zwei bis drei Punkten bewertet.
+,Beschreiben Sie": Es sind vollständige Sätze erforderlich. Etwas muss sachlich und strukturiert geschildert wer-
+den. Wird meistens mit je zwei Punkten bewertet.
+",Begrunden Sie": Es sind vollständige Sätze erforderlich. Etwas muss nachvollziehbar mit Erklärungen oder Ar-
+gumenten untermauert werden. Wird meistens mit je zwei bis drei Punkten bewertet.
+- *,Nennen Sie": Es genugt kurz und stichpunktartig zu antworten. Wird meistens mit je einem Punkt bewertet.
+- ,Berechnen Sie": Rechenwege sind immer anzugeben, da diese bepunktet werden. Wird je nach Komplexität
+und Anzahl der notwendigen Schritte im Rechenweg bewertet. Ein kurzer Antwortsatz ist zu empfehlen.
+In dieser Prufung wurden die Unterscheidungen sehr variabel eingesetzt.

@@ -1,0 +1,35 @@
+Konzeption und Administration
+Losungserläuterungen Abschlusspruifung Teil 2 Sommer 2025
+Relevante Angaben der Aufgabenstellung:
+Maximale Uberbruckungsdauer durch die UsV:60Minuten
+Ende der Stromversorgung durch die Usv:Akkuladung bei 30 %
+Startdauer des Notstromaggregats:3Minuten
+Benotigter Ladungsstand(%)je Uberbruickungsdauer:
+60 Minuten Uberbruckungsdauer100 % Ladungsstand
+0,6Minuten Uberbrickungsdauer 1 % Ladungsstand
+3Minuten Uberbrickungsdauer5% Ladungsstand
+Berechnung des Ladungsstands (%) beim Start des Notstromaggregates:
+2.Aufgabe
+e
+Mogliche datenschutzrelevante Kriterien:
+-Artund SensibilitatderbetroffenenDaten
+- Wahrscheinlichkeit eines hohen Risikos fur Rechte und Freiheiten
+-Unbefugter Zugriff auf die Daten
+-Missbrauchliche Verwendung der Daten
+-Veranderung der Daten
+-Moglichkeit zur Wiederherstellung der Daten
+Weiterfuhrende Informationen:
+Die Benachrichtigung der von einer Verletzung des Schutzes personenbezogener Daten betroffenen Person ist in
+Artikel 34derDsGvo beschrieben, siehehttps://dsgvo-gesetz.de/art-34-dsgvo/.
+b)
+Verkurzung der Zeit fur die Datenwiederherstellung:
+Um die lange Wiederherstellungszeit vom Band (LTo) zu vermeiden, sollten die Backups zunachst auf eine Fest-
+platte geschrieben werden. Von dort konnen sie bei Bedarf schnell wiederhergestellt werden. Zusatzlich kann im
+platte sorgt fur schnelle Wiederherstellung, das Band dient der Langzeitarchivierung.
+Beispielhafte alternative Losung: Cloud-Backup
+Vermeidung von Datenverlust:
+Um neu erstellte oder genderte Daten abzusichern, sollten regelmäBig inkrementelle Backups in kurzen Abstan-
+den auf einem schnellen Speichermedium durchgefuhrt werden. Dabei werden nur die seit dem letzten Backup
+geanderten Daten gesichert,was Zeit und Speicher spart.
+Beispielhafte alternative Losung: Kontinuierliche Datensicherung (CDP)
+Daten auch bei Ausfallen oder Schäden gut geschutzt.

@@ -1,0 +1,34 @@
+Korrekturrand
+b)Fi
+Die Aufgaben 1 bis 4 beziehen sich auf die folgende Ausgangssituation：
+schesUnternehmen imBereichLogistik.DieIT-Systeme der Retailer GmbHwerden aufend weiterentwickelt.
+In diesemZusammenhang sollen Sie die folgenden vier Aufgaben bearbeiten:
+1.IT-Systemeplanen undkonfigurieren
+2.DieVerfugbarkeit derDienste sicherstellen
+3.MobileEndgerateverwalten
+4.Systemsoftwareentwickeln
+1.Aufgabe (26Punkte)
+Die Retaler GmbH benotigt ausKapazitatsgrunden eineleistungstarkerePlatform ftur den E-Mail-Dienst.
+a)Der E-Mail-Dienst lief bislang auf einem physischenServer.
+aa)Siesllen prifeninwieweit es fuir dieRetailevortelhaft ist denMail-Denst in enervirtuellenMaschine u
+betreiben.
+6Punkte
+Erlautern Sieje dreiVorteileundNachteile einerVirtualisierung von Servern.
+Vorteile einer Virtualisierung:
+Nachteile einer Virtualisierung:
+ab) Zur weiteren Entscheidungsfindung uber eine eventuelle Virtualisierung des E-Mail-Dienstes sollen Sie uber den
+Typ-1-Hypervisor und uber den Typ-2-Hypervisor informieren.
+8Punkte
+Erganzen Sie dazu die Tabelle.
+Typ-1-Hypervisor
+Typ-2-Hypervisor
+(native oder bare-metal)
+(gehostet)
+Erlautern Sie kurz den jeweiligen
+Hypervisor-Typ.
+GebenSie fur diebeiden
+Hypervisor-Typen je ein sinnvolles
+Einsatzbeispiel an,
+Geben Sie fur die beiden
+Hypervisor-Typen je ein
+marktgangiges Produkt an,

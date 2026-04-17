@@ -1,0 +1,6 @@
+Korrekturrand
+Fortsetzung 4.Aufgabe
+zukunftig500loT-GerateihreSensordatenperMQTTandenServer.
+DieWLANBanbreitefrdieseIDsollaudilichbitsbegrenteden
+3Punkte
+bericksichtigtwerden.

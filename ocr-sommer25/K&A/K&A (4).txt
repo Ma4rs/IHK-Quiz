@@ -1,0 +1,22 @@
+Korrekturrand
+Korrekturrand
+en
+DazuzahlenMaBnhmenwiezBdieicherstellungdeAktualittderinstalliertenoftware.
+ErluteeweetreMannymgdn
+4Punkte
+te
+e)SicherheitsexpertenempfehlenimRahmenvonSicherheitskonzeptenfurIT-Systeme folgendePrinzipien:DasLeast-Privilege
+Prinzip und das Zero-Trust-Prinzip.
+BeidePrinzipien sollen bei der Retailer GmbH implementiert werden.
+6Punkte
+Erlautern Sie zu jedem Prinzip eine typische MaBnahme.
+Least-Privilege-Prinzip
+Zero-Trust-Prinzip
+Die Wirksamkeit der umgesetzten MaBnahmen soll von einem Sicherheits-Dienstleister getestet werden.Dieser bietet an,
+folgende Tests durchzufuhren:
+Den aktuellen Patch-Stand ermitteln
+-Passwort-und Benutzersicherheit prufen
+-Fehlkonfigurationen in IT-Systemen aufspuren
+-Fehlkonfigurationen im Active-Directory aufspuren
+4Punkte
+Beschreiben Siezwei zusätzliche sicherheitsrelevanteTests,dienoch eingefordert werden solten.

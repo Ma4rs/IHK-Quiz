@@ -1,0 +1,28 @@
+Korrekturrand
+b）FurdieDatenseicherungwirdzuzetinAD6VerbundmitneetospeicherkapazittvonTewendt
+Korrekturrand
+DieNettospeicherkapazitatdesRAID-6-Verbundssollverdoppeltwerden.ImRAID-6-Verbund sindFestplattenmit einer
+Kapazitatvonje8TiBverbaut.
+baBerechenieachvolliehbawieieleFestlattenmitinerKapazittvonjTifrdieErweiterunges
+2Punkte
+RAID-6-Verbunds auf 160TiBbenotigt werden.
+bb)ImZugederErweiterung desRAID-Verbundswird die Sicherheit derDaten gegenVerlustbeieinemFestplattenausfall in
+einem RAID-10-Verbund und in einem RAID-6-Verbund verglichen.
+3Punkte
+Erlutern Sie denSachverhalt am Beispiel eines gleichzeitigenAusfallsvonzweiFestplatten.
+bc)Als weiteres Entscheidungskriterium fur einen moglichen Wechsel von RAID 6 auf RAID 10 soll die jeweils verfugbare
+Nettospeicherkapazitat betrachtet werden.
+Berechnen Sie nachvollziehbar die Nettospeicherkapazität fur einen RAID-10-Verbund mit der Anzahl Festplatten des
+2Punkte
+erweiterten RAID-6-Verbunds aus ba).
+Hinweis:SolltenSieba)nichtbearbeitet haben,gehenSievonzwolf Festplattenfur die Erweiterung desRAID 6aus.
+C Die Server der Retailer GmbH haben zusammen eine maximale Leistungsaufnahme von 600 VA. Diese sind an eine USV mit
+einer Ausgangsleistung von 2.400 VA angeschlossen. Bei vollständig geladenen Akus kann die USV die Server rechnerisch
+60 Minuten lang mit Strom versorgen.
+Bei Stromausfall sollzunächst die UsV die Server so lange mit Strom versorgen, bis die Akkuladung auf 30 % abgesunken ist.
+Dann sollein Notstromaggregat die Stromversorgung der Server ubernehmen. Das Notstromaggregat benotigt vom Start bis
+zur vollstandigenBetriebsbereitschaft drei Minuten.
+BerechnenSienachvollziehbarbei welchemprozentualenLadungstand derStart desNotstromaggregates eingeleitetwerden
+5Punkte
+muss.
+ZPA

@@ -1,0 +1,18 @@
+Korrekturrand
+bbNahngefrehbsnistnGtbl
+"GratuitousARP-Requests"
+Korrekturrand
+Erlautern Sieden Sinn dieserARP-Requests.
+3Punkte
+demServer istnachfolgendabgebildet.
+Server
+loT-Gerat
+Connect
+Connect Ack
+Publish
+Publish
+Publish
+3Punkte
+ca)  Erläutern Sie, warum das MQTT-Protokoll auf TCP und nicht auf UDP aufsetzen muss.
+Fortsetzung 4.Aufgabe→
+ZPAFIS

@@ -1,0 +1,97 @@
+HK
+Korrekturrand
+Die Aufgaben 1 bis 4 beziehen sich auf die folgende Ausgangssituation:
+Bearbeiten Sie in diesem Zusammenhang die folgenden vier Aufgaben:
+1.Aufgabe: Das bestehende Netzwerk analysieren
+2. Aufgabe: Anbindung an das Internet realisieren
+3.Aufgabe: Die Internetanbindung absichern
+4. Aufgabe: Gerate drahtlos in das Netzwerk einbinden
+1. Aufgabe (22 Punkte)
+und Subnetze aufgeteilt, wie im Netzwerkplan dargestellt.
+uberprufe
+derzubee
+Zugang zu den Servern in der Zentrale uber ein VPN erhalten.
+fdem Der
+ofort an d
+aa) Sie verschaffen sich zuerst einen Uberblick uber die Adressbereiche der Subnetze.
+tht anerka'
+ntragung(
+4Punkte
+agen Sie I/
+en Sienur
+Maske (dezimal)
+Max. nutzbare IP-Adressen
+VLAN ID
+Name
+Subnetz
+iben Sie
+erunlese
+255.255.255.0
+254
+1
+default
+192.168.1.0/24
+ieBlich Ihr
+nd.
+11
+Technik
+192.168.11.0/26
+reibunte
+ns, ob Ih
+12
+Vertrieb
+192.168.12.128/25
+ge gelos
+66
+Management
+192.168.66.8/29
+Situatio
+halten.
+Filial-Netze
+172.16.200.0/22
+druckten
+dnet.Tra
+ichneter
+ab) Die Schnittstellen auf R1 werden als Gateway fur die Subnetze konfiguriert. Dafur soll jeweils die letzte IP-Adresse aus
+bei Offer
+dem Subnetz verwendet werden.
+uordnur
+nach re
+Tragen Sie die IP-Adressen der Gateways in die Tabelle ein.
+4Punkte
+VLAN ID
+Name
+Subnetz
+IP-Adresse des Gateways
+erkenne
+tfur Ko
+1
+default
+192.168.1.0/24
+h"Soll
+gen eing
+11
+Technik
+192.168.11.0/26
+inmala
+ntensei
+12
+Vertrieb
+192.168.12.128/25
+e Sieä
+eueLos
+derdar
+66
+Management
+192.168.66.8/29
+er,net
+tmitD
+assen.
+henmi
+enErc
+in der
+ochnu
+rregior
+vird in
+chforn
+ttet.Zi

@@ -1,0 +1,83 @@
+Korrekturrand
+ac)Di
+Si
+3.Aufgabe(22 Punkte)
+S
+Die Retailer GmbHwill einMobileDeviceManagement System(MDMs）zur effizientenAdministration dermobilenEndgeräte
+Z
+einfuhren.
+a)Es liegt diefolgende tabellarischeUbersicht der Leistungsmerkmale von drei MDM-Systemen vor.
+Anbieter C
+Anbieter B
+AnbieterA
+Leistungsmerkmal
+Android/Windows
+IOS/Android/Windows
+IOS/Android/Windows
+Unterstuitzte Clients
+OnPremises/PublicCloud/
+PublicCloud
+OnPremises/PublicCloud/
+UnterstitztePlattformen
+Hybrid Cloud
+Hybrid Cloud
+Ja
+Ja
+Ja
+Logs und Reports
+Ja
+Nein
+Nein
+Content-Management-System
+Ja
+Ja
+Ja
+Black-und Whitelisting
+Ja
+Ja
+Ja
+Bring your own Device
+Ja
+Ja
+Ja
+Client-Ortung
+Ja
+Ja
+Nein
+Wipe Mobile Device
+Ja
+Nein
+Ja
+Lockdown MobileDevice
+Ja
+Ja
+Ja
+E-Mail-Management
+Ja
+Nein
+Nein
+Eigener App-Store
+Ja
+Ja
+Kamera Zugriffssteuerung
+Ja
+Ja
+Ja
+Ja
+Gerateinventarisierung
+Ja
+Ja
+Ja
+MDMS-Profile
+Ja
+Ja
+Ja
+Software-Updates
+aa) Wahlen Sie den Anbieter aus, dessen MDMS bei Verlust oder Diebstahl eines mobilen Gerates den besten Schutz gegen
+missbräuchliche Nutzung bietet und begruinden Sie Ihre Entscheidung.
+4Punkte
+ab)DieRetailer GmbH erlaubt ihren Mitarbeitern dieNutzung privater Endgeratefur dienstlicheZwecke,sofern diesein das
+MDMSeingebunden sind.
+Beschreiben Sie, wie der Schutz privater Daten auf einem Endgerat gegenuber dem MDMS sichergestellt wird.
+2Punkte
+ZPAFIS16

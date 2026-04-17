@@ -1,0 +1,43 @@
+ac)FurdieNetzwerklanungsollendieGatewayAdressendeubnetzeauf denSchnitstllenonRentsprechendder
+Korrekturrand
+VLANsrichtig zugeordnet werden.
+VLAN ID
+Name
+Subnetz
+Schnittstelle auf R1
+11
+Technik
+192.168.11.0/26
+eth1.11(Subinterface)
+12
+Vertrieb
+192.168.12.128/25
+eth1.12(Subinterface)
+66
+Management
+192.168.66.8/29
+eth1.66(Subinterface)
+Erluteieweshallschnittstllndebersichtstabellejweinubinteraceangegebnistndwasan
+darunterversteht.
+4Punkte
+n derweiteren Planung wird daruber diskutiert,ob auf den witchenlink aggregation zumEinsatzkommen solte.
+4Punkte
+schen Switchen.
+bb) Erläutern Sie, warum auf dem Switch MLS1 der Port mit der Verbindung zum Switch MLS2 geblockt ist (im Netzwerkplan
+4Punkte
+Zeichen), obwohl er prinzipiell funktionsfahig ist.
+c) Nachdem der Router R1 eingerichtet wurde,konnen keine Verbindungen zu Adressen im Internet hergestellt werden.
+ErgnzenSiedenfehlendenEintrag inderRoutingtabellevonRsodassVerbindungenzumInternetmoglichwerden
+2Punkte
+Next hop
+Netzwerk
+Schnittstelle
+etho
+203.0.113.0/30
+eth1.11
+192.168.11.0/26
+eth1.12
+192.168.12.128/25
+192.168.66.8/29
+eth1.66
+2DA

@@ -1,0 +1,75 @@
+n
+Analyse und Entwicklung
+1.Aufgabe
+(e
+(ee
+VLANID
+Name
+Subnetz
+Max.nutzbare
+Maske (dezimal)
+IP-Adressen
+1
+default
+192.168.1.0/24
+255.255.255.0
+254
+11
+Technik
+192.168.11.0/26
+255.255.255.192
+62
+12
+Vertrieb
+192.168.12.128/25
+255.255.255.128
+126
+66
+Management
+192.168.66.8/29
+255.255.255.248
+6
+Filial-Netze
+172.16.200.0/22
+255.255.252.0
+1022
+ab)
+VLANID
+Name
+Subnetz
+IP-Adresse des Gateways
+1
+default
+192.168.1.0/24
+192.168.1.254
+11
+Technik
+192.168.11.0/26
+192.168.11.62
+12
+Vertrieb
+192.168.12.128/25
+192.168.12.254
+66
+Management
+192.168.66.8/29
+192.168.66.14
+Weiterfuhrende Informationen:
+VLAN1,default":
+-Host Adress Range:192.168.1.1-192.168.1.254
+-BroadcastAddress:192.168.1.255
+VLAN 11,Technik":
+-Host Adress Range: 192.168.11.1-192.168.11.62
+-BroadcastAddress:192.168.11.63
+VLAN12,Vertrieb":
+-Host Adress Range:192.168.12.129 -192.168.12.254
+-Broadcast Address:192.168.12.255
+VLAN 66,Management":
+-Host Adress Range:192.168.66.9-192.168.66.14
+-Broadcast Address:192.168.66.15
+Schnittstellen etho und ethi) verfugt,werden auf derLN-seitigen chnittstelle Subinterfaces eingerichtet,m
+mehrereANs uber eineeinzigeVerbindung zu verwaltenEinSubinterface ist einevirtuelleogischeschnit
+stelle,die durch das Aufteilen einer physischen Schnittstelle entsteht und jeweils einem bestimmten VAN
+zugeordnet wird.
+11
+@2025 u-form Verlag -Kopieren verboten!

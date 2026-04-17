@@ -1,0 +1,108 @@
+Konzeption und Administration
+Losu
+Losungserlauterungen Abschlussprifung Teil 2Sommer 2025
+bb)
+ab)
+Typ-2-Hypervisor
+Typ-1-Hypervisor
+(gehostet)
+(native oder bare-metal)
+Virtualiserungssoftwaredieauf einm
+Virtualisierungssoftware,diedirektaufder
+bereits installierten Betriebssystem
+Erlauterung des Hyper-
+Hardware-Ebene aufsetzt und direkten Zu
+lauft und sich wie eine Anwendung
+visors-Typs
+griff auf diese hat.
+verhalt.
+Einsatz groBtenteils im Bereich von
+Mehrheitlich in Rechenzentren zur Bereit-
+Einsatzbeispiel
+Arbeitsplatzen und im privaten Umfeld
+stellungvon Server-Diensten
+zum Test und zur Entwicklung von Soft-
+ware
+-Parallels
+-KVM
+Marktgangiges Produkt
+-VMware Workstation (Player/ Pro)
+-VMwarevSphere
+-VMware Fusion
+-Microsoft Hyper-V
+-VirtualBox(Oracle)
+-Xen
+b)
+ba) Berechnung des zusatzlichen Speicherbedarfs:
+160TiB-80TiB=80TiB
+Berechnung der zusatzlich benotigten Festplatten:
+80 TiB/8TiBje Festplatte=10Festplatten
+Es werden 10 zusatzliche Festplatten benotigt.
+Weiterfuhrende Informationen:
+Ein RAID-6-Verbund ist ein Festplatten-Array, das Daten verteilt speichert und zusätzlich zwei unabhängige Pari-
+tatsinformationen nutzt, um die Daten bei einem Festplattenausfall zuverlässig wiederherstellen zu konnen. Die
+beiden zusatzlich benotigten Festplatten zur Speicherung der Paritatsinformationen sind im bereits bestehenden
+RAID-6-Verbund berucksichtigt. Im nachfolgenden Schaubild sind die Paritatsinformationen grau gekennzeichnet.
+RAID 6mit 80 TiB Nettospeicherkapazitat bei 8 TiBje Festplatte
+A1
+A2
+A3
+A4
+A5
+A6
+A7
+A8
+A9
+A10
+Ap1
+Ap2
+B1
+B2
+B3
+B4
+B5
+B6
+B7
+B8
+B9
+Bp1
+Bp2
+B10
+C1
+C2
+C3
+C4
+C5
+C6
+C7
+C8
+Cp1
+Cp2
+60
+C10
+D1
+D2
+D3
+D4
+D5
+D6
+D7
+Dp1
+Dp2
+D8
+D9
+D10
+E1
+E2
+E3
+妇
+E5
+E6
+Ep1
+Ep2
+E7
+E8
+E9
+E10
+fugt werden.
+2025 u-form Verlag-Kopieren verboten!

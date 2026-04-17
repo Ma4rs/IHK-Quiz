@@ -138,7 +138,13 @@
     <div class="exam-layout">
       <div class="exam-topbar">
         <div class="exam-title" id="exam-title">Sommerprüfung 2024</div>
-        <div class="exam-timer" id="exam-timer">01:30:00</div>
+        <div class="exam-progress" aria-label="Fortschritt">
+          <div class="exam-progress-bar"><span id="exam-progress-fill"></span></div>
+          <span class="exam-progress-text" id="exam-progress-text">0 / 0</span>
+        </div>
+        <div class="exam-timer" id="exam-timer" aria-live="polite" aria-label="Verbleibende Zeit">01:30:00</div>
+        <button class="btn btn-secondary btn-pause-exam" id="btn-pause-exam" aria-label="Timer pausieren">Pause</button>
+        <button class="btn btn-secondary btn-export-exam" id="btn-export-exam" title="Antworten als Text herunterladen">Export</button>
         <button class="btn btn-submit-exam" id="btn-submit-exam">Prüfung abgeben</button>
       </div>
       <div class="exam-body">

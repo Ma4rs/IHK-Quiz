@@ -1,0 +1,16 @@
+Analyse und Entwicklung
+Losungserläuterungen Abschlusspruifung Teil 2 Sommer 2025
+b)
+sachlich frei ist.
+Weiterfuhrende Informationen:
+sion vor und das loT-Gerat muss eine andere IP-Adresse anfordern.
+C)
+Weiterfuhrende Informationen:
+nen. Das entspricht zwar nicht dem MQTT-Standard, wird aber unter dem Namen ,MQTT-SN" (fur ,MQTT for Sen-
+sor Networks") beschrieben.
+cb) Datenverbrauchs aller Publish Messages:
+66 Byte *500 Geräte = 33.000 Byte
+Datenverbrauchs pro Sekunde:
+33.000 Byte / 60 Sekunden = 550 Byte/s
+Benotigte Bandbreite pro Sekunde in kbit/s:
+Die zur Verfugung stehende Bandbreite von 10 kbit/s ist ausreichend.

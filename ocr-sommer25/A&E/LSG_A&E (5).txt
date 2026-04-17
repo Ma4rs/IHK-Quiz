@@ -1,0 +1,48 @@
+twicklung
+fgelost
+Losungserlauterungen Abschlussprufung Teil 2 Sommet 2025
+Analyse und Entwicklung
+b)
+erMal-
+ba) Bei nachvollziehbarer Begrundung konnen beide Produkte gewahlt werden
+Begrundung fur VPN-Software 1 (mit X.509-Zertifikaten):
+ver
+Bietet eine zentrale Verwaltung der Authentifizierung durch den Einsatz einer Zertifizierungsstelle(CA).Zertifikate
+konnenbeiBedarf einfachwiderrufenodererneuertwerden,was denVerwaltungsaufwand langfristigreduziert.
+Begrundung fur VPN-Software 2(mit manuell hinterlegten Public-Keys):
+Einfacherin derinitialen Einrichtung,dakeine PKi-infrastrukturbenotigt wird.Der manuelle Austauschund die
+Verwaltung der Schlussel erfordern aber eine hohere Disziplin seitens der Administratoren und ist allgemein feh-
+leranfalliger.
+bb) Hardware-unterstitze Krypto-Algorithmen:
+Sehr relevanterhoht diePerformanceund StabilitatdesTunnels insbesondere beihoherAuslastungSollten die
+Algorithmen der Software nicht unterstuitzt werden,ware mit deutlichenPerformance-Problemen zu rechnen.
+Anzahl Netzwerkports:
+Sehr wichtig um die verschiedenen Netzwerksegmente zu trennen und anzubinden.Muss demnach ausreichend
+sein fur dieAnzahl derVerbindungen.
+Garantierte Firmware-Updates uber einen bestimmten Zeitraum:
+ReduziertSicherheitsrisiken und schafftPlanungssicherheit,istdaher allgemein sehrwichtig.Kurzfristig allerdings
+nurwenigrelevantfur dieFunktionalitatderVPN-Tunnel.
+Leistungsaufnahme in Watt:
+Keine Relevanz in Bezug auf die Funktionalität der VPN-Tunnel.Nur bzgl. der Energiekosten, Stromversorgung und
+Kuhlung relevant.
+4.Aufgabe
+(e
+aa) Der SSID-Broadcast ist die Funktion, um den Netzwerknamen (ssID) offentlich auszusenden, damit er in der
+Liste verfugbarer Netzwerke erscheint. Zweck des Broadcast ist, dass der Netzwerkname nicht manuell eingege-
+ben werden muss.
+ab) Beispielhafte Erlauterung zur Authentifizierung:
+Die Identitat eines Benutzers oder Gerats wird mithilfe eines Passworts oder Zertifikats uberpruft, um sicherzustel-
+len, dass nur autorisierte Nutzer Zugriff auf das Netzwerk erhalten.
+Beispielhafte Erlauterung zur Vertraulichkeit:
+Vertraulichkeit bedeutet,dass die ubertragenen Daten im WLANverschlusselt werden,um diese vorUnbefugtenzu
+schutzen.
+ac) Beispiele fur Authentifizierung:
+-FestesPasswort / Pre-Shared Key(PSK)
+-Individueller Zugang durch RADluS oder Zertifikat
+-Simultaneous Authentication of Equals (SAE,bei WPA3)
+Beispiele fur Verschlusselung:
+-TKIP(Temporal Key Integrity Protocol,bei WPA1)
+—AES(Advanced Encryption Standard,bei WPA2/3)
+-GCMP-256(Galois/Counter Mode Protocol,bei WPA3)
+15
+2025u-form Verlag-Kopieren verboten!

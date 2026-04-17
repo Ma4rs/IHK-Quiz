@@ -1,0 +1,44 @@
+Analyse und Entwicklung
+Losungserläuterungen Abschlussprufung Teil 2 Sommer 2025
+b)
+Framesauf alle beteiligten Leitungenverteilt werden.
+Vorteile:
+-Erhohter Datendurchsatz
+-Verbesserte Ausfallsicherheit
+-Lastverteilung
+-Verbesserte Skalierbarkeit
+den.
+Weiterfuhrende Informationen:
+Paketemreadihzeitsendtwden,wasdrlstungest.
+c)
+Netzwerk
+Schnittstelle
+Next hop
+0.0.0.0/0
+etho
+203.0.113.1
+Weiterfuhrende Informationen:
+Die Standardroute 0.0.0.0/0 steht fur ,alle anderen Ziele" und leitet den Verkehr uber die Schnittstelle etho zum
+Next Hop 203.0.113.1,also dem Gateway inRichtung Internet.
+2.Aufgabe
+a)
+aa) Mogliche Aspekte:
+-StatischeIP-Adresse
+-Bessere Service-Level-Agreements(SLAs)
+- Hohere / garantierte Verfugbarkeit
+-Priorisierter Support durch z. B. eine Geschaftskunden-Hotline
+-Gewerbliche Nutzung erlaubt
+ab) Ein shared mediumbedeutet, dass sich mehrere Teilnehmer in einem Netzabschnitt die verfugbare Band
+breite teilen.Bei GPON (Gigabit Passive Optical Network) teilen sich mehrere Kunden eine gemeinsame Glasfaser-
+leitung bis zum VerteilerDas ist fur dieFiliale der IHk-War GmbH ungunstig, da die tatsachlich verfugbare Ge
+schwindigkeit stark schwanken kann.
+ac)Es handelt sich hierbei erneut um eine Losung mit einem shared medium, die Geschwindigkeit und stabilität
+hängt sehr von der Netzabdeckung und der Auslastung des Mobilfunknetzes ab.
+Bei einer LTE-Verbindung erhält der Kundemeist nur eine private IP-Adresse da derAnbieter Carrier Grade NAT
+erschwert.
+Weitere Aspekte die fur eine Erläuterung genutzt werden konnten:
+-Geringerer Download / Upload (50/10 Mbit/s)
+-Erhohte Latenz im Vergleich zu DSL/ Glasfaser
+-Eingeschrankter Funktionsumfang des LTE-Routers
+12
+2025 u-form Verlag-Kopieren verboten!

@@ -1,0 +1,85 @@
+Korrekturrand
+4.Aufgabe(25Punkte)
+starkvereinfachte,Aufgabebearbeiten.
+derBezeicungAMngelegwerdenDenhaltvonrrayAMsollnachrayAMentsrechenddemfoln
+denSchemapiertedenieweiterenFdrsrraAMollemitdenchmaangenenZhe）
+gefuilt werden.
+Schema:
+47
+52
+50
+60
+64
+66
+71
+RAM1
+40
+42
+50
+6
+60
+7
+64
+8
+66
+9
+71
+40
+42
+3
+47
+4
+52
+5
+RAM2
+2
+10
+11
+12
+13
+14
+15
+16
+9
+17
+4
+5
+6
+7
+8
+[Index]
+0
+2
+3
+FolgenderProgrammentwurf liegtvor:
+int[]RAM1=newint[9](40,42,47,52,50,60,64, 66,71};
+int[] RAM2=newint[18];
+for（inti=0:i<9;i++)
+RAM2[i*2+1]=i;
+RAM2[i*2]=RAM1[i];
+aa)AnalysireiedenPrrammetwur telleiefest,welcheWertindenerstenneuFeennM gseh
+werden.
+TragenSie dieWerteindie vorgesehenen Felder ein.
+9Punkte
+RAM2
+[Index]
+0
+2
+3
+4
+5
+6
+1
+7
+8
+ab) Offensichtlich liefert das Programm falsche Werte. Dafur sind zwei Fehler im Programmcode verantwortlich.
+Lokalisieren Sie die beiden Fehler und geben Sie zu jedem Fehler den korrekten Code an.
+10 Punkte
+Korrekter Code1
+Korrekter Code2
+b)Fehler, die beim Programmieren vorkommen, werden unterschieden in Syntaxfehler und in Semantikfehler.
+Beschreiben Sie die beiden Fehlerarten und geben Sie dazu jeweils ein Beispiel an.
+6Punkte
+Syntaxfehler:
+Semantikfehler:
+ZPAFIS18

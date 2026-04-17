@@ -1,0 +1,99 @@
+Analyse und Entwicklung
+Losungs
+Losungserläuterungen AbschlussprufungTeil2 Sommer 2025
+b)
+ba)Be
+werden.Dadurch waren interme Server nur noch uber hre Ip-Adressen erreichbar.
+B
+WeiteremoglicheGrunde,die gegenoffentlicheDNs-Server sprechen:
+B
+k
+ware fuhren kann.
+nutzen.
+3.Aufgabe
+(e
+ab)
+Protokoll
+Quell-IP
+Ziel-IP
+Quell-Port
+Ziel-Port
+Richtung
+#
+Regel
+TCP
+any
+any
+any
+443(https)
+allow
+out
+1
+allow
+TCP
+any
+any
+any
+587(smtp)
+2
+out
+3
+allow
+TCP
+any
+any
+any
+993(imaps)
+out
+4
+allow
+TCP
+any
+any
+any
+4711
+out
+5
+allow
+TCP
+any
+192.0.2.64/32
+any
+443(https)
+in
+6
+deny
+any
+any
+any
+any
+any
+out
+deny
+any
+any
+any
+any
+any
+in
+Weiterfuhrende Informationen:
+Zeile 1: Ausgehender HTTPs-Traffic soll gemäβ Aufgabenstellung ermoglicht werden, daher ist 443 als Ziel-Port zu
+erganzen.
+die Angaben zur Quell-iP, Ziel-iP sowie zum Quell-Port jeweilig von den beiden Zeilen ubernommen werden.UDP
+wirdbei E-Mail-Protokollennicht verwendet,daher ist TCP anzugeben.
+gelals allowzu erfassen.
+Zeile5:Derinterne Webserver soll uber eine gesicherte http-Verbindung erreichbar sein,daher ist HTTPS bzw.Port
+443zu verwenden.HTTPwurdekeine gesicherteVerbindungsform darstellen.
+Zeile 6,Zeile7: Jeglicher weitereDatenverkehr soll unterbunden werden,daher sind diese Regeln mit deny zu
+erfassen. Ahnliche Schlusselworter wie z. B. reject oder forbid wären ebenfalls zulassig.
+ac)Zu den Vorteilen zahlt zum Beispiel die Intrusion Detection / Intrusion Prevention.Hierbei werden externe An-
+griffe automatisch erkannt und abgewehrt werden (z. B. SYN Flood).
+So lasst sich der Zugriff länderbezogen einschränken und auf relevante Regionen beschranken.
+Weitere mogliche Vorteile, die fur eine Erläuterung genutzt werden konnten:
+-Anti-Virus/Anti-SPAM-Filter Mail-Relay
+-Verhaltensanalyse
+-QoS-Management
+-Erweiterte Schutzfunktionalitaten gegen Advanced Persistent Threat Angriffe (APT)
+-Deep Packet Inspection
+14
+2025 u-form Verlag-Kopieren verboten!

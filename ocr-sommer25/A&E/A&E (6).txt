@@ -1,0 +1,73 @@
+Korrekturrand
+Fortsetzung 2.Aufgabe
+2Punkte
+9.9.9.9,fur die Namensauflosung zu verwenden.
+b)Fur
+VP
+po
+VP
+Ge
+ba
+3.Aufgabe(29 Punkte)
+Packet Inspection Firewall (SPl) abgesichert werden.
+4Punkte
+ab)Bislang wurden folgende Internet-Anwendungen identifiziert, welche durch die Firewall ermoglicht werden sollen:
+-HTTPS
+-SMTP/IMAPS
+-ExterneDatenbankanwendung,welche auf Port 4711 reagiert
+- Interner Webserver muss von auBen uber eine gesicherte HTTP-Verbindung unter IP 192.0.2.64 erreichbar sein
+Allen weiterenDatenverkehr soll die Firewall unterbinden.
+Vervollständigen Sie die Regeln fur die Stateful Packet Inspection Firewallin folgender Tabelle.
+9 Punkte
+Regel
+Protokoll
+Quell-IP
+Ziel-IP
+Quell-Port
+Ziel-Port
+Richtung
+allow
+TCP
+any
+any
+any
+out
+allow
+TCP
+any
+587(smtp)
+out
+allow
+any
+any
+993 (imaps)
+out
+TCP
+any
+any
+any
+4711
+out
+allow
+TCP
+any
+192.0.2.64/32
+any
+in
+any
+any
+any
+any
+any
+out
+any
+any
+any
+any
+any
+in
+ac)FurdiebsicherungdeNetwerksmseneenemodereFrwallbeshaffenieerwgenineNextGeneratn
+Firewall"anzuschaffen,
+ErlauternSieweiVorteiledieeine solcheFirewall imVergleichzu einemklassischenPakefiterbietet
+4Punkte
+ZPAFISI18

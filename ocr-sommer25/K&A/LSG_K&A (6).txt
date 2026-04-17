@@ -1,0 +1,64 @@
+Konzeption und Administration
+Losungserluterungen Abschlusspruifung Teil 2 Sommer 2025
+3.Aufgabe
+(e
+dieseFeaturesunterstitzt,sollte diesergewahltwerden.
+ten.
+ac) Mogliche weitere Sachverhalte fir eine Betriebsvereinbarung:
+-Regelungen zur Passwort-und Authentifizierungspflicht
+-MaBnahmenzur Datensicherungund Backup
+-Verhaltenbei Diebstahl oderVerlust
+-Vorgaben zur Trennung privater und dienstlicher Daten
+-Schulung von Mitarbeitern
+-FernsteuerungderKamera
+-Regelungen zu BYoD (Bring Your Own Device)
+b)
+User CAL:
+Gerate nutzen oder es mehr Gerate als Nutzer gibt.
+Device CAL:
+Fur jedes Gerat wird eine Lizenz benotigt. Dieser Lizenztyp ist sinnvoll, wenn mehrere Mitarbeiter an einem Gerat
+arbeiten oder es mehr Nutzer als Gerate gibt.
+Ein Update ist eine kleinere,meist kostenlose Aktualisierung,die Fehler behebt oder Sicherheitslucken
+C
+schlieBt, ohne die Grundfunktionen zu verandern. Ein Upgrade ist eine grBere, oft kostenpflichtige Versionser-
+weiterung, die neue Funktionen oder Verbesserungen bietet und damit den Funktionsumfang deutlich erweitert.
+4.Aufgabe
+(e
+aa)
+RAM2
+40
+0
+42
+1
+47
+2
+52
+3
+50
+[Index]
+0
+1
+2
+3
+4
+5
+6
+7
+8
+ab) Korrekter Code 1:
+RAM2[i*2]=i.+1;
+Korrekter Code 2:
+RAM2[i*2+1]=RAM1[i];
+Weiterfuhrende Informationen:
+Durch die beiden Codekorrekturen wurde die vertauschte Zuweisungslogik behoben.Ursprunglich wurden die
+Werte aus RAM1 an den geraden Stellen korrekt eingefugt, aber die Indexzahler standen falschlich an den ungera-
+den Positionen. Die Korrektur dreht dies um, sodass nun die Zahler (beginnend bei 1) an den geraden Indizes ste-
+hen und die Daten aus RAM1 an den ungeraden. Damit entspricht die Struktur des Arrays RAM2 nun dem vorgege-
+benen Schema der Aufgabenstellung.
+b
+Syntaxfehler:
+mern oder nicht deklarierte Variablen.
+Semantikfehler:
+obwohl sie eigentlich von 0 bis 9 zahlen sollte
+10
+2025 u-form Verlag-Kopieren verboten!

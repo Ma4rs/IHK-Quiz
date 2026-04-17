@@ -1,0 +1,45 @@
+ing
+Analyse und Entwicklung
+b)
+F
+bb)
+Anzahl Subnetze
+256
+1.Subnetz
+2001:db8:9876:/64
+2.Subnetz
+2001:db8:9876:1:/64
+vorletztes Subnetz
+2001:db8:9876:fe:/64
+letztes Subnetz
+2001:db8:9876:ff:/64
+Weiterfuhrende Informationen:
+Nullen durfen durch ,:* ersetzt werden.
+Adressangaben in vollkommen ungekurzter Schreibweise:
+1.Subnetz
+2001:0db8:9876:0000:0000:0000:0000:0000/64
+2.Subnetz
+2001:0db8:9876:0001:0000:0000:0000:0000/64
+vorletztes Subnetz
+2001:0db8:9876:00fe:0000:0000:0000:0000/64
+letztes Subnetz
+2001:0db8:9876:00ff0000:0000:0000:0000/64
+Erlauterung der Vorgehensweise fur diese Aufgabe:
+scheiden, wodurch sich 28 (256) Subnetze ergeben.
+Die Subnetznummer wird in das vierte 16-Bit-Segment der Adresse eingefugt, wahrend die ersten 56 Bits unveran-
+dert bleiben. So entstehen Subnetze von 2001:db8:9876:0000:/64 bis 2001:db8:9876:00ff:/64, wobei jedes Sub-
+netz durch den Wert im vierten Block eindeutig ist.
+bc) Eigenschaften einer DMz:
+-Separates Netzwerk zwischen internem Netzwerk und Internet
+-Strenge Zugriffsbeschrankungen zwischen DMZ und internem Netzwerk
+-Schutzt das interne Netzwerk vor direkten Zugriffen von auBen
+- Ermoglicht sichere Bereitstellung von Diensten fur externe Nutzer ohne vollstäandigen Zugriff auf interne Syste-
+me
+-Wird durch Router/Firewall vom LAN getrennt
+bd) In einem /64 Netz existieren 264 IP-Adressen.
+c)
+ca)Der Client sendet die Anfrage nach www.ihk.de an den Router oder einen anderen eingetragenen DNs-Server.
+Dieser ubernimmt dierekursiveAuflosung,bisdieIP-Adresse von www.ihk.deermittelt wurdeund diese an den
+Client zuruckgegeben werden kann.
+13
+2025u-form Verlag-Kopieren verboten!

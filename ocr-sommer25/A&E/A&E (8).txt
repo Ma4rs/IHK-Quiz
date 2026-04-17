@@ -1,0 +1,28 @@
+Korrekturrand
+bb)Nachd
+"Grat
+4.Aufgabe(20 Punkte)
+Erlaut
+messenundperFunkubertragen
+a)Die neuen loT-Geratewerden andasWLAN derFirma angebunden.
+aaDieeWAdetelteradastzf
+2 Punkte
+Beschreiben Sie dieFunktionsweise und den Zweck des SsiD-Broadcasts.
+c)DieDat
+dem Se
+loT-G
+legtwerden.
+4Punkte
+ErluternSiediebeidenBegriffeinBezug auf dieWLAN-Verbindung.
+Authentifizierung:
+Vertraulichkeit:
+ca
+2Punkte
+ac)Nennen Sie jeweils ein Beispiel, wie WPA (1/2/3) die Authentifizierung bzw.Verschlusselung realisiert.
+Beispiel furAuthentifizierung:
+Beispiel fur Verschluisselung:
+b)Sobald einGerät ineerbindung zumWLANhergestellt hat, versucht e autmatish enIP-dresseomDHeveu
+erhalten,
+ba)Erlautern Sie,warum der DHCP-Discover als Broadcast erfolgt.
+3Punkte
+ZPAFISII10

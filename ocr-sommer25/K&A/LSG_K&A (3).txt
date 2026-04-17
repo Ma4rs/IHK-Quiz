@@ -1,0 +1,43 @@
+Losungserläuterungen Abschlussprufung Teil 2 Sommer 2025
+Konzeption und Administration
+gleichzeitigen Ausfallzwei beliebiger Festplatten.
+Festplatten einesSpiegelpaaresbetroffen,gehendieDatenverlorenindzweiFestplatten unterschiedlicherpie
+gelpaarfenlbdanl
+Weiterfuhrende Informationen:
+bund mit vier Festplatten:
+RAID1+0
+RAIDO
+RAID1
+RAID1
+A1
+A1
+A2
+A2
+A3
+A3
+A4
+A4
+A5
+A5
+A6
+A6
+A7
+A7
+A8
+A8
+A9
+A9
+A10
+A10
+bc) Anzahl Festplatten des erweiterten RAID-6-Verbundes (Aufgabe ba):
+12 Festplatten je 8 TiB (Nettospeicherkapazitat RAID-6: 80 TiB)
+10 zusatzliche Festplatten je 8 TiB (Erweiterung der Nettospeicherkapazitat des RAID-6-Verbundes um weitere 80
+TiB)
+>12 Festplatten +10 Festplatten=22Festplatten
+Nettospeicherkapazität RAID-10-Verbund:11 Festplatten *8 TiB= 88 TiB
+Die Nettospeicherkapazitat fur den RAID-10 Verbund mit der Anzahl Festplatten des erweiterten RAID-6-Verbundes
+betragt 88TiB.
+AlternativeLosung,solltemitzwolf zusatzlichenFestplatten gerechnetwerden:
+12Festplatten+12Festplatten=24Festplatten
+NutzbarerAnteil derFestplatten:24Festplatten*0,5=12Festplatten
+Nettospeicherkapazitat RAID-10-Verbund:12Festplatten *8TiB=96TiB

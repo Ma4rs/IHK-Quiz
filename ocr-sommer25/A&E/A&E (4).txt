@@ -1,0 +1,50 @@
+Korrekturrand
+2.Aufgabe (29 Punkte)
+a)Die IHK-Wear GmbH plant aktuell denAufbau eines neuen Flagship-Stores in Berlin.Sie sind fur dieAnbindung dieserFiliale an
+dasFirmennetz und die IT-Ausstattung der neuen Filiale zuständig
+aa)Ihr Internet-Anbieter hat Ihnen einAngebot fur die Anbindung derneuenFilialemit einem,GeschaftskundenDSLmit
+250/40 Mbit/s"vorgelegt.
+Nennen Siedrei Aspekte,dieeinen DSL-Anschluss fur Geschaftskundenvon einem Privatkunden-Anschlussunterscheiden
+3Punkte
+konnen.
+ab)Alternativ bietet Ihnen Ihr Internetanbieter eineGlasfaseranbindung(GPON)"mit der gleichen Geschwindigkeit an.
+Ihr Anbieter weist darauf hin, dass es sich dabei um ein,shared medium”handelt.
+ErluternSie,wasman darunterversteht und warum diesfur dieFilialeder IHK-Wear GmbH ungunstig ist.
+3Punkte
+-
+en
+ZU-
+ac)Der geplante Eroffnungszeitpunkt der Filiale liegt vor dem Termin, den IhrAnbieter fur die beiden Anschlussarten realisie-
+ten
+ren kann. Zur Uberbruckung bietet Ihnen der Anbieter einen,LTE-Router mit 50/10 Mbit/s" an.
+auf
+Erläutern Sie zwei Aspekte, warum dies fur die Filiale keine dauerhafte Losung ist.
+4Punkte
+urch
+hen
+aben
+olge-
+tigen
+nlder
+aben.
+in die
+Dabei
+en.Die
+treichen
+hlieBlict
+b) Sie haben sich fur das Angebot aus Aufgabe aa (,Geschaftskunden DSL mit 250/40 Mbit/s") entschieden.
+ba) Nach der Bereitstellung des Anschlusses mussen Sie diesen in Betrieb nehmen.Sie erhalten fur den Anschluss von Ihrem
+Tascher
+Anbieter eineOffentliche,festeIPv4-Adresse.
+Darub
+runde1
+Erlautern Sie,wie Sie dennoch in der Lage sind,dievielen Gerate in der Filiale uber diese eine IP-Adresse mit dem Internet
+e(auch
+zu verbinden,
+4Punkte
+eKon
+enauf
+erents
+ungu
+Nertur
+werde

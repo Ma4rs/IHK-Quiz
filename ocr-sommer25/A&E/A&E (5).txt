@@ -1,0 +1,20 @@
+Korrekturrand
+Korrekturrand
+2001:db8:9876::/56
+5Punkte
+Anzahl Subnetze
+1.Subnetz
+2.Subnetz
+vorletztesSubnetz
+letztesSubnetz
+2Punkte
+Nennen Sie zwei Eigenschaften einer DMZ.
+2 Punkte
+c)UmIhrenClentsdenZugriffauf dasInteetzuermglichen,konfigurieen SiedenRouter derFilialeso,dasserfurdielale
+als DNS-Server dient. Sie testen von einem Client aus die Erreichbarkeit der Seite www.ihk.de.
+1Punkt
+ca)Beschreiben Sie, wie Ihr Client die Anfrage nach wwwihk.de rekursiv aufgelst hat.
+cb) Ihr Router lost die Anfrage nach www.ihk.de iterativ auf.
+3Punkte
+Erlautern Sie die einzelnen Schritte, die er dazu durchfuhrt.
+Fortsetzung 2.Aufgabe→

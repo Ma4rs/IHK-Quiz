@@ -1,0 +1,25 @@
+2.Aufgabe(27Punkte)
+Korrekturrand
+Bei derRetailer GmbH istesAngreifern gelungen,firmenkritischeDaten-einschlieBlichKundeninformationen-imSANzuver
+derServer
+schlusselnSiewirkenanderUntersuchung desVorfallsundderDatenwiederherstelungmit.AnschlieBend sollenSieMaBnahmen
+Dazuzah
+zurVerbesserung derIT-Sicherheitvorschlagen.
+Erlautern
+a）ErsteAnalysendetndarauhndassssichgmGumnnehlichenichrheitsvorfalandetohn
+Fallenistzuprufen,obdiebetroffenenKundendaruber informiertwerdenmussen.
+3Punkte
+NenneniedreidaenschutzrelevanteKriteren,diedarubeentheidenbineInformationerfolgenmuss.
+b)OriginalederkompromitiertenDatenliegenineinemkurlichersteltenVolBackupaufenemLTOMediumor.
+e) Sicher
+Prinz
+GmbH.
+UmDeratezuknftigaszushlieenollennerschlaguVeruzuneerforderlichnZetfrdatewie
+6Punkte
+Verkurzungder Zeit fur dieDatenwiederherstellung:
+VermeidungvonDatenverlust:
+c) Bei der Weiterentwicklung des Datensicherungskonzepts soll auch die 3-2-1-Regel fur Backups berucksichtigt werden.
+Entwickeln Sie einen dieser Regel entsprechenden Vorschlag fur die Datenhaltung bei der Retailer GmbH und erläutern Sie
+diesen.
+4Punkte
+ZPAFIS14
